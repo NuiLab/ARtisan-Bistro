@@ -1,0 +1,785 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7396232924919478640
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7396232924919478647}
+  m_Layer: 0
+  m_Name: Ice Cream M
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7396232924919478647
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7396232924919478640}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6935898387297198820}
+  - {fileID: 6996510243126871386}
+  - {fileID: 6996510242492633642}
+  - {fileID: 5175482161274343862}
+  - {fileID: 5175482160108574124}
+  - {fileID: 5067017708931106555}
+  - {fileID: 5067017709691223739}
+  - {fileID: 1368118846049123515}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &7396232924881838461
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7396232924919478647}
+    m_Modifications:
+    - target: {fileID: 2374834521718874054, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374834521718874054, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7139129
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374834521718874054, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7139129
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374834521718874054, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7139129
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374834521718874054, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.09371835
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374834521718874054, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.32821506
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374834521718874054, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.39889693
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374834521718874054, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374834521718874054, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374834521718874054, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374834521718874054, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374834521718874054, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374834521718874054, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374834521718874054, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152180844124374396, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_Name
+      value: Ice Cream Bowl G
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152180844124374396, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aad459f2c78046abac83069a0003d0c2, type: 3}
+--- !u!4 &5067017709691223739 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2374834521718874054, guid: aad459f2c78046abac83069a0003d0c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 7396232924881838461}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7396232925209502322
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7396232924919478647}
+    m_Modifications:
+    - target: {fileID: 557367009186082904, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 557367009186082904, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.67134154
+      objectReference: {fileID: 0}
+    - target: {fileID: 557367009186082904, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.67134154
+      objectReference: {fileID: 0}
+    - target: {fileID: 557367009186082904, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.67134154
+      objectReference: {fileID: 0}
+    - target: {fileID: 557367009186082904, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.18158448
+      objectReference: {fileID: 0}
+    - target: {fileID: 557367009186082904, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.33497027
+      objectReference: {fileID: 0}
+    - target: {fileID: 557367009186082904, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.7023897
+      objectReference: {fileID: 0}
+    - target: {fileID: 557367009186082904, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 557367009186082904, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 557367009186082904, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 557367009186082904, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 557367009186082904, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 557367009186082904, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 557367009186082904, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 934491404095105762, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_Name
+      value: Ice Cream Bowl E
+      objectReference: {fileID: 0}
+    - target: {fileID: 934491404095105762, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 62626b07bec447da879ccfacbc643408, type: 3}
+--- !u!4 &6996510242492633642 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 557367009186082904, guid: 62626b07bec447da879ccfacbc643408,
+    type: 3}
+  m_PrefabInstance: {fileID: 7396232925209502322}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7396232925293799821
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7396232924919478647}
+    m_Modifications:
+    - target: {fileID: 2411593154018916411, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411593154018916411, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8532432
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411593154018916411, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8532432
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411593154018916411, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8532432
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411593154018916411, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.15577106
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411593154018916411, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.12703738
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411593154018916411, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.5698942
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411593154018916411, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411593154018916411, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411593154018916411, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411593154018916411, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411593154018916411, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411593154018916411, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411593154018916411, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3043416981987385985, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_Name
+      value: Ice Cream Bowl F
+      objectReference: {fileID: 0}
+    - target: {fileID: 3043416981987385985, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 42988e64ba8042b0a0ead2f86415808e, type: 3}
+--- !u!4 &5175482161274343862 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2411593154018916411, guid: 42988e64ba8042b0a0ead2f86415808e,
+    type: 3}
+  m_PrefabInstance: {fileID: 7396232925293799821}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7396232925844043010
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7396232924919478647}
+    m_Modifications:
+    - target: {fileID: 557367009186082904, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 557367009186082904, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7669902
+      objectReference: {fileID: 0}
+    - target: {fileID: 557367009186082904, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7669902
+      objectReference: {fileID: 0}
+    - target: {fileID: 557367009186082904, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7669902
+      objectReference: {fileID: 0}
+    - target: {fileID: 557367009186082904, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 557367009186082904, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.25186092
+      objectReference: {fileID: 0}
+    - target: {fileID: 557367009186082904, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 557367009186082904, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 557367009186082904, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 557367009186082904, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 557367009186082904, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 557367009186082904, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 557367009186082904, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 557367009186082904, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 934491404095105762, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_Name
+      value: Ice Cream Bowl E
+      objectReference: {fileID: 0}
+    - target: {fileID: 934491404095105762, guid: 62626b07bec447da879ccfacbc643408,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 62626b07bec447da879ccfacbc643408, type: 3}
+--- !u!4 &6996510243126871386 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 557367009186082904, guid: 62626b07bec447da879ccfacbc643408,
+    type: 3}
+  m_PrefabInstance: {fileID: 7396232925844043010}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7396232926006554007
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7396232924919478647}
+    m_Modifications:
+    - target: {fileID: 2411593154018916411, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411593154018916411, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6502596
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411593154018916411, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6502596
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411593154018916411, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6502596
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411593154018916411, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.09113762
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411593154018916411, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.3331133
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411593154018916411, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.66916263
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411593154018916411, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411593154018916411, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411593154018916411, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411593154018916411, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411593154018916411, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411593154018916411, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2411593154018916411, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3043416981987385985, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_Name
+      value: Ice Cream Bowl F
+      objectReference: {fileID: 0}
+    - target: {fileID: 3043416981987385985, guid: 42988e64ba8042b0a0ead2f86415808e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 42988e64ba8042b0a0ead2f86415808e, type: 3}
+--- !u!4 &5175482160108574124 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2411593154018916411, guid: 42988e64ba8042b0a0ead2f86415808e,
+    type: 3}
+  m_PrefabInstance: {fileID: 7396232926006554007}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7396232926164195645
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7396232924919478647}
+    m_Modifications:
+    - target: {fileID: 2374834521718874054, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374834521718874054, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7829402
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374834521718874054, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.7829402
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374834521718874054, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7829402
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374834521718874054, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.026362345
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374834521718874054, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.19256327
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374834521718874054, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.69427055
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374834521718874054, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374834521718874054, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374834521718874054, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374834521718874054, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374834521718874054, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374834521718874054, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374834521718874054, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152180844124374396, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_Name
+      value: Ice Cream Bowl G
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152180844124374396, guid: aad459f2c78046abac83069a0003d0c2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aad459f2c78046abac83069a0003d0c2, type: 3}
+--- !u!4 &5067017708931106555 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2374834521718874054, guid: aad459f2c78046abac83069a0003d0c2,
+    type: 3}
+  m_PrefabInstance: {fileID: 7396232926164195645}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7396232926611546495
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7396232924919478647}
+    m_Modifications:
+    - target: {fileID: 8383515025364278724, guid: d261efac37a6434a84a317950f099424,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8383515025364278724, guid: d261efac37a6434a84a317950f099424,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.63842565
+      objectReference: {fileID: 0}
+    - target: {fileID: 8383515025364278724, guid: d261efac37a6434a84a317950f099424,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.63842565
+      objectReference: {fileID: 0}
+    - target: {fileID: 8383515025364278724, guid: d261efac37a6434a84a317950f099424,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.63842565
+      objectReference: {fileID: 0}
+    - target: {fileID: 8383515025364278724, guid: d261efac37a6434a84a317950f099424,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.011559781
+      objectReference: {fileID: 0}
+    - target: {fileID: 8383515025364278724, guid: d261efac37a6434a84a317950f099424,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.51103604
+      objectReference: {fileID: 0}
+    - target: {fileID: 8383515025364278724, guid: d261efac37a6434a84a317950f099424,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.5698942
+      objectReference: {fileID: 0}
+    - target: {fileID: 8383515025364278724, guid: d261efac37a6434a84a317950f099424,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8383515025364278724, guid: d261efac37a6434a84a317950f099424,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8383515025364278724, guid: d261efac37a6434a84a317950f099424,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8383515025364278724, guid: d261efac37a6434a84a317950f099424,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8383515025364278724, guid: d261efac37a6434a84a317950f099424,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8383515025364278724, guid: d261efac37a6434a84a317950f099424,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8383515025364278724, guid: d261efac37a6434a84a317950f099424,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156920663448782718, guid: d261efac37a6434a84a317950f099424,
+        type: 3}
+      propertyPath: m_Name
+      value: Ice Cream Bowl H
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156920663448782718, guid: d261efac37a6434a84a317950f099424,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d261efac37a6434a84a317950f099424, type: 3}
+--- !u!4 &1368118846049123515 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8383515025364278724, guid: d261efac37a6434a84a317950f099424,
+    type: 3}
+  m_PrefabInstance: {fileID: 7396232926611546495}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7396232926759398620
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7396232924919478647}
+    m_Modifications:
+    - target: {fileID: 497067754202287672, guid: 90d692f6a0a840408ba6143eea6c0878,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 497067754202287672, guid: 90d692f6a0a840408ba6143eea6c0878,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.061109662
+      objectReference: {fileID: 0}
+    - target: {fileID: 497067754202287672, guid: 90d692f6a0a840408ba6143eea6c0878,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 497067754202287672, guid: 90d692f6a0a840408ba6143eea6c0878,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.5698942
+      objectReference: {fileID: 0}
+    - target: {fileID: 497067754202287672, guid: 90d692f6a0a840408ba6143eea6c0878,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 497067754202287672, guid: 90d692f6a0a840408ba6143eea6c0878,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 497067754202287672, guid: 90d692f6a0a840408ba6143eea6c0878,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 497067754202287672, guid: 90d692f6a0a840408ba6143eea6c0878,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 497067754202287672, guid: 90d692f6a0a840408ba6143eea6c0878,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 497067754202287672, guid: 90d692f6a0a840408ba6143eea6c0878,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 497067754202287672, guid: 90d692f6a0a840408ba6143eea6c0878,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 985761453618697346, guid: 90d692f6a0a840408ba6143eea6c0878,
+        type: 3}
+      propertyPath: m_Name
+      value: Cup Ice Cream A
+      objectReference: {fileID: 0}
+    - target: {fileID: 985761453618697346, guid: 90d692f6a0a840408ba6143eea6c0878,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 90d692f6a0a840408ba6143eea6c0878, type: 3}
+--- !u!4 &6935898387297198820 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 497067754202287672, guid: 90d692f6a0a840408ba6143eea6c0878,
+    type: 3}
+  m_PrefabInstance: {fileID: 7396232926759398620}
+  m_PrefabAsset: {fileID: 0}

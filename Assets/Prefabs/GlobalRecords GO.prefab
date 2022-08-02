@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6875268446356414928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6875268446356414929}
+  - component: {fileID: 7060564561299072046}
+  m_Layer: 0
+  m_Name: GlobalRecords GO
+  m_TagString: Global Records
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6875268446356414929
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6875268446356414928}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7060564561299072046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6875268446356414928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46ad9f9a84e3e824180f54978d238423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabList:
+  - {fileID: 5165536975186640042, guid: 8341be374948e5d409395ee5720adc29, type: 3}
+  - {fileID: 3654619416760984847, guid: 2c24cfacfe833b64ca89d8ec81877ecc, type: 3}
+  - {fileID: 1829685208117977933, guid: abb3160a4ea6b0548a9dd64ece882106, type: 3}
+  - {fileID: 3003948155339614092, guid: 47d68e1089e1f6a4fa732c1047a5f762, type: 3}
+  - {fileID: 6448257791108703714, guid: 9205b2ff0b38cef42ade873759cff3b0, type: 3}
+  - {fileID: 7596627719042436170, guid: 1eaeed9dbc1a4a8419cec2552d07d906, type: 3}
+  - {fileID: 9019508398010977448, guid: 37247917e52715c41a2956e78655b1e2, type: 3}
+  - {fileID: 1154470546093039014, guid: 4b99d95bb0090734b88d0dad4b45e441, type: 3}
+  - {fileID: 6422144910842885746, guid: 8373b69dee070964fb7622281c136c52, type: 3}
+  - {fileID: 1898390334454378045, guid: 38fae426da3276f4bb42c4e35958bc0d, type: 3}
+  - {fileID: 5910354537104549342, guid: 1fcf7616f81835f46a43113439da20ec, type: 3}
+  - {fileID: 2411297094259809787, guid: 6267c711c5efeed4695659a8c8d4826b, type: 3}
+  - {fileID: 9169486360002906594, guid: 8d328d5c0f61a0c46adcbf016fc305ab, type: 3}
+  objectTags:
+  - Ingredient
+  - Ingredient_Cap
+  allObjectTags:
+  - Ingredient
+  - Ingredient_Cap
+  - Ingredient_Base
+  - Coffee_Cup
+  playArea: {fileID: 0}
+  firePrefab: {fileID: 2588420543001007810, guid: 434278b6b425e73429d4b22946d1851f, type: 3}
+  cookingStatusEffectsPizza:
+  - {fileID: 2100000, guid: b822577634e6b7244a95d5389b9d259b, type: 2}
+  - {fileID: 2100000, guid: 8b3521a11892e6c44af19152abb52c7d, type: 2}
+  - {fileID: 2100000, guid: d542e61b566204949beac87ddfa5d488, type: 2}
+  - {fileID: 2100000, guid: f511e267e91d20d49ba20addf56f6a7d, type: 2}
+  - {fileID: 2100000, guid: 96eed08d9675af94e8cd6368df04898e, type: 2}
+  cookingStatusEffectsBurger:
+  - {fileID: 2100000, guid: 4dd02fdaff6e6b845a8631c650edd92a, type: 2}
+  - {fileID: 2100000, guid: 4907254d6e9fa8e47a99b388695a5c5c, type: 2}
+  - {fileID: 2100000, guid: 2b45ea6fe0ab11c48aa6ab25da095919, type: 2}
+  - {fileID: 2100000, guid: e3d94e1c7ff8fe248a5d243179967536, type: 2}
+  - {fileID: 2100000, guid: 7cead47f4afa12344bd4092c0689dc52, type: 2}
+  selectablePizzaIngredientsMaterial:
+  - {fileID: 2100000, guid: 9c1c72e5692e04b49a2dda20b3db004e, type: 2}
+  - {fileID: 2100000, guid: cb1eccbee98fa9d4b9c80c0678cd36d1, type: 2}
+  - {fileID: 2100000, guid: 806e2d1c8a75a614ba4baedd3862b407, type: 2}
+  - {fileID: 2100000, guid: 97781bbfeaa9fe74bb0540fe7b9aa4d5, type: 2}
+  - {fileID: 2100000, guid: 422c0b98fcc0b1044890d05854c4c1d9, type: 2}
+  - {fileID: 2100000, guid: 41de4eb72915cc848b66ea4c5ca3e6a5, type: 2}
+  selectableBurgerIngredientsMaterial:
+  - {fileID: 2100000, guid: b6507bdd2699fd94cb6453ff2b242efc, type: 2}
+  - {fileID: 2100000, guid: d6538bc3e40ae424da9c9723cc8d1b06, type: 2}
+  - {fileID: 2100000, guid: 0feb4c2723d2c52488ed7ce0967b7e3d, type: 2}
+  - {fileID: 2100000, guid: fcacde930defff5419a9a3df15635636, type: 2}
+  - {fileID: 2100000, guid: 38c844e9738a14f4da799a56423a0f0c, type: 2}
+  - {fileID: 2100000, guid: 2d419e1fd8309cd40aff7fe957c6ae64, type: 2}
+  - {fileID: 2100000, guid: f9158fd3863b8e440b18b459712531e4, type: 2}
+  - {fileID: 2100000, guid: cc03e7ed40d672745b7626da0104df9e, type: 2}
+  notificationPrefabs:
+  - {fileID: 4935886732044555925, guid: 00d05c098e7546d44b48fb14ac16dd1e, type: 3}
+  - {fileID: 4935886732044555925, guid: 830dc488c8955a044957ec236d107a43, type: 3}
+  - {fileID: 4935886732044555925, guid: c11af91ba9ca4be40b25a54bb228a83b, type: 3}
+  notificationType: 2
+  notificationSetManager: {fileID: 0}

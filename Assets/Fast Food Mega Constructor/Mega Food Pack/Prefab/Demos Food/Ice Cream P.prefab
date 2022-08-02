@@ -1,0 +1,209 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &633266897779532632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 633266897779532633}
+  m_Layer: 0
+  m_Name: Ice Cream P
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &633266897779532633
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633266897779532632}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1718629805462912908}
+  - {fileID: 4725537816788153465}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &633266896913949670
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 633266897779532633}
+    m_Modifications:
+    - target: {fileID: 1466991488006244048, guid: a2ec921d8dff4b1a889632f58a7898ad,
+        type: 3}
+      propertyPath: m_Name
+      value: Cup Ice Cream M
+      objectReference: {fileID: 0}
+    - target: {fileID: 1466991488006244048, guid: a2ec921d8dff4b1a889632f58a7898ad,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238320148913200234, guid: a2ec921d8dff4b1a889632f58a7898ad,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238320148913200234, guid: a2ec921d8dff4b1a889632f58a7898ad,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.061109662
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238320148913200234, guid: a2ec921d8dff4b1a889632f58a7898ad,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238320148913200234, guid: a2ec921d8dff4b1a889632f58a7898ad,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.5698942
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238320148913200234, guid: a2ec921d8dff4b1a889632f58a7898ad,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238320148913200234, guid: a2ec921d8dff4b1a889632f58a7898ad,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238320148913200234, guid: a2ec921d8dff4b1a889632f58a7898ad,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238320148913200234, guid: a2ec921d8dff4b1a889632f58a7898ad,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238320148913200234, guid: a2ec921d8dff4b1a889632f58a7898ad,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238320148913200234, guid: a2ec921d8dff4b1a889632f58a7898ad,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2238320148913200234, guid: a2ec921d8dff4b1a889632f58a7898ad,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a2ec921d8dff4b1a889632f58a7898ad, type: 3}
+--- !u!4 &1718629805462912908 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2238320148913200234, guid: a2ec921d8dff4b1a889632f58a7898ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 633266896913949670}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &633266897072832878
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 633266897779532633}
+    m_Modifications:
+    - target: {fileID: 4762129809221300141, guid: 728c253b1de346069db2ee2583c1f3c4,
+        type: 3}
+      propertyPath: m_Name
+      value: Ice Cream Hat N
+      objectReference: {fileID: 0}
+    - target: {fileID: 4762129809221300141, guid: 728c253b1de346069db2ee2583c1f3c4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5286570070533698839, guid: 728c253b1de346069db2ee2583c1f3c4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5286570070533698839, guid: 728c253b1de346069db2ee2583c1f3c4,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.6036627
+      objectReference: {fileID: 0}
+    - target: {fileID: 5286570070533698839, guid: 728c253b1de346069db2ee2583c1f3c4,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1345356
+      objectReference: {fileID: 0}
+    - target: {fileID: 5286570070533698839, guid: 728c253b1de346069db2ee2583c1f3c4,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.6036627
+      objectReference: {fileID: 0}
+    - target: {fileID: 5286570070533698839, guid: 728c253b1de346069db2ee2583c1f3c4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.061109662
+      objectReference: {fileID: 0}
+    - target: {fileID: 5286570070533698839, guid: 728c253b1de346069db2ee2583c1f3c4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.37693992
+      objectReference: {fileID: 0}
+    - target: {fileID: 5286570070533698839, guid: 728c253b1de346069db2ee2583c1f3c4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.5698942
+      objectReference: {fileID: 0}
+    - target: {fileID: 5286570070533698839, guid: 728c253b1de346069db2ee2583c1f3c4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5286570070533698839, guid: 728c253b1de346069db2ee2583c1f3c4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5286570070533698839, guid: 728c253b1de346069db2ee2583c1f3c4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5286570070533698839, guid: 728c253b1de346069db2ee2583c1f3c4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5286570070533698839, guid: 728c253b1de346069db2ee2583c1f3c4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5286570070533698839, guid: 728c253b1de346069db2ee2583c1f3c4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5286570070533698839, guid: 728c253b1de346069db2ee2583c1f3c4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 728c253b1de346069db2ee2583c1f3c4, type: 3}
+--- !u!4 &4725537816788153465 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5286570070533698839, guid: 728c253b1de346069db2ee2583c1f3c4,
+    type: 3}
+  m_PrefabInstance: {fileID: 633266897072832878}
+  m_PrefabAsset: {fileID: 0}
