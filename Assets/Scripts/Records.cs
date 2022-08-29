@@ -141,13 +141,13 @@ public class Records : MonoBehaviour
         return notificationSetManager.GetComponent<NotificationSetManager>().GetNotificationType();
     }
 
-    public void AddNotificationOnDock(string text)
+    public void AddNotificationOnDock(string stationTxt, string notificationTxt)
     {
-        notificationSetManager.GetComponent<NotificationSetManager>().AddNotificationOnDock(text);
+        notificationSetManager.GetComponent<NotificationSetManager>().AddNotificationOnDock(stationTxt, notificationTxt);
     }
 
-    public void AddNotificationOnViewport(string text)
+    public void AddNotificationOnViewport(string stationTxt, string notificationTxt)
     {
-        notificationSetManager.GetComponent<NotificationSetManager>().AddNotificationOnViewport(text);
+        notificationSetManager.GetComponent<NotificationSetManager>().AddNotificationOnViewport(stationTxt, notificationTxt);
     }
 }

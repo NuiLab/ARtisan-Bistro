@@ -34,7 +34,7 @@ public class CustomerManager : MonoBehaviour
         speechBubble_GO.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
         InitializeMesh();
         yield return new WaitForSeconds(customerLifeTime);
-        transform.GetComponentInParent<ServingStationManager>().RemoveCustomer();
+        transform.GetComponentInParent<ServingStationManager>().RemoveCustomer(transform.gameObject);
         Destroy(gameObject);
     }
 

@@ -26,6 +26,7 @@ public class CustomerTrayManager : MonoBehaviour
             List<string> preparedFood = CreateIngredientsList(other.gameObject);
             if (!other.GetComponent<ObjectManager>().isGrabbed && transform.parent.GetComponent<CustomerManager>().CheckIndredients(preparedFood))
             {
+                transform.parent.transform.GetComponentInParent<ServingStationManager>().RemoveCustomer(transform.parent.gameObject);
                 Destroy(transform.parent.gameObject);
                 Destroy(other.gameObject);
             }

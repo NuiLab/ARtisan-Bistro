@@ -12,6 +12,7 @@ public class NotificationDockManager : MonoBehaviour
 
     List<GameObject> notificationsList = new List<GameObject>();
     List<string> notificationText = new List<string>();
+    List<string> stationText = new List<string>();
 
     // Start is called before the first frame update
     void Start()
@@ -40,21 +41,22 @@ public class NotificationDockManager : MonoBehaviour
             {
                 notificationsList.Add(Instantiate(notificationButton, new Vector3(0, 0, 0), Quaternion.identity));
                 float y = -1 * (float)i / 10;
-                notificationsList[i].GetComponent<NotificationManager>().SetNotificationProperties(notificationText[i], notificationParent, new Vector3(0, y, 0), Quaternion.identity, new Vector3(3, 3, 1));
+                notificationsList[i].GetComponent<NotificationManager>().SetNotificationProperties(stationText[i], notificationText[i], notificationParent, new Vector3(0, y, 0), Quaternion.identity, new Vector3(3, 3, 1));
             }
         }
     }
 
-    public void AddNotification(string text)
+    public void AddNotification(string stationTxt, string notificationTxt)
     {
         if (notificationBtnText.GetComponent<TextMeshPro>().text == "Hide Notifications")
         {
             notificationsList.Add(Instantiate(notificationButton, new Vector3(0, 0, 0), Quaternion.identity));
             float y = -1 * (float)notificationText.Count / 10;
-            notificationsList[notificationText.Count].GetComponent<NotificationManager>().SetNotificationProperties(text, notificationParent, new Vector3(0, y, 0), Quaternion.identity, new Vector3(3, 3, 1));
+            notificationsList[notificationText.Count].GetComponent<NotificationManager>().SetNotificationProperties(stationTxt, notificationTxt, notificationParent, new Vector3(0, y, 0), Quaternion.identity, new Vector3(3, 3, 1));
         }
         notificationCountGO.GetComponentInChildren<TextMeshPro>().text = (int.Parse(notificationCountGO.GetComponentInChildren<TextMeshPro>().text) + 1).ToString();
-        notificationText.Add(text);
+        notificationText.Add(notificationTxt);
+        stationText.Add(stationTxt);
     }
     public void ManageNotificationLayout(GameObject notificationGO)
     {
@@ -70,7 +72,7 @@ public class NotificationDockManager : MonoBehaviour
                 for (int i = 0; i < notificationText.Count; i++)
                 {
                     float y = -1 * (float)i / 10;
-                    notificationsList[i].GetComponent<NotificationManager>().SetNotificationProperties(notificationText[i], notificationParent, new Vector3(0, y, 0), Quaternion.identity, new Vector3(3, 3, 1));
+                    notificationsList[i].GetComponent<NotificationManager>().SetNotificationProperties(stationText[i], notificationText[i], notificationParent, new Vector3(0, y, 0), Quaternion.identity, new Vector3(3, 3, 1));
                 }
             }
             notificationCountGO.GetComponentInChildren<TextMeshPro>().text = (int.Parse(notificationCountGO.GetComponentInChildren<TextMeshPro>().text) - 1).ToString();

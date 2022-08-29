@@ -5,25 +5,32 @@ using UnityEngine;
 
 public class NotificationManager : MonoBehaviour
 {
-    [SerializeField] GameObject text_GO;
+    [SerializeField] GameObject notificationTxt_GO;
+    [SerializeField] GameObject stationTxt_GO;
     [SerializeField] float duration;
+    public GameObject globalRecords_GO;     // Reference to global records
 
     // Start is called before the first frame update
     void Start()
     {
         if (duration > 0)
             StartCoroutine(NotificationDuration(duration));
+        globalRecords_GO = GameObject.FindWithTag("Global Records");
     }
 
  
-    public void setText(string text)
+    public void setText(string stationTxt, string notificationTxt)
     {
-        text_GO.GetComponent<TextMeshPro>().text = text;
+        notificationTxt_GO.GetComponent<TextMeshPro>().text = notificationTxt;
+        stationTxt_GO.GetComponent<TextMeshPro>().text = stationTxt;
     }
 
-    public string getText()
+    public string getText(string txtType)
     {
-        return text_GO.GetComponent<TextMeshPro>().text;
+        if (txtType == "Station")
+            return stationTxt_GO.GetComponent<TextMeshPro>().text;
+        else
+            return notificationTxt_GO.GetComponent<TextMeshPro>().text;
     }
 
     IEnumerator PauseForSound()
@@ -34,11 +41,12 @@ public class NotificationManager : MonoBehaviour
 
     public void OnNotificationClick()
     {
-        transform.parent.parent.GetComponent<NotificationDockManager>().ManageNotificationLayout(gameObject);
+        if (globalRecords_GO.GetComponent<Records>().GetNotificationType() == 1)
+            transform.parent.parent.GetComponent<NotificationDockManager>().ManageNotificationLayout(gameObject);
         StartCoroutine(PauseForSound());
     }
 
-    public void SetNotificationProperties(string text, GameObject parent, Vector3? pos = null, Quaternion? rot = null, Vector3? scale = null)
+    public void SetNotificationProperties(string stationTxt, string notificationTxt, GameObject parent, Vector3? pos = null, Quaternion? rot = null, Vector3? scale = null)
     {
         if (pos == null)
             pos = Vector3.zero;
@@ -46,7 +54,7 @@ public class NotificationManager : MonoBehaviour
             rot = Quaternion.identity;
         if (scale == null)
             scale = transform.localScale;
-        setText(text);
+        setText(stationTxt, notificationTxt);
         transform.SetParent(parent.transform);
         transform.localPosition = pos.Value;
         transform.localRotation = rot.Value;

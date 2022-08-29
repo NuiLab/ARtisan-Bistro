@@ -53,13 +53,13 @@ public class CoffeeMakerManager : MonoBehaviour
                         if (notification_GO != null)
                             Destroy(notification_GO);
                         notification_GO = Instantiate(globalRecords_GO.GetComponent<Records>().GetNotificationPrefab());
-                        notification_GO.GetComponent<NotificationManager>().SetNotificationProperties("Coffee cup added", transform.gameObject, new Vector3(0, 0.25f, 0));
+                        notification_GO.GetComponent<NotificationManager>().SetNotificationProperties("Coffee", "Coffee cup added", transform.gameObject, new Vector3(0, 0.25f, 0));
                         break;
                     case 1:
-                        globalRecords_GO.GetComponent<Records>().AddNotificationOnDock("Coffee cup added");
+                        globalRecords_GO.GetComponent<Records>().AddNotificationOnDock("Coffee", "Coffee cup added");
                         break;
                     case 2:
-                        globalRecords_GO.GetComponent<Records>().AddNotificationOnViewport("Coffee cup added");
+                        globalRecords_GO.GetComponent<Records>().AddNotificationOnViewport("Coffee", "Coffee cup added");
                         break;
                 }
             }

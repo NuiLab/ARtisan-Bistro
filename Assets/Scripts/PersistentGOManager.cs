@@ -30,14 +30,17 @@ public class PersistentGOManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
+            showNotification = true;
             SetSceneNamesAndLoad("NoD Scene");
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
+            showNotification = true;
             SetSceneNamesAndLoad("NoO Scene");
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
+            showNotification = true;
             SetSceneNamesAndLoad("NoV Scene");
         }
     }

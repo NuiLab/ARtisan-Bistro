@@ -37,7 +37,7 @@ public class GrillManager : MonoBehaviour
                 }
                 else
                 {
-                    if (!cutletNames.Contains(other.GetComponent<IngredientProperties>().GetPrefabName()))
+                    if (!cutletNames.Contains(other.name))
                     {
                         cutletNames.Add(other.name);
                         other.GetComponent<CutletManager>().SetCookingState(true);

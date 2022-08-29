@@ -56,13 +56,13 @@ public class CutletManager : MonoBehaviour
                             if (notification_GO != null)
                                 Destroy(notification_GO);
                             notification_GO = Instantiate(globalRecords_GO.GetComponent<Records>().GetNotificationPrefab());
-                            notification_GO.GetComponent<NotificationManager>().SetNotificationProperties(notifiText, transform.gameObject, new Vector3(0, 0.4f, 0));
+                            notification_GO.GetComponent<NotificationManager>().SetNotificationProperties("Burger", notifiText, transform.gameObject, new Vector3(0, 0.4f, 0));
                             break;
                         case 1:
-                            globalRecords_GO.GetComponent<Records>().AddNotificationOnDock(notifiText);
+                            globalRecords_GO.GetComponent<Records>().AddNotificationOnDock("Burger", notifiText);
                             break;
                         case 2:
-                            globalRecords_GO.GetComponent<Records>().AddNotificationOnViewport(notifiText);
+                            globalRecords_GO.GetComponent<Records>().AddNotificationOnViewport("Burger", notifiText);
                             break;
                     }
                 }

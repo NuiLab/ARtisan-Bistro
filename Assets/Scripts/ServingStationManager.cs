@@ -7,6 +7,7 @@ public class ServingStationManager : MonoBehaviour
     [SerializeField] GameObject customerPrefab;
     [SerializeField] GameObject[] customerPositionGO;
     [SerializeField] GameObject globalRecords_GO;
+    [SerializeField] float customerDuration = 72; 
 
     Dictionary<int, GameObject> customers = new Dictionary<int, GameObject>();
     Vector3[] customerPositions = new Vector3[3];
@@ -15,6 +16,7 @@ public class ServingStationManager : MonoBehaviour
     int numCustomers = 0;
     string[] currCustomerNames;
     GameObject notification_GO;
+    bool pauseCustCntCheck = false;
 
 
     // Start is called before the first frame update
@@ -33,12 +35,24 @@ public class ServingStationManager : MonoBehaviour
         customerPositions[0] = new Vector3(-0.7f, 1.2f, 0.76f);
         customerPositions[1] = new Vector3(0, 1.2f, 0.76f);
         customerPositions[2] = new Vector3(0.7f, 1.2f, 0.76f);
+        
+        BringCustomer();
+        new WaitForSeconds(5);
+        BringCustomer();
+        new WaitForSeconds(5);
+        BringCustomer();
         */
-        StartCoroutine(BringCustomer());
     }
 
     // Update is called once per frame
-    
+    private void Update()
+    {
+        if (numCustomers < 3 && !pauseCustCntCheck)
+        {
+            pauseCustCntCheck = true;
+            StartCoroutine(BringCustomer());
+        }
+    }
 
     public void AddCustomer(int custPos, GameObject custRef)
     {
@@ -47,7 +61,7 @@ public class ServingStationManager : MonoBehaviour
         custRef.transform.parent = transform;
         custRef.transform.localPosition = customerPositions[custPos];
         custRef.transform.localRotation = Quaternion.identity;
-        custRef.GetComponent<CustomerManager>().CreateCustomer(60, GetFoodItem(), custPos, currCustomerNames);
+        custRef.GetComponent<CustomerManager>().CreateCustomer(customerDuration, GetFoodItem(), custPos, currCustomerNames);
 
         if (globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().GetShowNotification())
         {
@@ -57,41 +71,51 @@ public class ServingStationManager : MonoBehaviour
                     if (notification_GO != null)
                         Destroy(notification_GO);
                     notification_GO = Instantiate(globalRecords_GO.GetComponent<Records>().GetNotificationPrefab());
-                    notification_GO.GetComponent<NotificationManager>().SetNotificationProperties("New Customer", transform.gameObject, new Vector3(-0.3f, 1.75f, 1.2f));
+                    notification_GO.GetComponent<NotificationManager>().SetNotificationProperties("Customer", "New Customer", transform.gameObject, new Vector3(0, 1.2f, 1.2f));
                     break;
                 case 1:
-                    globalRecords_GO.GetComponent<Records>().AddNotificationOnDock("New Customer");
+                    globalRecords_GO.GetComponent<Records>().AddNotificationOnDock("Customer", "New Customer");
                     break;
                 case 2:
-                    globalRecords_GO.GetComponent<Records>().AddNotificationOnViewport("New Customer");
+                    globalRecords_GO.GetComponent<Records>().AddNotificationOnViewport("Customer", "New Customer");
                     break;
             }
         }
     }
 
-    public void RemoveCustomer()
+    public void RemoveCustomer(GameObject cust)
     {
+        for (int i = 0; i < numCustomers; i++)
+        {
+            if (customers[i] != null)
+            {
+                if (customers[i].Equals(cust))
+                {
+                    customers[i] = null;
+                    break;
+                }
+            }
+        }
         numCustomers--;
+        // BringCustomer();
     }
 
 
     // Testing functions
     private IEnumerator BringCustomer()
     {
-        while (numCustomers < 3)
+        yield return new WaitForSeconds(5);
+        GameObject tempCustomer = Instantiate(customerPrefab);
+        for (int i = 0; i < 3; i++)
         {
-            GameObject tempCustomer = Instantiate(customerPrefab);
-            for (int i = 0; i < 3; i++)
+            if (customers[i] == null)
             {
-                if (customers[i] == null)
-                {
-                    currCustomerNames = CustomerNames();
-                    AddCustomer(i, tempCustomer);
-                    break;
-                }
+                currCustomerNames = CustomerNames();
+                AddCustomer(i, tempCustomer);
+                break;
             }
-            yield return new WaitForSeconds(5);
         }
+        pauseCustCntCheck = false;
     }
 
     string GetFoodItem()
