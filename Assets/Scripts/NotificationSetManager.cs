@@ -76,7 +76,7 @@ public class NotificationSetManager : MonoBehaviour
         yield return new WaitForSeconds(duration);
         tempNotification = Instantiate(notificationPrefabs[notificationType]);
         tempNotification.transform.parent = notificationBillboard.transform;
-        tempNotification.transform.localPosition = new Vector3(0, 0.15f, 0);
+        tempNotification.transform.localPosition = new Vector3(0, 0.1f, 0);
         tempNotification.transform.localRotation = Quaternion.identity;
         tempNotification.transform.Find("IconAndText").Find("Station Text").GetComponent<TextMeshPro>().text = stations[0];
         tempNotification.transform.Find("IconAndText").Find("Notification Text").GetComponent<TextMeshPro>().text = notifications[0];

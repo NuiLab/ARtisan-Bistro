@@ -13,6 +13,7 @@ public class NotificationDockManager : MonoBehaviour
     List<GameObject> notificationsList = new List<GameObject>();
     List<string> notificationText = new List<string>();
     List<string> stationText = new List<string>();
+    AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -57,6 +58,8 @@ public class NotificationDockManager : MonoBehaviour
         notificationCountGO.GetComponentInChildren<TextMeshPro>().text = (int.Parse(notificationCountGO.GetComponentInChildren<TextMeshPro>().text) + 1).ToString();
         notificationText.Add(notificationTxt);
         stationText.Add(stationTxt);
+        audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
     }
     public void ManageNotificationLayout(GameObject notificationGO)
     {
