@@ -15,6 +15,8 @@ public class NotificationSetManager : MonoBehaviour
      */
     [SerializeField] GameObject[] notificationPrefabs;
 
+    GameObject persistentGO;
+    GameObject globalRecordsGO;
     GameObject tempNotification;
     List<string> notifications = new List<string>();
     List<string> stations = new List<string>();
@@ -24,7 +26,13 @@ public class NotificationSetManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        globalRecordsGO = GameObject.FindWithTag("Global Records");
+        persistentGO = GameObject.FindGameObjectsWithTag("PersistentGO")[0];
+        bool nSound = persistentGO.GetComponent<PersistentGOManager>().GetNotificationSound();
+        foreach (var notifications in globalRecordsGO.GetComponent<Records>().GetAllNotificationPrefabs())
+            notifications.GetComponent<AudioSource>().mute = !nSound;
+        if (notificationType == 1)
+            notificationDock.GetComponent<AudioSource>().mute = !nSound;
     }
 
     // Update is called once per frame

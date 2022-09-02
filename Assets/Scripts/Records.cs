@@ -126,6 +126,10 @@ public class Records : MonoBehaviour
         return persistentGO;
     }
 
+    public GameObject[] GetAllNotificationPrefabs()
+    {
+        return notificationPrefabs;
+    }
     public GameObject GetNotificationPrefab()
     {
         return notificationSetManager.GetComponent<NotificationSetManager>().GetNotificationPrefab();
