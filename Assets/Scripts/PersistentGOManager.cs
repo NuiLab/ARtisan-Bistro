@@ -19,6 +19,7 @@ public class PersistentGOManager : MonoBehaviour
     int participantNumber = 0;
     string filePath;
     StreamWriter writer;
+    float time_s = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -33,48 +34,49 @@ public class PersistentGOManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha0))
+        time_s += Time.deltaTime;
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha0))
         {
             SetSceneNamesAndLoad("Instructions Scene");
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha1))
         {
             showNotification = true;
             notificationSound = true;
             SetSceneNamesAndLoad("NoD_WS Scene");
 
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha2))
         {
             showNotification = true;
             notificationSound = false;
             SetSceneNamesAndLoad("NoD_WOS Scene");
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha3))
         {
             showNotification = true;
             notificationSound = true;
             SetSceneNamesAndLoad("NoO_WS Scene");
         }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha4))
         {
             showNotification = true;
             notificationSound = false;
             SetSceneNamesAndLoad("NoO_WOS Scene");
         }
-        if (Input.GetKeyDown(KeyCode.Alpha5))
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha5))
         {
             showNotification = true;
             notificationSound = true;
             SetSceneNamesAndLoad("NoV_WS Scene");
         }
-        if (Input.GetKeyDown(KeyCode.Alpha6))
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha6))
         {
             showNotification = true;
             notificationSound = false;
             SetSceneNamesAndLoad("NoV_WOS Scene");
         }
-        if (Input.GetKeyDown(KeyCode.Alpha7))
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha7))
         {
             showNotification = false;
             notificationSound = false;
@@ -160,12 +162,11 @@ public class PersistentGOManager : MonoBehaviour
     public void SetParticipantNumber(int pNum)
     {
         participantNumber = pNum;
-        filePath = filePath + "/Participant" + participantNumber.ToString() + ".csv";
+        filePath = filePath + "/Participant" + participantNumber.ToString()+ ".csv";
         using (writer = File.CreateText(filePath))
         {
-            writer.WriteLine("ParticipantNumber, NotificationType, Action, Time_s");
+            writer.WriteLine("Participant_Number, Notification_Type, Notification_Sound, Category, Action, Status, Time_s");
         }
-        
     }
 
     public int GetParticipantNumber()
@@ -173,8 +174,14 @@ public class PersistentGOManager : MonoBehaviour
         return participantNumber;
     }
 
-    public void AddData(string action=" ", int notificationType=0, float time_s=0)
+    public void AddData(string category="n/a", string action="n/a", int status=0)
     {
-        writer.WriteLine(participantNumber + "'" + notificationType + "'" + action + "'" + time_s + "\n");
+        /*
+         * status (0=n/a; 1=start; 2=end)
+         */
+        using (writer = File.AppendText(filePath))
+        {
+            writer.WriteLine(participantNumber + "," + currGlobalRecordsGO.GetComponent<Records>().GetNotificationType() + "," + notificationSound + "," + category + "," + action + "," + status + "," + time_s);
+        }
     }
 }

@@ -6,8 +6,8 @@
 /[Tt]emp/
 /[Oo]bj/
 /[Bb]uild/
-/[Bb}uild_Stable/
-/[Bb}uild_Test/
+/[Bb]uild_Stable/
+/[Bb]uild_Test/
 /[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/

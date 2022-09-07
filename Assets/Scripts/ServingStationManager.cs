@@ -14,6 +14,7 @@ public class ServingStationManager : MonoBehaviour
     List<string> foodItems = new List<string>() { "Pizza", "Burger", "Coffee" };
     List<string> foodItemsLeft = new List<string>() { "Pizza", "Burger", "Coffee" };
     int numCustomers = 0;
+    int totalCustomers = 0;
     string[] currCustomerNames;
     GameObject notification_GO;
     bool pauseCustCntCheck = false;
@@ -28,20 +29,6 @@ public class ServingStationManager : MonoBehaviour
             customers.Add(i, null);
             customerPositions[i] = customerPositionGO[i].transform.localPosition;
         }
-        /*
-        customers.Add(0, null);
-        customers.Add(1, null);
-        customers.Add(2, null);
-        customerPositions[0] = new Vector3(-0.7f, 1.2f, 0.76f);
-        customerPositions[1] = new Vector3(0, 1.2f, 0.76f);
-        customerPositions[2] = new Vector3(0.7f, 1.2f, 0.76f);
-        
-        BringCustomer();
-        new WaitForSeconds(5);
-        BringCustomer();
-        new WaitForSeconds(5);
-        BringCustomer();
-        */
     }
 
     // Update is called once per frame
@@ -57,6 +44,8 @@ public class ServingStationManager : MonoBehaviour
     public void AddCustomer(int custPos, GameObject custRef)
     {
         numCustomers++;
+        totalCustomers++;
+        globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().AddData("Customer", custRef.name, 1);
         customers[custPos] = custRef;
         custRef.transform.parent = transform;
         custRef.transform.localPosition = customerPositions[custPos];
@@ -70,7 +59,7 @@ public class ServingStationManager : MonoBehaviour
                 case 0:
                     if (notification_GO != null)
                         Destroy(notification_GO);
-                    notification_GO = Instantiate(globalRecords_GO.GetComponent<Records>().GetNotificationPrefab());
+                    notification_GO = globalRecords_GO.GetComponent<Records>().AddNotificationOnObject("Customer", "New Customer");
                     notification_GO.GetComponent<NotificationManager>().SetNotificationProperties("Customer", "New Customer", transform.gameObject, new Vector3(0, 1.2f, 1.2f));
                     break;
                 case 1:
@@ -97,7 +86,7 @@ public class ServingStationManager : MonoBehaviour
             }
         }
         numCustomers--;
-        // BringCustomer();
+        globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().AddData("Customer", cust.name, 2);
     }
 
 

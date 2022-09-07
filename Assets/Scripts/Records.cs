@@ -145,13 +145,21 @@ public class Records : MonoBehaviour
         return notificationSetManager.GetComponent<NotificationSetManager>().GetNotificationType();
     }
 
+    public GameObject AddNotificationOnObject(string stationTxt, string notificationTxt)
+    {
+        persistentGO.GetComponent<PersistentGOManager>().AddData("Notification", stationTxt + ":" + notificationTxt, 1);
+        return notificationSetManager.GetComponent<NotificationSetManager>().AddNotificationOnObject();
+    }
+
     public void AddNotificationOnDock(string stationTxt, string notificationTxt)
     {
+        persistentGO.GetComponent<PersistentGOManager>().AddData("Notification", stationTxt + ":" + notificationTxt, 1);
         notificationSetManager.GetComponent<NotificationSetManager>().AddNotificationOnDock(stationTxt, notificationTxt);
     }
 
     public void AddNotificationOnViewport(string stationTxt, string notificationTxt)
     {
+        persistentGO.GetComponent<PersistentGOManager>().AddData("Notification", stationTxt + ":" + notificationTxt, 1);
         notificationSetManager.GetComponent<NotificationSetManager>().AddNotificationOnViewport(stationTxt, notificationTxt);
     }
 }

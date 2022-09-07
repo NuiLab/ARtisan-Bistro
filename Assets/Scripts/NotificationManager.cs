@@ -43,6 +43,7 @@ public class NotificationManager : MonoBehaviour
     {
         if (globalRecords_GO.GetComponent<Records>().GetNotificationType() == 1)
             transform.parent.parent.GetComponent<NotificationDockManager>().ManageNotificationLayout(gameObject);
+        globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().AddData("Notification", stationTxt_GO.GetComponent<TextMeshPro>().text + ":" + notificationTxt_GO.GetComponent<TextMeshPro>().text, 2);
         StartCoroutine(PauseForSound());
     }
 

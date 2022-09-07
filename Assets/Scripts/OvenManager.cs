@@ -58,7 +58,7 @@ public class OvenManager : MonoBehaviour
                         case 0:
                             if (notification_GO != null)
                                 Destroy(notification_GO);
-                            notification_GO = Instantiate(globalRecords_GO.GetComponent<Records>().GetNotificationPrefab());
+                            notification_GO = globalRecords_GO.GetComponent<Records>().AddNotificationOnObject("Pizza", progressText_GO.GetComponent<TextMesh>().text);
                             notification_GO.GetComponent<NotificationManager>().SetNotificationProperties("Pizza", progressText_GO.GetComponent<TextMesh>().text, transform.gameObject, new Vector3(-0.7f, 1.5f, 0), new Quaternion(0, 0.707106829f, 0, 0.707106829f));
                             break;
                         case 1:

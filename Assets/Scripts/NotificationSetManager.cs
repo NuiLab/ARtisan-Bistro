@@ -11,7 +11,7 @@ public class NotificationSetManager : MonoBehaviour
     /*
      * 0: Notification on Object
      * 1: Notification on Dock
-     * 2: Notification on Head
+     * 2: Notification on Viewport
      */
     [SerializeField] GameObject[] notificationPrefabs;
 
@@ -58,6 +58,12 @@ public class NotificationSetManager : MonoBehaviour
     public GameObject GetNotificationPrefab()
     {
         return notificationPrefabs[notificationType];
+    }
+
+
+    public GameObject AddNotificationOnObject()
+    {
+        return Instantiate(notificationPrefabs[notificationType]);
     }
 
     public void AddNotificationOnDock(string stationTxt, string notificationTxt)

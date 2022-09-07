@@ -14,11 +14,15 @@ public class IngredientProperties : MonoBehaviour
 
     public string cookingStatus = "Uncooked";
 
+    GameObject persistentGO;
+
 
     // Start is called before the first frame update
     void Start()
     {
         SetPrefabName();
+        persistentGO = GameObject.FindGameObjectsWithTag("PersistentGO")[0];
+        persistentGO.GetComponent<PersistentGOManager>().AddData("Ingredients", prefabName, 1);
     }
 
     // Update is called once per frame
