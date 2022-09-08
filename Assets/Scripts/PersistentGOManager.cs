@@ -1,13 +1,19 @@
 using Microsoft.MixedReality.Toolkit;
 using Microsoft.MixedReality.Toolkit.SceneSystem;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
 public class PersistentGOManager : MonoBehaviour
 {
+    #region Consts to modify
+    private const int FlushAfter = 10;
+    #endregion
+
     [SerializeField] bool showNotification = false;
 
     Vector3 position = new Vector3(1000, 1000, 1000);
@@ -15,11 +21,14 @@ public class PersistentGOManager : MonoBehaviour
     IMixedRealitySceneSystem sceneSystem;
     string unloadSceneName;
     bool notificationSound = true;
+    bool sceneChanged = false;
 
     int participantNumber = 0;
     string filePath;
     StreamWriter writer;
     float time_s = 0;
+    List<string> independentCSVData = new List<string>();
+    private StringBuilder csvData;
 
     // Start is called before the first frame update
     void Start()
@@ -96,6 +105,7 @@ public class PersistentGOManager : MonoBehaviour
 
     void SetSceneNamesAndLoad(string newSceneName)
     {
+        sceneChanged = true;
         if (sceneSystem.IsContentLoaded("Instructions Scene"))
             unloadSceneName = "Instructions Scene";
         else if (sceneSystem.IsContentLoaded("NoD_WS Scene"))
@@ -145,6 +155,12 @@ public class PersistentGOManager : MonoBehaviour
     public void SetCurrGlobalRecordsGO(GameObject currObject)
     {
         currGlobalRecordsGO = currObject;
+        sceneChanged = false;
+        foreach (var independentData in independentCSVData)
+        {
+            csvData.AppendLine(participantNumber + "," + DateTime.Now.ToString("yyyyMMdd_HHmmss_fff") + "," + currGlobalRecordsGO.GetComponent<Records>().GetNotificationType() + "," + notificationSound + "," + independentData + "," + time_s);
+        }
+        independentCSVData.Clear();
     }
 
     public bool GetNotificationSound()
@@ -162,11 +178,12 @@ public class PersistentGOManager : MonoBehaviour
     public void SetParticipantNumber(int pNum)
     {
         participantNumber = pNum;
-        filePath = filePath + "/Participant" + participantNumber.ToString()+ ".csv";
+        filePath = filePath + "/Participant" + participantNumber.ToString() + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmssfff") + ".csv";
         using (writer = File.CreateText(filePath))
         {
-            writer.WriteLine("Participant_Number, Notification_Type, Notification_Sound, Category, Action, Status, Time_s");
+            writer.WriteLine("Participant_Number, Timestamp, Notification_Type, Notification_Sound, Category, Action, Status, Time_s");
         }
+        csvData = new StringBuilder();
     }
 
     public int GetParticipantNumber()
@@ -179,9 +196,46 @@ public class PersistentGOManager : MonoBehaviour
         /*
          * status (0=n/a; 1=start; 2=end)
          */
+        if (sceneChanged)
+            independentCSVData.Add(category + "," + action + "," + status);
+        else
+            csvData.AppendLine(participantNumber + "," + DateTime.Now.ToString("yyyyMMdd_HHmmss_fff") + "," + currGlobalRecordsGO.GetComponent<Records>().GetNotificationType() + "," + notificationSound + "," + category + "," + action + "," + status + "," + time_s);
+        /*
         using (writer = File.AppendText(filePath))
         {
             writer.WriteLine(participantNumber + "," + currGlobalRecordsGO.GetComponent<Records>().GetNotificationType() + "," + notificationSound + "," + category + "," + action + "," + status + "," + time_s);
         }
+        */
+        if (csvData.Length >= FlushAfter)
+        {
+            FlushData();
+        }
+    }
+
+    void FlushData()
+    {
+        using (var csvWriter = new StreamWriter(filePath, true))
+        {
+            csvWriter.Write(csvData.ToString());
+        }
+        csvData.Clear();
+    }
+
+    public void EndCSV()
+    {
+        if (csvData == null)
+        {
+            return;
+        }
+        using (var csvWriter = new StreamWriter(filePath, true))
+        {
+            csvWriter.Write(csvData.ToString());
+        }
+        csvData = null;
+    }
+
+    private void OnDestroy()
+    {
+        EndCSV();
     }
 }

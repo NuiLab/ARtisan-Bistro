@@ -32,9 +32,6 @@ public class Records : MonoBehaviour
         persistentGO.GetComponent<PersistentGOManager>().SetCurrGlobalRecordsGO(transform.gameObject);
     }
 
-    // Update is called once per frame
-   
-
     public GameObject[] GetPrefabList()
     {
         return prefabList;
