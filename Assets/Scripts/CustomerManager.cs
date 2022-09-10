@@ -79,7 +79,7 @@ public class CustomerManager : MonoBehaviour
 
     void CreateBurger()
     {
-        string[] tmpArray = new string[] { "Burger Bread Down", "Burger Bread Up", "Cutlet B", "Bacon Slice", "Cheese Slice A", "Onion Slice White", "Tomato Slice", "Salad Slice" };
+        string[] tmpArray = new string[] { "Burger Bread Down", "Burger Bread Up", "Cutlet B", "Bacon Slice", "Cheese Slice A", "Onion Slice", "Tomato Slice", "Salad Slice" };
         ingredients = new List<string> { "Burger Bread Down", "Cutlet B" };
         for (int i = 0; i < difficultyLevel + 3; i++)
         {
@@ -140,5 +140,18 @@ public class CustomerManager : MonoBehaviour
             }
         }
         return true;
+    }
+
+    public string CreateIngredientsString()
+    {
+        string ingredientString = "";
+        foreach (var ingredient in ingredients)
+        {
+            if (ingredientString == "")
+                ingredientString = ingredient;
+            else
+                ingredientString = ingredientString + ";" + ingredient;
+        }
+        return "[" + ingredientString + "]";
     }
 }

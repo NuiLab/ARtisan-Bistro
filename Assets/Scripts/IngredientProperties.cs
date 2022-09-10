@@ -20,9 +20,12 @@ public class IngredientProperties : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetPrefabName();
         persistentGO = GameObject.FindGameObjectsWithTag("PersistentGO")[0];
-        persistentGO.GetComponent<PersistentGOManager>().AddData("Ingredients", prefabName, 1);
+        SetPrefabName();
+        if (prefabName.Contains(" Empty"))
+            prefabName = prefabName.Substring(0, prefabName.Length - 6);
+        else
+            persistentGO.GetComponent<PersistentGOManager>().AddData("Ingredients", prefabName, 1);
     }
 
     // Update is called once per frame
@@ -47,6 +50,7 @@ public class IngredientProperties : MonoBehaviour
                     prefabName = objectName.Substring(0, i - 1);
                 else
                     prefabName = objectName.Substring(0, i);
+                
                 return;
             }
         }

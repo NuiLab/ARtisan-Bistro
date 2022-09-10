@@ -26,6 +26,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4714123191383226026}
   - {fileID: 5927962870243787122}
@@ -60,6 +61,7 @@ Transform:
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.08330011, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8562046517499144084}
   m_RootOrder: 0
@@ -83,6 +85,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -125,7 +128,7 @@ GameObject:
   - component: {fileID: 3726549898865927461}
   - component: {fileID: 1444813342665280966}
   m_Layer: 0
-  m_Name: Onion Slice White
+  m_Name: Onion Slice Empty
   m_TagString: Ingredient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -141,6 +144,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.0075, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8562046517499144084}
   - {fileID: 7350797511269444605}
@@ -181,6 +185,8 @@ MonoBehaviour:
   location: {x: 0, y: 0.0427, z: 0}
   rotation: {x: 0, y: 0, z: 0, w: 0}
   scale: {x: 6, y: 6, z: 6}
+  firePrefab: {fileID: 0}
+  cookingStatus: Uncooked
 --- !u!1 &5927962870243787129
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,6 +215,7 @@ Transform:
   m_LocalRotation: {x: 0.0015775367, y: 0.00039477984, z: -0.028890463, w: 0.99958134}
   m_LocalPosition: {x: 0.0816, y: 0.008300001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8562046517499144084}
   m_RootOrder: 1
@@ -232,6 +239,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -292,6 +300,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.064, z: 0}
   m_LocalScale: {x: 0.4908, y: 0.13608001, z: 0.4908}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5927962869958406938}
   m_RootOrder: 1
@@ -315,6 +324,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -383,7 +393,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4425287275617955294}
   m_Layer: 0
-  m_Name: Onion Slice White Empty
+  m_Name: Onion Slice Empty
   m_TagString: Ingredient
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -399,6 +409,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5927962869958406938}
   m_Father: {fileID: 0}

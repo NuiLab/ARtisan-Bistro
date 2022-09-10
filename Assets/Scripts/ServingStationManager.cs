@@ -8,6 +8,7 @@ public class ServingStationManager : MonoBehaviour
     [SerializeField] GameObject[] customerPositionGO;
     [SerializeField] GameObject globalRecords_GO;
     [SerializeField] float customerDuration = 72; 
+    [SerializeField] int maxCustomerCount = 9;
 
     Dictionary<int, GameObject> customers = new Dictionary<int, GameObject>();
     Vector3[] customerPositions = new Vector3[3];
@@ -34,10 +35,14 @@ public class ServingStationManager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (numCustomers < 3 && !pauseCustCntCheck)
+        if (numCustomers < 3 && !pauseCustCntCheck && totalCustomers < maxCustomerCount)
         {
             pauseCustCntCheck = true;
             StartCoroutine(BringCustomer());
+        }
+        if (totalCustomers >= maxCustomerCount)
+        {
+            StopCoroutine(BringCustomer());
         }
     }
 
@@ -45,12 +50,13 @@ public class ServingStationManager : MonoBehaviour
     {
         numCustomers++;
         totalCustomers++;
-        globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().AddData("Customer", custRef.name, 1);
+        globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().AddData("Customer", custRef.name + totalCustomers.ToString(), 1);
         customers[custPos] = custRef;
         custRef.transform.parent = transform;
         custRef.transform.localPosition = customerPositions[custPos];
         custRef.transform.localRotation = Quaternion.identity;
         custRef.GetComponent<CustomerManager>().CreateCustomer(customerDuration, GetFoodItem(), custPos, currCustomerNames);
+        globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().AddData("Food Requested", custRef.name + totalCustomers.ToString(), 1, custRef.GetComponent<CustomerManager>().CreateIngredientsString());
 
         if (globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().GetShowNotification())
         {

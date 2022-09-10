@@ -2562,6 +2562,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 851539233}
     m_Modifications:
+    - target: {fileID: 1758586132686369866, guid: 7afd01b5aae11f64b8052b1a49b86ea3, type: 3}
+      propertyPath: m_Name
+      value: Onion Slice
+      objectReference: {fileID: 0}
     - target: {fileID: 1839750489798089878, guid: 7afd01b5aae11f64b8052b1a49b86ea3, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -2839,6 +2843,7 @@ MonoBehaviour:
   - {fileID: 598568748}
   globalRecords_GO: {fileID: 0}
   customerDuration: 72
+  maxCustomerCount: 9
 --- !u!1001 &1046702318014185713
 PrefabInstance:
   m_ObjectHideFlags: 0

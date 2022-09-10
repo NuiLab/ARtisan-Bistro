@@ -20,7 +20,7 @@ public class PersistentGOManager : MonoBehaviour
     GameObject currGlobalRecordsGO;
     IMixedRealitySceneSystem sceneSystem;
     string unloadSceneName;
-    bool notificationSound = true;
+    bool notificationSound = false;
     bool sceneChanged = false;
 
     int participantNumber = 0;
@@ -46,6 +46,8 @@ public class PersistentGOManager : MonoBehaviour
         time_s += Time.deltaTime;
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha0))
         {
+            showNotification = false;
+            notificationSound = false;
             SetSceneNamesAndLoad("Instructions Scene");
         }
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha1))
@@ -158,7 +160,7 @@ public class PersistentGOManager : MonoBehaviour
         sceneChanged = false;
         foreach (var independentData in independentCSVData)
         {
-            csvData.AppendLine(participantNumber + "," + DateTime.Now.ToString("yyyyMMdd_HHmmss_fff") + "," + currGlobalRecordsGO.GetComponent<Records>().GetNotificationType() + "," + notificationSound + "," + independentData + "," + time_s);
+            csvData.AppendLine(participantNumber + "," + DateTime.Now.ToString("yyyyMMdd_HHmmss_fff") + "," + time_s + "," + currGlobalRecordsGO.GetComponent<Records>().GetNotificationType() + "," + notificationSound + "," + independentData);
         }
         independentCSVData.Clear();
     }
@@ -181,7 +183,7 @@ public class PersistentGOManager : MonoBehaviour
         filePath = filePath + "/Participant" + participantNumber.ToString() + "_" + DateTime.Now.ToString("yyyyMMdd_HHmmssfff") + ".csv";
         using (writer = File.CreateText(filePath))
         {
-            writer.WriteLine("Participant_Number, Timestamp, Notification_Type, Notification_Sound, Category, Action, Status, Time_s");
+            writer.WriteLine("Participant_Number,Timestamp,Time_s,Notification_Type,Notification_Sound,Category,Action,Status,Ingredients");
         }
         csvData = new StringBuilder();
     }
@@ -191,15 +193,15 @@ public class PersistentGOManager : MonoBehaviour
         return participantNumber;
     }
 
-    public void AddData(string category="n/a", string action="n/a", int status=0)
+    public void AddData(string category="n/a", string action="n/a", int status=0, string ingredients="n/a")
     {
         /*
          * status (0=n/a; 1=start; 2=end)
          */
         if (sceneChanged)
-            independentCSVData.Add(category + "," + action + "," + status);
+            independentCSVData.Add(category + "," + action + "," + status + "," + ingredients);
         else
-            csvData.AppendLine(participantNumber + "," + DateTime.Now.ToString("yyyyMMdd_HHmmss_fff") + "," + currGlobalRecordsGO.GetComponent<Records>().GetNotificationType() + "," + notificationSound + "," + category + "," + action + "," + status + "," + time_s);
+            csvData.AppendLine(participantNumber + "," + DateTime.Now.ToString("yyyyMMdd_HHmmss_fff") + "," + time_s + "," + currGlobalRecordsGO.GetComponent<Records>().GetNotificationType() + "," + notificationSound + "," + category + "," + action + "," + status + "," + ingredients);
         /*
         using (writer = File.AppendText(filePath))
         {

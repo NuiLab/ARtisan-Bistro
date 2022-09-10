@@ -23,6 +23,8 @@ public class Records : MonoBehaviour
      * 0. Notification on the Object(NoO)
      * 1. Notification in the Viewport(NoV)
      * 2. Notification on the Dock(NoD)
+     * 3. No Notification
+     * 4. Instructions Scene
      */
 
     // Start is called before the first frame update
@@ -107,7 +109,7 @@ public class Records : MonoBehaviour
                 return 3;
             case "Cheese Slice A":
                 return 4;
-            case "Onion Slice White":
+            case "Onion Slice":
                 return 5;
             case "Tomato Slice":
                 return 6;
@@ -134,6 +136,7 @@ public class Records : MonoBehaviour
 
     public void SetNotificationType(int x)
     {
+        notificationType = x;
         notificationSetManager.GetComponent<NotificationSetManager>().SetNotificationType(x);
     }
 
