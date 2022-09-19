@@ -8,7 +8,7 @@ public class ServingStationManager : MonoBehaviour
     [SerializeField] GameObject[] customerPositionGO;
     [SerializeField] GameObject globalRecords_GO;
     [SerializeField] float customerDuration = 72; 
-    [SerializeField] int maxCustomerCount = 9;
+    [SerializeField] int maxCustomerCount = 200;
 
     Dictionary<int, GameObject> customers = new Dictionary<int, GameObject>();
     Vector3[] customerPositions = new Vector3[3];
@@ -145,5 +145,10 @@ public class ServingStationManager : MonoBehaviour
             }
         }
         return objectName;
+    }
+
+    public int GetCustomerCount()
+    {
+        return totalCustomers;
     }
 }

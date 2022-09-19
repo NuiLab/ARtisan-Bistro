@@ -126,10 +126,15 @@ public class CustomerManager : MonoBehaviour
         }
     }
 
-    public bool CheckIndredients(List<string> preparedFood)
+    public bool CheckIndredients(List<string> preparedFood, GameObject objectT)
     {
         if (preparedFood[0] == "CoffeeCup" && ingredients.Contains(preparedFood[0]))
-            return true;
+        {
+            if (objectT.transform.GetChild(0).gameObject.activeSelf)
+                return true;
+            else
+                return false;
+        }
         if (preparedFood.Count != difficultyLevel + 3)
             return false;
         for (int i = 0; i < preparedFood.Count; i++)
@@ -138,6 +143,16 @@ public class CustomerManager : MonoBehaviour
             {
                 return false;
             }
+        }
+        if (preparedFood[0] == "Burger Bread Down")
+        {
+            if (objectT.transform.GetChild(2).GetComponentInChildren<IngredientProperties>().GetCookingStatus() != "Cooked")
+                return false;
+        }
+        if (preparedFood[0] == "Dough Ketchup")
+        {
+            if (objectT.transform.GetComponent<IngredientProperties>().GetCookingStatus() != "Cooked")
+                return false;
         }
         return true;
     }

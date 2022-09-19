@@ -1,6 +1,7 @@
 using Microsoft.MixedReality.Toolkit;
 using Microsoft.MixedReality.Toolkit.SceneSystem;
 using System;
+using TMPro;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -11,10 +12,11 @@ using UnityEngine;
 public class PersistentGOManager : MonoBehaviour
 {
     #region Consts to modify
-    private const int FlushAfter = 10;
+    private const int FlushAfter = 40;
     #endregion
 
     [SerializeField] bool showNotification = false;
+    [SerializeField] GameObject StudyBillboard;
 
     Vector3 position = new Vector3(1000, 1000, 1000);
     GameObject currGlobalRecordsGO;
@@ -30,6 +32,9 @@ public class PersistentGOManager : MonoBehaviour
     List<string> independentCSVData = new List<string>();
     private StringBuilder csvData;
 
+    List<string> instructions = new List<string>();
+    int instructionsNum = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +42,7 @@ public class PersistentGOManager : MonoBehaviour
         filePath = Application.persistentDataPath + "/Records";
         if (!Directory.Exists(filePath))
             Directory.CreateDirectory(filePath);
+        InitializeInstructions();
         DontDestroyOnLoad(transform.gameObject);
     }
 
@@ -103,9 +109,13 @@ public class PersistentGOManager : MonoBehaviour
         {
             writer.Close();
         }
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.I))
+        {
+            ShowInstructions(instructionsNum++);
+        }
     }
 
-    void SetSceneNamesAndLoad(string newSceneName)
+    public void SetSceneNamesAndLoad(string newSceneName)
     {
         sceneChanged = true;
         if (sceneSystem.IsContentLoaded("Instructions Scene"))
@@ -202,12 +212,6 @@ public class PersistentGOManager : MonoBehaviour
             independentCSVData.Add(category + "," + action + "," + status + "," + ingredients);
         else
             csvData.AppendLine(participantNumber + "," + DateTime.Now.ToString("yyyyMMdd_HHmmss_fff") + "," + time_s + "," + currGlobalRecordsGO.GetComponent<Records>().GetNotificationType() + "," + notificationSound + "," + category + "," + action + "," + status + "," + ingredients);
-        /*
-        using (writer = File.AppendText(filePath))
-        {
-            writer.WriteLine(participantNumber + "," + currGlobalRecordsGO.GetComponent<Records>().GetNotificationType() + "," + notificationSound + "," + category + "," + action + "," + status + "," + time_s);
-        }
-        */
         if (csvData.Length >= FlushAfter)
         {
             FlushData();
@@ -239,5 +243,23 @@ public class PersistentGOManager : MonoBehaviour
     private void OnDestroy()
     {
         EndCSV();
+    }
+
+    void InitializeInstructions()
+    {
+        instructions.Add("Welcome to study titled \"Notifications in Pervasive Augmented Reality Scenario\"");
+        instructions.Add("Testing 1");
+        instructions.Add("Testing 2");
+        instructions.Add("Testing 3");
+        instructions.Add("Testing 4");
+    }
+
+    void ShowInstructions(int instructionNum)
+    {
+        if (!StudyBillboard.activeSelf)
+        {
+            StudyBillboard.SetActive(true);
+        }
+        StudyBillboard.GetComponentInChildren<TextMeshProUGUI>().text = instructions[instructionNum];
     }
 }

@@ -28,7 +28,7 @@ public class CustomerTrayManager : MonoBehaviour
             if (!other.GetComponent<ObjectManager>().isGrabbed)
             {
                 List<string> preparedFood = CreateIngredientsList(other.gameObject);
-                if (transform.parent.GetComponent<CustomerManager>().CheckIndredients(preparedFood))
+                if (transform.parent.GetComponent<CustomerManager>().CheckIndredients(preparedFood, other.gameObject))
                 {
                     persistentGO.GetComponent<PersistentGOManager>().AddData("Food Served", "Correct Food", 2, CreateIngredientsString(other.gameObject));
                     transform.parent.transform.GetComponentInParent<ServingStationManager>().RemoveCustomer(transform.parent.gameObject);
@@ -82,7 +82,7 @@ public class CustomerTrayManager : MonoBehaviour
     {
         string preparedFood = foodItem.GetComponent<IngredientProperties>().GetPrefabName();
         if (preparedFood == "CoffeeCup")
-            return preparedFood;
+            return "[" + preparedFood + "]";
 
         for (int i = 2; i < foodItem.transform.childCount; i++)
         {
