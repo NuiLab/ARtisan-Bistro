@@ -25,7 +25,7 @@ public class IngredientProperties : MonoBehaviour
         if (prefabName.Contains(" Empty"))
             prefabName = prefabName.Substring(0, prefabName.Length - 6);
         else
-            persistentGO.GetComponent<PersistentGOManager>().AddData("Ingredients", prefabName, 1);
+            persistentGO.GetComponent<PersistentGOManager>().AddData("Ingredients", prefabName + ":" + GetInstanceID().ToString(), 1);
     }
 
     // Update is called once per frame

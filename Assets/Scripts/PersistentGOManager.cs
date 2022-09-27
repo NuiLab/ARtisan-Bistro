@@ -8,9 +8,12 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using System.Linq;
 
 public class PersistentGOManager : MonoBehaviour
 {
+    public static PersistentGOManager instance;
+
     #region Consts to modify
     private const int FlushAfter = 40;
     #endregion
@@ -24,6 +27,8 @@ public class PersistentGOManager : MonoBehaviour
     string unloadSceneName;
     bool notificationSound = false;
     bool sceneChanged = false;
+    List<string> sceneNames;
+    int sceneIndex = 0;
 
     int participantNumber = 0;
     string filePath;
@@ -32,17 +37,22 @@ public class PersistentGOManager : MonoBehaviour
     List<string> independentCSVData = new List<string>();
     private StringBuilder csvData;
 
-    List<string> instructions = new List<string>();
-    int instructionsNum = 0;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        sceneNames = new List<string>() { "NoD_WS Scene", "NoD_WOS Scene", "NoO_WS Scene", "NoO_WOS Scene", "Control_WS Scene", "Control_WOS Scene" };
+        var rnd = new System.Random();
+        sceneNames = sceneNames.OrderBy(item => rnd.Next()).ToList();
         sceneSystem = MixedRealityToolkit.Instance.GetService<IMixedRealitySceneSystem>();
         filePath = Application.persistentDataPath + "/Records";
         if (!Directory.Exists(filePath))
             Directory.CreateDirectory(filePath);
-        InitializeInstructions();
         DontDestroyOnLoad(transform.gameObject);
     }
 
@@ -51,67 +61,32 @@ public class PersistentGOManager : MonoBehaviour
     {
         time_s += Time.deltaTime;
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            showNotification = false;
-            notificationSound = false;
             SetSceneNamesAndLoad("Instructions Scene");
-        }
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            showNotification = true;
-            notificationSound = true;
             SetSceneNamesAndLoad("NoD_WS Scene");
-
-        }
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            showNotification = true;
-            notificationSound = false;
             SetSceneNamesAndLoad("NoD_WOS Scene");
-        }
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            showNotification = true;
-            notificationSound = true;
             SetSceneNamesAndLoad("NoO_WS Scene");
-        }
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            showNotification = true;
-            notificationSound = false;
             SetSceneNamesAndLoad("NoO_WOS Scene");
-        }
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            showNotification = true;
-            notificationSound = true;
             SetSceneNamesAndLoad("NoV_WS Scene");
-        }
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            showNotification = true;
-            notificationSound = false;
             SetSceneNamesAndLoad("NoV_WOS Scene");
-        }
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha7))
-        {
-            showNotification = false;
-            notificationSound = false;
-            SetSceneNamesAndLoad("Control Scene");
-        }
+            SetSceneNamesAndLoad("Control_WS Scene");
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha8))
+            SetSceneNamesAndLoad("Control_WOS Scene");
 
 
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            SetParticipantNumber(0);
-        }
         if (Input.GetKeyDown(KeyCode.N))
         {
             writer.Close();
         }
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.I))
         {
-            ShowInstructions(instructionsNum++);
+            ShowInstructions(0);
         }
     }
 
@@ -132,9 +107,53 @@ public class PersistentGOManager : MonoBehaviour
             unloadSceneName = "NoV_WS Scene";
         else if (sceneSystem.IsContentLoaded("NoV_WOS Scene"))
             unloadSceneName = "NoV_WOS Scene";
-        else if (sceneSystem.IsContentLoaded("Control Scene"))
-            unloadSceneName = "Control Scene";
+        else if (sceneSystem.IsContentLoaded("Control_WS Scene"))
+            unloadSceneName = "Control_WS Scene";
+        else if (sceneSystem.IsContentLoaded("Control_WOS Scene"))
+            unloadSceneName = "Control_WOS Scene";
 
+        switch (newSceneName)
+        {
+            case "Instructions Scene":
+                showNotification = false;
+                notificationSound = false;
+                StudyInstructionsManager.instance.ResetInstructionNumber();
+                break;
+            case "NoD_WS Scene":
+                showNotification = true;
+                notificationSound = true;
+                break;
+            case "NoD_WOS Scene":
+                showNotification = true;
+                notificationSound = false;
+                break;
+            case "NoO_WS Scene":
+                showNotification = true;
+                notificationSound = true;
+                break;
+            case "NoO_WOS Scene":
+                showNotification = true;
+                notificationSound = false;
+                break;
+            case "NoV_WS Scene":
+                showNotification = true;
+                notificationSound = true;
+                break;
+            case "NoV_WOS Scene":
+                showNotification = true;
+                notificationSound = false;
+                break;
+            case "Control_WS Scene":
+                showNotification = false;
+                notificationSound = true;
+                break;
+            case "Control_WOS Scene":
+                showNotification = false;
+                notificationSound = false;
+                break;
+        }
+        GameManager.instance.SetSceneName(newSceneName);
+        StudyInstructionsManager.instance.DisplayInstructionsScreen(GameState.Scene);
         var task = LoadNextLevel(newSceneName);
     }
 
@@ -245,21 +264,22 @@ public class PersistentGOManager : MonoBehaviour
         EndCSV();
     }
 
-    void InitializeInstructions()
-    {
-        instructions.Add("Welcome to study titled \"Notifications in Pervasive Augmented Reality Scenario\"");
-        instructions.Add("Testing 1");
-        instructions.Add("Testing 2");
-        instructions.Add("Testing 3");
-        instructions.Add("Testing 4");
-    }
-
     void ShowInstructions(int instructionNum)
     {
         if (!StudyBillboard.activeSelf)
         {
             StudyBillboard.SetActive(true);
         }
-        StudyBillboard.GetComponentInChildren<TextMeshProUGUI>().text = instructions[instructionNum];
+        StudyBillboard.GetComponent<StudyInstructionsManager>().SetNextInstruction(instructionNum);
+    }
+
+    public int GetSceneIndex()
+    {
+        return sceneIndex;
+    }
+
+    public string GetNextScene()
+    {
+        return sceneNames[sceneIndex++];
     }
 }

@@ -248,6 +248,10 @@ MonoBehaviour:
   notificationCountGO: {fileID: 308487224976683003}
   notificationButton: {fileID: 4935886732044555925, guid: 830dc488c8955a044957ec236d107a43, type: 3}
   notificationParent: {fileID: 1581601822058201426}
+  notificationBtnBackplate: {fileID: 5013864477460576551}
+  notificationBtnMaterial:
+  - {fileID: 2100000, guid: 1af45b7a97d3ae74191675020b760020, type: 2}
+  - {fileID: 2100000, guid: 11b6605dfd44f534c8e6208d5f1506b2, type: 2}
 --- !u!1 &6620079270872335911
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,5 +738,10 @@ Transform:
 --- !u!4 &2545294727819983775 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1368769713134566724, guid: 36ff76a9e7929f342915274725573e00, type: 3}
+  m_PrefabInstance: {fileID: 3579355498531555035}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5013864477460576551 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8374654552865783804, guid: 36ff76a9e7929f342915274725573e00, type: 3}
   m_PrefabInstance: {fileID: 3579355498531555035}
   m_PrefabAsset: {fileID: 0}

@@ -52,16 +52,21 @@ public class CoffeeMakerManager : MonoBehaviour
                     case 0:
                         if (notification_GO != null)
                             Destroy(notification_GO);
-                        notification_GO = globalRecords_GO.GetComponent<Records>().AddNotificationOnObject("Coffee", "Coffee cup added");
-                        notification_GO.GetComponent<NotificationManager>().SetNotificationProperties("Coffee", "Coffee cup added", transform.gameObject, new Vector3(0, 0.25f, 0));
+                        notification_GO = globalRecords_GO.GetComponent<Records>().AddNotificationOnObject("Coffee", "Coffee cup added", transform.GetInstanceID());
+                        notification_GO.GetComponent<NotificationManager>().SetNotificationProperties("Coffee", "Coffee cup added", transform.gameObject, new Vector3(0, 0.25f, 0), scale: new Vector3(1.7f, 1.7f, 0.566666667f));
                         break;
                     case 1:
-                        globalRecords_GO.GetComponent<Records>().AddNotificationOnDock("Coffee", "Coffee cup added");
+                        globalRecords_GO.GetComponent<Records>().AddNotificationOnDock("Coffee", "Coffee cup added", transform.GetInstanceID());
                         break;
                     case 2:
-                        globalRecords_GO.GetComponent<Records>().AddNotificationOnViewport("Coffee", "Coffee cup added");
+                        globalRecords_GO.GetComponent<Records>().AddNotificationOnViewport("Coffee", "Coffee cup added", transform.GetInstanceID());
                         break;
                 }
+            }
+            if (globalRecords_GO.GetComponent<Records>().GetNotificationType() == 3 && PersistentGOManager.instance.GetNotificationSound())
+            {
+                PersistentGOManager.instance.GetComponent<PersistentGOManager>().AddData("Notification", "Coffee cup added" + ":" + transform.GetInstanceID().ToString(), 1);
+                Camera.main.transform.GetComponent<AudioSource>().Play();
             }
         }
     }

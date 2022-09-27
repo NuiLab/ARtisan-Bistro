@@ -3296,6 +3296,10 @@ PrefabInstance:
       propertyPath: onManipulationEnded.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8972563484452900799, guid: e58123c2ed29c1a41a6a2133c3f0155c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1af45b7a97d3ae74191675020b760020, type: 2}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: e58123c2ed29c1a41a6a2133c3f0155c, type: 3}

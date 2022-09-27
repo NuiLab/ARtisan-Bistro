@@ -129,6 +129,7 @@ public class Records : MonoBehaviour
     {
         return notificationPrefabs;
     }
+
     public GameObject GetNotificationPrefab()
     {
         return notificationSetManager.GetComponent<NotificationSetManager>().GetNotificationPrefab();
@@ -145,21 +146,21 @@ public class Records : MonoBehaviour
         return notificationSetManager.GetComponent<NotificationSetManager>().GetNotificationType();
     }
 
-    public GameObject AddNotificationOnObject(string stationTxt, string notificationTxt)
+    public GameObject AddNotificationOnObject(string stationTxt, string notificationTxt, int objectId)
     {
-        persistentGO.GetComponent<PersistentGOManager>().AddData("Notification", stationTxt + ":" + notificationTxt, 1);
-        return notificationSetManager.GetComponent<NotificationSetManager>().AddNotificationOnObject();
+        persistentGO.GetComponent<PersistentGOManager>().AddData("Notification", stationTxt + ":" + notificationTxt + ":" + objectId.ToString(), 1);
+        return notificationSetManager.GetComponent<NotificationSetManager>().AddNotificationOnObject(objectId);
     }
 
-    public void AddNotificationOnDock(string stationTxt, string notificationTxt)
+    public void AddNotificationOnDock(string stationTxt, string notificationTxt, int objectId)
     {
-        persistentGO.GetComponent<PersistentGOManager>().AddData("Notification", stationTxt + ":" + notificationTxt, 1);
-        notificationSetManager.GetComponent<NotificationSetManager>().AddNotificationOnDock(stationTxt, notificationTxt);
+        persistentGO.GetComponent<PersistentGOManager>().AddData("Notification", stationTxt + ":" + notificationTxt + ":" + objectId.ToString(), 1);
+        notificationSetManager.GetComponent<NotificationSetManager>().AddNotificationOnDock(stationTxt, notificationTxt, objectId);
     }
 
-    public void AddNotificationOnViewport(string stationTxt, string notificationTxt)
+    public void AddNotificationOnViewport(string stationTxt, string notificationTxt, int objectId)
     {
-        persistentGO.GetComponent<PersistentGOManager>().AddData("Notification", stationTxt + ":" + notificationTxt, 1);
-        notificationSetManager.GetComponent<NotificationSetManager>().AddNotificationOnViewport(stationTxt, notificationTxt);
+        persistentGO.GetComponent<PersistentGOManager>().AddData("Notification", stationTxt + ":" + notificationTxt + ":" + objectId.ToString(), 1);
+        notificationSetManager.GetComponent<NotificationSetManager>().AddNotificationOnViewport(stationTxt, notificationTxt, objectId);
     }
 }

@@ -22,13 +22,14 @@ public class SkipTutorial : MonoBehaviour
 
     public void ButtonPress()
     {
-        globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().SetShowNotification(true);
+        // globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().SetShowNotification(true);
         LoadNextLevel();
         Destroy(transform.gameObject);
     }
 
     public void LoadNextLevel()
     {
+        /*
         globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().SetShowNotification(true);
         globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().SetNotificationSound(true);
         globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().SetSceneNamesAndLoad("NoO_WS Scene");
@@ -36,5 +37,6 @@ public class SkipTutorial : MonoBehaviour
         await sceneSystem.UnloadContent("Instructions Scene");
         await sceneSystem.LoadContent("NoO_WS Scene");
         */
+        GameManager.instance.UpdateGameState(GameState.Scene);
     }
 }

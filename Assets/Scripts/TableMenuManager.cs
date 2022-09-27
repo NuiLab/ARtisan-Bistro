@@ -69,6 +69,7 @@ public class TableMenuManager : MonoBehaviour
     {
         persistentGameObjects[0].GetComponent<PersistentGOManager>().SetPosition(playArea.transform.position);
         playArea.transform.Find("Instruction Manager").gameObject.SetActive(true);
+        GameManager.instance.UpdateGameState(GameState.Welcome);
         Destroy(transform.gameObject);
     }
 

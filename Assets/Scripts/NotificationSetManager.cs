@@ -20,6 +20,7 @@ public class NotificationSetManager : MonoBehaviour
     GameObject tempNotification;
     List<string> notifications = new List<string>();
     List<string> stations = new List<string>();
+    List<int> gameObjectId = new List<int>();
     bool waitTimeStarted = false;
 
 
@@ -61,28 +62,29 @@ public class NotificationSetManager : MonoBehaviour
     }
 
 
-    public GameObject AddNotificationOnObject()
+    public GameObject AddNotificationOnObject(int objectId)
     {
+        gameObjectId.Add(objectId);
         return Instantiate(notificationPrefabs[notificationType]);
     }
 
-    public void AddNotificationOnDock(string stationTxt, string notificationTxt)
+    public void AddNotificationOnDock(string stationTxt, string notificationTxt, int objectId)
     {
-        notificationDock.GetComponent<NotificationDockManager>().AddNotification(stationTxt, notificationTxt);
+        notificationDock.GetComponent<NotificationDockManager>().AddNotification(stationTxt, notificationTxt, objectId);
     }
 
-    public void AddNotificationOnViewport(string stationTxt, string notificationTxt)
+    public void AddNotificationOnViewport(string stationTxt, string notificationTxt, int objectId)
     {
-        if (notificationTxt == "test")
+        if (gameObjectId.Contains(objectId))
         {
-            notifications.Add(notifications.Count.ToString());
-            stations.Add(stations.Count.ToString());
+            int tempIndex = gameObjectId.IndexOf(objectId);
+            gameObjectId.Remove(objectId);
+            notifications.RemoveAt(tempIndex);
+            stations.RemoveAt(tempIndex);
         }
-        else
-        {
-            notifications.Add(notificationTxt);
-            stations.Add(stationTxt);
-        }
+        gameObjectId.Add(objectId);
+        notifications.Add(notificationTxt);
+        stations.Add(stationTxt);
     }
 
     IEnumerator CreateNotification(float duration)

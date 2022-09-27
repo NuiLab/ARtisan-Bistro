@@ -1436,7 +1436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notificationTxt_GO: {fileID: 4935886732631525223}
   stationTxt_GO: {fileID: 6801296798254570896}
-  duration: 4
+  duration: -1
   globalRecords_GO: {fileID: 0}
 --- !u!1 &4935886732631525223
 GameObject:

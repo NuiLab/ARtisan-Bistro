@@ -11,17 +11,35 @@ public class CustomerManager : MonoBehaviour
     [SerializeField] GameObject speechBubblePos;
     [SerializeField] GameObject[] malePrefabs;
     [SerializeField] GameObject[] femalePrefabs;
+    [SerializeField] int instructionsSceneCustomer = 0;
 
     GameObject speechBubble_GO;
     float customerLifeTime = 60;
     List<string> ingredients = new List<string>();
     int difficultyLevel = 0;
     string[] currCustomerNames;
+    int customerNumber = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (instructionsSceneCustomer > 0)
+        {
+            switch (instructionsSceneCustomer)
+            {
+                case 1:
+                    ingredients = new List<string>() { "CoffeeCup" };
+                    break;
+                case 2:
+                    ingredients = new List<string> { "Dough Ketchup", "Pepperoni Layer", "Mushroom Slice Layer", "Olive Black Slice Layer" };
+                    break;
+                case 3:
+                    ingredients = new List<string> { "Burger Bread Down", "Cutlet B", "Salad Slice", "Cheese Slice A", "Onion Slice", "Burger Bread Up" };
+                    break;
+            }
+            PersistentGOManager.instance.AddData("Customer", transform.name + instructionsSceneCustomer.ToString() + ":" + GetInstanceID().ToString(), 1);
+            PersistentGOManager.instance.AddData("Food Requested", transform.name + instructionsSceneCustomer.ToString() + ":" + GetInstanceID().ToString(), 1, CreateIngredientsString());
+        }
     }
 
     // Update is called once per frame
@@ -38,9 +56,10 @@ public class CustomerManager : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void CreateCustomer(float custLife, string foodItem, int custPos, string[] customerNames)
+    public void CreateCustomer(float custLife, string foodItem, int custPos, string[] customerNames, int custNum)
     {
         // difficultyLevel = custPos;                      // For testing.
+        customerNumber = custNum;
         currCustomerNames = customerNames;
         customerLifeTime = custLife;
         InitializeFood(foodItem);
@@ -168,5 +187,10 @@ public class CustomerManager : MonoBehaviour
                 ingredientString = ingredientString + ";" + ingredient;
         }
         return "[" + ingredientString + "]";
+    }
+
+    public int GetCustomerNumber()
+    {
+        return customerNumber;
     }
 }

@@ -12,6 +12,7 @@ public class InstructionsManager : MonoBehaviour
     [SerializeField] GameObject[] instuctionPos;
     [SerializeField] string[] instuctionText;
     [SerializeField] GameObject textGO;
+    [SerializeField] GameObject indicatorGO;
 
     int instructionStage = 0;
     IMixedRealitySceneSystem sceneSystem;
@@ -36,17 +37,26 @@ public class InstructionsManager : MonoBehaviour
             transform.GetChild(1).transform.rotation = instuctionPos[instructionStage].transform.rotation;
             textGO.gameObject.GetComponent<TextMeshPro>().text = instuctionText[instructionStage];
 
+            if (instructionStage == instuctionPos.Length - 2)
+                StartCoroutine(DisableIndicator());
         }
         else
         {
-            globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().SetShowNotification(true);
-            var task = LoadNextLevel();
+            // globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().SetShowNotification(true);
+            LoadNextLevel();
         }
     }
 
-    public async Task LoadNextLevel()
+    public void LoadNextLevel()
     {
-        await sceneSystem.UnloadContent("Instructions Scene");
-        await sceneSystem.LoadContent("NoO Scene");
+        GameManager.instance.UpdateGameState(GameState.Scene);
+        // await sceneSystem.UnloadContent("Instructions Scene");
+        // await sceneSystem.LoadContent("NoO Scene");
+    }
+
+    private IEnumerator DisableIndicator()
+    {
+        yield return new WaitForSeconds(5);
+        indicatorGO.SetActive(false);
     }
 }

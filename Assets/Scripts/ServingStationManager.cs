@@ -7,8 +7,8 @@ public class ServingStationManager : MonoBehaviour
     [SerializeField] GameObject customerPrefab;
     [SerializeField] GameObject[] customerPositionGO;
     [SerializeField] GameObject globalRecords_GO;
-    [SerializeField] float customerDuration = 72; 
-    [SerializeField] int maxCustomerCount = 200;
+    float customerDuration = 72; 
+    int maxCustomerCount = 9;
 
     Dictionary<int, GameObject> customers = new Dictionary<int, GameObject>();
     Vector3[] customerPositions = new Vector3[3];
@@ -35,14 +35,18 @@ public class ServingStationManager : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (numCustomers < 3 && !pauseCustCntCheck && totalCustomers < maxCustomerCount)
+        if (StudyInstructionsManager.instance.GetStartTask())
         {
-            pauseCustCntCheck = true;
-            StartCoroutine(BringCustomer());
-        }
-        if (totalCustomers >= maxCustomerCount)
-        {
-            StopCoroutine(BringCustomer());
+            if (numCustomers < 3 && !pauseCustCntCheck && totalCustomers < maxCustomerCount)
+            {
+                pauseCustCntCheck = true;
+                StartCoroutine(BringCustomer());
+            }
+            if (totalCustomers >= maxCustomerCount)
+            {
+                StopCoroutine(BringCustomer());
+                StartCoroutine(WaitAndChangeScene());
+            }
         }
     }
 
@@ -50,31 +54,34 @@ public class ServingStationManager : MonoBehaviour
     {
         numCustomers++;
         totalCustomers++;
-        globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().AddData("Customer", custRef.name + totalCustomers.ToString(), 1);
+        globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().AddData("Customer", custRef.name + totalCustomers.ToString() + ":" + custRef.GetInstanceID().ToString(), 1);
         customers[custPos] = custRef;
         custRef.transform.parent = transform;
         custRef.transform.localPosition = customerPositions[custPos];
         custRef.transform.localRotation = Quaternion.identity;
-        custRef.GetComponent<CustomerManager>().CreateCustomer(customerDuration, GetFoodItem(), custPos, currCustomerNames);
-        globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().AddData("Food Requested", custRef.name + totalCustomers.ToString(), 1, custRef.GetComponent<CustomerManager>().CreateIngredientsString());
+        custRef.GetComponent<CustomerManager>().CreateCustomer(customerDuration, GetFoodItem(), custPos, currCustomerNames, totalCustomers);
+        globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().AddData("Food Requested", custRef.name + totalCustomers.ToString() + ":" + custRef.GetInstanceID().ToString(), 1, custRef.GetComponent<CustomerManager>().CreateIngredientsString());
 
         if (globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().GetShowNotification())
         {
             switch (globalRecords_GO.GetComponent<Records>().GetNotificationType())
             {
                 case 0:
-                    if (notification_GO != null)
-                        Destroy(notification_GO);
-                    notification_GO = globalRecords_GO.GetComponent<Records>().AddNotificationOnObject("Customer", "New Customer");
-                    notification_GO.GetComponent<NotificationManager>().SetNotificationProperties("Customer", "New Customer", transform.gameObject, new Vector3(0, 1.2f, 1.2f));
+                    notification_GO = globalRecords_GO.GetComponent<Records>().AddNotificationOnObject("Customer", "New Customer", custRef.transform.GetInstanceID());
+                    notification_GO.GetComponent<NotificationManager>().SetNotificationProperties("Customer", "New Customer", custRef, new Vector3(0, 0.05f, -0.05f));
                     break;
                 case 1:
-                    globalRecords_GO.GetComponent<Records>().AddNotificationOnDock("Customer", "New Customer");
+                    globalRecords_GO.GetComponent<Records>().AddNotificationOnDock("Customer", "New Customer", custRef.transform.GetInstanceID());
                     break;
                 case 2:
-                    globalRecords_GO.GetComponent<Records>().AddNotificationOnViewport("Customer", "New Customer");
+                    globalRecords_GO.GetComponent<Records>().AddNotificationOnViewport("Customer", "New Customer", custRef.transform.GetInstanceID());
                     break;
             }
+        }
+        if (globalRecords_GO.GetComponent<Records>().GetNotificationType() == 3 && PersistentGOManager.instance.GetNotificationSound())
+        {
+            PersistentGOManager.instance.GetComponent<PersistentGOManager>().AddData("Notification", "Customer:New Customer" + ":" + custRef.GetInstanceID().ToString(), 1);
+            Camera.main.transform.GetComponent<AudioSource>().Play();
         }
     }
 
@@ -92,11 +99,9 @@ public class ServingStationManager : MonoBehaviour
             }
         }
         numCustomers--;
-        globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().AddData("Customer", cust.name, 2);
+        globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().AddData("Customer", cust.name + ":" + cust.GetInstanceID().ToString(), 2);
     }
 
-
-    // Testing functions
     private IEnumerator BringCustomer()
     {
         yield return new WaitForSeconds(5);
@@ -151,4 +156,14 @@ public class ServingStationManager : MonoBehaviour
     {
         return totalCustomers;
     }
+
+    private IEnumerator WaitAndChangeScene()
+    {
+        yield return new WaitForSeconds(customerDuration + 3);
+        if (PersistentGOManager.instance.GetSceneIndex() < 6)
+            GameManager.instance.UpdateGameState(GameState.Scene);
+        else
+            GameManager.instance.UpdateGameState(GameState.End);
+    }
+
 }
