@@ -1640,6 +1640,26 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8398573786111610185, guid: 93b578c7a0d5ed34a9d3d3d12b9d6515, type: 3}
+      propertyPath: maxDistance
+      value: 1.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398573786111610185, guid: 93b578c7a0d5ed34a9d3d3d12b9d6515, type: 3}
+      propertyPath: minDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398573786111610185, guid: 93b578c7a0d5ed34a9d3d3d12b9d6515, type: 3}
+      propertyPath: maxViewDegrees
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398573786111610185, guid: 93b578c7a0d5ed34a9d3d3d12b9d6515, type: 3}
+      propertyPath: fixedVerticalPosition
+      value: -0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398573786111610185, guid: 93b578c7a0d5ed34a9d3d3d12b9d6515, type: 3}
+      propertyPath: useFixedVerticalPosition
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8398573786111610187, guid: 93b578c7a0d5ed34a9d3d3d12b9d6515, type: 3}
       propertyPath: m_IsActive
       value: 0

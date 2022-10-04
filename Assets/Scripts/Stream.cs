@@ -24,8 +24,10 @@ public class Stream : MonoBehaviour
 
     }
 
-
-   
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
+    }
 
     public void Begin()
     {

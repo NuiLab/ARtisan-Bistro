@@ -42,8 +42,12 @@ public class CustomerManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-      private IEnumerator CustomerLifeFunctions(string foodItem)
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
+    }
+
+    private IEnumerator CustomerLifeFunctions(string foodItem)
     {
         speechBubble_GO = Instantiate(speechBubble);
         speechBubble_GO.transform.parent = transform;

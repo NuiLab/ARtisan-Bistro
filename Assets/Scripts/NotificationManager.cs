@@ -26,8 +26,16 @@ public class NotificationManager : MonoBehaviour
     {
         if (burgerNotification)
         {
-            transform.localPosition = cutletGO.transform.localPosition + relativePos;
+            if (cutletGO == null)
+                Destroy(transform.gameObject);
+            else
+                transform.localPosition = cutletGO.transform.localPosition + relativePos;
         }
+    }
+
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
     }
 
     public void setText(string stationTxt, string notificationTxt)

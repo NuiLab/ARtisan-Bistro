@@ -46,6 +46,11 @@ public class NotificationSetManager : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
+    }
+
     public int GetNotificationType()
     {
         return notificationType;

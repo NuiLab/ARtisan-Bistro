@@ -92,7 +92,7 @@ public class StudyInstructionsManager : MonoBehaviour
     void InitializeSceneInstructions()
     {
         sceneInstructions.Add("Instructions Scene", "In this section you will follow a tutorial to learn how to interact with the objects. " +
-            "There will be instructions with an arrow pointing to the object used to complete the current task. If the instuction is not in the viewport there will be an arrow guiding you to it. " +
+            "There will be instructions with an arrow pointing to the object used to complete the current task. If the instruction is not in the viewport there will be an arrow guiding you to it. " +
             "After completing each task press the right arrow to go to the next instruction. \n\n" +
             "There will be 3 customers each asking for different food item. You will have all the time you need to present them the food item they requested. " +
             "After preparing the food place it on the tray in front of the customer. If the food item is wrong, there will be a text stating it. If the food item is correct the customer will leave. \n\n" +
@@ -100,7 +100,7 @@ public class StudyInstructionsManager : MonoBehaviour
 
         sceneInstructions.Add("NoD_WS Scene", "In this section you will be presented with a Dock where all the notifications will be stored. " +
             "You can think of this dock similar to how notifications are displayed on your phone when you swipe down. " +
-            "You can place the dock wherever you want by moving it how you move any other objects (It is advised to not move the dock too much.) \n\n " +
+            "You can place the dock wherever you want by moving it how you move any other objects. \n\n " +
             "There is a button next to the dock which serves three purposes:\n " +
             "1. Clicking the button allows you to show or hide the notifications.\n 2. The number on the button shows number of non-interacted notifications.\n " +
             "3. Red color represents there is a new notification and Blue color represents you have looked at all notifications (this doesn't mean you have interacted with it.)\n\n " +
@@ -108,7 +108,7 @@ public class StudyInstructionsManager : MonoBehaviour
 
         sceneInstructions.Add("NoD_WOS Scene", "In this section you will be presented with a Dock where all the notifications will be stored. " +
             "You can think of this dock similar to how notifications are displayed on your phone when you swipe down. " +
-            "You can place the dock wherever you want by moving it how you move any other objects (It is advised to not move the dock too much.) \n\n " +
+            "You can place the dock wherever you want by moving it how you move any other objects. \n\n " +
             "There is a button next to the dock which serves three purposes:\n " +
             "1. Clicking the button allows you to show or hide the notifications.\n 2. The number on the button shows number of non-interacted notifications.\n " +
             "3. Red color represents there is a new notification and Blue color represents you have looked at all notifications (this doesn't mean you have interacted with it.)");
@@ -119,32 +119,32 @@ public class StudyInstructionsManager : MonoBehaviour
         sceneInstructions.Add("NoO_WOS Scene", "In this section the notification will pop-up above the objects that changed state, those that prompted the notification.");
 
         sceneInstructions.Add("Control_WS Scene", "In this section there will be no notifications. " +
-            "You will have to pay attention to all stations at all times and serve the customers to the best of you ability. \n\n" +
+            "You will have to pay attention to all stations at all times and serve the customers to the best of your ability. \n\n" +
             "Note: In this section a bubble popping sound will play to help you realize there is a state change on one of the stations. You can think of this as an audio notification. " +
             "The sound will not have a distinguishable origin point and will seem like it's playing right in your head.");
 
         sceneInstructions.Add("Control_WOS Scene", "In this section there will be no notifications. " +
-            "You will have to pay attention to all stations at all times and serve the customers to the best of you ability.");
+            "You will have to pay attention to all stations at all times and serve the customers to the best of your ability.");
     }
     void InitializeInstructions()
     {
         instructions.Add("Welcome to study titled \"Notifications in Pervasive Augmented Reality Scenario\"");
 
         instructions.Add("The following screens will help you get familiarized with different elements of the environment. The textual instructions will give majority of the details. " +
-            "This will be followed by a tutorial section where inplace instuctions will guide you through the process of interacting with the environment. \n\n" +
-            "Note: If you have any questions, it is encoraged to ask them starting now till the end of tutorial section.");
+            "This will be followed by a tutorial section where in place instructions will guide you through the process of interacting with the environment. \n\n" +
+            "Note: If you have any questions, it is encouraged to ask them starting now till the end of tutorial section.");
 
         instructions.Add("Customer Station\n\nCustomers will appear at this station. Each customer will have a request for a food item. " +
-            "This will be represented in a speech bubble top right of the customer. The images will display the ingreditents for the food item in order. \n\n" +
+            "This will be represented in a speech bubble top right of the customer. The images will display the ingredients for the food item in order. \n\n" +
             "You have a limited amount of time to present the food item to the customer or else they'll leave. The order of the food item requested will be random. \n\n" +
-            "Note: The order of the ingreditents presented should match the order requested by the customer.");
+            "Note: The order of the ingredients presented should match the order requested by the customer.");
 
         instructions.Add("Burger Station\n\nThis is where you will find all ingredients to make a burger. A grill is present to the right of the ingredients. The grill is where you can put the beef patty to cook it. " +
-            "Beef patty has 5 statges of cooking: Uncooked, Partially Cooked, Cooked, Over Cooked, Burnt. \n\nNote: The customers will always request for Cooked beef patty.");
+            "Beef patty has 5 stages of cooking: Uncooked, Partially Cooked, Cooked, Over Cooked, Burnt. \n\nNote: The customers will always request for Cooked beef patty.");
 
         instructions.Add("Pizza Station\n\nThis is where you will find all ingredients to make a pizza. An oven is present to the left of the ingredients. " +
             "After putting all the ingredients on the pizza you put the pizza in the oven to cook it. " +
-            "The pizza has 5 statges of cooking: Uncooked, Partially Cooked, Cooked, Over Cooked, Burnt. \n\nNote: The customers will always request for a cooked pizza.");
+            "The pizza has 5 stages of cooking: Uncooked, Partially Cooked, Cooked, Over Cooked, Burnt. \n\nNote: The customers will always request for a cooked pizza.");
 
         instructions.Add("Coffee Station\n\nThis is where you will find a coffee machine and coffee cups. " +
             "When the coffee pot is placed in the coffee machine an indicator, displaying how many cups of coffee can be filled using current level of coffee, will be displayed to top left of the coffee machine. " +
@@ -159,7 +159,7 @@ public class StudyInstructionsManager : MonoBehaviour
             "This to acknowledge you have read the notification (This doesn't mean you have to interact with the object that prompted the notification.)");
 
         instructions.Add("In this section you will follow a tutorial to learn how to interact with the objects. " +
-            "There will be instructions with an arrow pointing to the object used to complete the current task. If the instuction is not in the viewport there will be an arrow guiding you to it. " +
+            "There will be instructions with an arrow pointing to the object used to complete the current task. If the instruction is not in the viewport there will be an arrow guiding you to it. " +
             "After completing each task press the right arrow to go to the next instruction. \n\n" +
             "There will be 3 customers each asking for different food item. You will have all the time you need to present them the food item they requested. " +
             "After preparing the food place it on the tray in front of the customer. If the food item is wrong, there will be a text stating it. If the food item is correct the customer will leave. \n\n" +

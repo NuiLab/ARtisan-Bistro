@@ -273,6 +273,11 @@ public class PersistentGOManager : MonoBehaviour
         StudyBillboard.GetComponent<StudyInstructionsManager>().SetNextInstruction(instructionNum);
     }
 
+    public GameObject GetStudyBillboard()
+    {
+        return StudyBillboard;
+    }
+
     public int GetSceneIndex()
     {
         return sceneIndex;

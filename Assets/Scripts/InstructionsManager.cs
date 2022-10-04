@@ -26,6 +26,18 @@ public class InstructionsManager : MonoBehaviour
         transform.GetChild(0).GetComponent<DirectionalIndicator>().DirectionalTarget = instuctionPos[instructionStage].transform;
     }
 
+    private void Update()
+    {
+        if (PersistentGOManager.instance.GetStudyBillboard().activeSelf && !transform.GetChild(0).GetComponent<DirectionalIndicator>().DirectionalTarget.Equals(PersistentGOManager.instance.GetStudyBillboard().transform))
+            transform.GetChild(0).GetComponent<DirectionalIndicator>().DirectionalTarget = PersistentGOManager.instance.GetStudyBillboard().transform;
+        else if (!PersistentGOManager.instance.GetStudyBillboard().activeSelf && transform.GetChild(0).GetComponent<DirectionalIndicator>().DirectionalTarget.Equals(PersistentGOManager.instance.GetStudyBillboard().transform))
+            transform.GetChild(0).GetComponent<DirectionalIndicator>().DirectionalTarget = instuctionPos[instructionStage].transform;
+    }
+
+    private void OnDestroy()
+    {
+        StopAllCoroutines();
+    }
 
     public void NextInstruction()
     {
