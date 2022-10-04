@@ -2940,8 +2940,6 @@ MonoBehaviour:
   - {fileID: 30565205}
   - {fileID: 598568748}
   globalRecords_GO: {fileID: 0}
-  customerDuration: 72
-  maxCustomerCount: 9
 --- !u!1001 &1046702318014185713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3343,7 +3341,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4083225365725399230, guid: e59082276cbab5d4baf77a549895d3e0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

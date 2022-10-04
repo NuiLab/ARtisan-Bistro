@@ -32,6 +32,10 @@ public class SpawningRangeManager : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        StartCoroutine(spawnNewIngredient(other));
+    }
+    IEnumerator spawnNewIngredient (Collider other) {
+        yield return new WaitForSeconds(0.6f);
         // Set parent of spawned object to null, variable justSpawned to false and change collision back on
         // Spawn new object (initialize new object)
         // Set transformation and prefab name
