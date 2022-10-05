@@ -158,6 +158,12 @@ public class Records : MonoBehaviour
         notificationSetManager.GetComponent<NotificationSetManager>().AddNotificationOnDock(stationTxt, notificationTxt, objectId);
     }
 
+    public void RemoveNotificationOnDock(GameObject cutletGO)
+    {
+        notificationSetManager.GetComponent<NotificationSetManager>().RemoveNotificationOnDock(cutletGO);
+    }
+
+
     public void AddNotificationOnViewport(string stationTxt, string notificationTxt, int objectId)
     {
         persistentGO.GetComponent<PersistentGOManager>().AddData("Notification", stationTxt + ":" + notificationTxt + ":" + objectId.ToString(), 1);

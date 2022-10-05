@@ -32,26 +32,28 @@ public class SpawningRangeManager : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        StartCoroutine(spawnNewIngredient(other));
-    }
-    IEnumerator spawnNewIngredient (Collider other) {
-        yield return new WaitForSeconds(0.6f);
-        // Set parent of spawned object to null, variable justSpawned to false and change collision back on
-        // Spawn new object (initialize new object)
-        // Set transformation and prefab name
-        if (other.name.Contains(objectToSpawn.name) && other.gameObject.GetComponent<ObjectManager>().isGrabbed && other.gameObject.GetComponent<ObjectManager>().justSpawned)
+        if (other.name.Contains(objectToSpawn.name) && other.gameObject.GetComponent<ObjectManager>().justSpawned)
         {
             numObjectsSpawnned += 1;
             other.transform.SetParent(globalRecords_GO.GetComponent<Records>().GetPlayArea().transform);
             other.GetComponent<ObjectManager>().justSpawned = false;
-            GameObject objectSpawned = Instantiate(objectToSpawn);
-            objectSpawned.transform.SetParent(transform.parent);
-            objectSpawned.transform.localPosition = objectSpawned.GetComponent<IngredientProperties>().GetLocation();
-            objectSpawned.transform.localRotation = objectSpawned.GetComponent<IngredientProperties>().GetRotation();
-            // objectSpawned.transform.localScale = objectSpawned.GetComponent<IngredientProperties>().getScale();
-            objectSpawned.GetComponent<IngredientProperties>().SetPrefabName();
-            objectSpawned.name = objectSpawned.GetComponent<IngredientProperties>().GetPrefabName() + " " + numObjectsSpawnned;
             Physics.IgnoreCollision(other.GetComponent<BoxCollider>(), transform.parent.GetChild(1).GetComponent<BoxCollider>(), false);
+            StartCoroutine(spawnNewIngredient());
         }
+    }
+    IEnumerator spawnNewIngredient()
+    {
+        yield return new WaitForSeconds(0.6f);
+        // Set parent of spawned object to null, variable justSpawned to false and change collision back on
+        // Spawn new object (initialize new object)
+        // Set transformation and prefab name
+        
+        GameObject objectSpawned = Instantiate(objectToSpawn);
+        objectSpawned.transform.SetParent(transform.parent);
+        objectSpawned.transform.localPosition = objectSpawned.GetComponent<IngredientProperties>().GetLocation();
+        objectSpawned.transform.localRotation = objectSpawned.GetComponent<IngredientProperties>().GetRotation();
+        // objectSpawned.transform.localScale = objectSpawned.GetComponent<IngredientProperties>().getScale();
+        objectSpawned.GetComponent<IngredientProperties>().SetPrefabName();
+        objectSpawned.name = objectSpawned.GetComponent<IngredientProperties>().GetPrefabName() + " " + numObjectsSpawnned;
     }
 }

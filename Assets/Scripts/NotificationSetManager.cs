@@ -78,6 +78,11 @@ public class NotificationSetManager : MonoBehaviour
         notificationDock.GetComponent<NotificationDockManager>().AddNotification(stationTxt, notificationTxt, objectId);
     }
 
+    public void RemoveNotificationOnDock(GameObject cutletGO)
+    {
+        notificationDock.GetComponent<NotificationDockManager>().RemoveNotification(cutletGO);
+    }
+
     public void AddNotificationOnViewport(string stationTxt, string notificationTxt, int objectId)
     {
         if (gameObjectId.Contains(objectId))

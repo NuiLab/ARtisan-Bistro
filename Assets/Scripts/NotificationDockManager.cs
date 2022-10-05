@@ -51,8 +51,11 @@ public class NotificationDockManager : MonoBehaviour
     public void AddNotification(string stationTxt, string notificationTxt, int objectId)
     {
         if (gameObjectId.Contains(objectId))
+        {
             if (notificationBtnText.GetComponent<TextMeshPro>().text == "Hide Notifications")
+            {
                 ManageNotificationLayout(notificationsList[gameObjectId.IndexOf(objectId)]);
+            }
             else
             {
                 int index = gameObjectId.IndexOf(objectId);
@@ -60,23 +63,47 @@ public class NotificationDockManager : MonoBehaviour
                 notificationText.RemoveAt(index);
                 stationText.RemoveAt(index);
             }
+        }
+        
+        notificationCountGO.GetComponentInChildren<TextMeshPro>().text = (int.Parse(notificationCountGO.GetComponentInChildren<TextMeshPro>().text) + 1).ToString();
+        notificationText.Insert(0, notificationTxt);
+        stationText.Insert(0, stationTxt);
+        gameObjectId.Insert(0, objectId);
+        audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
+        ShowNotifications();
+        ShowNotifications();
+
         if (notificationBtnText.GetComponent<TextMeshPro>().text == "Hide Notifications")
         {
-            notificationsList.Add(Instantiate(notificationButton, new Vector3(0, 0, 0), Quaternion.identity));
-            float y = -1 * (float)notificationText.Count / 10;
-            notificationsList[notificationText.Count].GetComponent<NotificationManager>().SetNotificationProperties(stationTxt, notificationTxt, notificationParent, new Vector3(0, y, 0), Quaternion.identity, new Vector3(3, 3, 1));
+            //notificationsList.Add(Instantiate(notificationButton, new Vector3(0, 0, 0), Quaternion.identity));
+            //float y = -1 * (float)notificationText.Count / 10;
+            //notificationsList[notificationText.Count].GetComponent<NotificationManager>().SetNotificationProperties(stationTxt, notificationTxt, notificationParent, new Vector3(0, y, 0), Quaternion.identity, new Vector3(3, 3, 1));
         }
         else
         {
             notificationBtnBackplate.GetComponent<Renderer>().material = notificationBtnMaterial[1];
         }
-        notificationCountGO.GetComponentInChildren<TextMeshPro>().text = (int.Parse(notificationCountGO.GetComponentInChildren<TextMeshPro>().text) + 1).ToString();
-        notificationText.Add(notificationTxt);
-        stationText.Add(stationTxt);
-        gameObjectId.Add(objectId);
-        audioSource = GetComponent<AudioSource>();
-        audioSource.Play();
     }
+
+    public void RemoveNotification(GameObject cutletGO)
+    {
+        if (gameObjectId.Contains(cutletGO.GetInstanceID()))
+        {
+            if (notificationBtnText.GetComponent<TextMeshPro>().text == "Hide Notifications")
+            {
+                ManageNotificationLayout(notificationsList[gameObjectId.IndexOf(cutletGO.GetInstanceID())]);
+            }
+            else
+            {
+                int index = gameObjectId.IndexOf(cutletGO.GetInstanceID());
+                gameObjectId.RemoveAt(index);
+                notificationText.RemoveAt(index);
+                stationText.RemoveAt(index);
+            }
+        }
+    }
+
     public void ManageNotificationLayout(GameObject notificationGO)
     {
         int index = notificationsList.IndexOf(notificationGO);

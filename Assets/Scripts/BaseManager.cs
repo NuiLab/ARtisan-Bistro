@@ -16,7 +16,14 @@ public class BaseManager : MonoBehaviour
         objects = transform.parent.GetComponent<ObjectManager>().globalRecords_GO.GetComponent<Records>().GetObjectTags();
     }
 
-  
+    private void Update()
+    {
+        if (transform.GetComponentInParent<IngredientProperties>().GetPrefabName().Equals("Dough Ketchup") && !transform.GetComponentInParent<IngredientProperties>().GetCookingStatus().Equals("Uncooked"))
+        {
+            transform.gameObject.SetActive(false);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         // Check if object in collision mesh is appropriate object to stack;

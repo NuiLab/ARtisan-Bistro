@@ -19,6 +19,15 @@ public class CutletManager : MonoBehaviour
         globalRecords_GO = GameObject.FindWithTag("Global Records");
     }
 
+    private void OnDestroy()
+    {
+        if (globalRecords_GO != null)
+        {
+            if (globalRecords_GO.GetComponent<Records>().GetNotificationType().Equals(1))
+                globalRecords_GO.GetComponent<Records>().RemoveNotificationOnDock(transform.gameObject);
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
