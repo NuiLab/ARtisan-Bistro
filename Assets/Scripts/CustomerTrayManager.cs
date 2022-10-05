@@ -71,9 +71,20 @@ public class CustomerTrayManager : MonoBehaviour
         if (preparedFood[0] == "CoffeeCup")
             return preparedFood;
 
-        for (int i = 2; i < foodItem.transform.childCount; i++)
+        if(preparedFood[0] == "Dough Ketchup")
         {
-            preparedFood.Add(foodItem.transform.GetChild(i).GetComponentInChildren<IngredientProperties>().GetPrefabName());
+            for (int i = 3; i < foodItem.transform.childCount; i++)
+            {
+                preparedFood.Add(foodItem.transform.GetChild(i).GetComponentInChildren<IngredientProperties>().GetPrefabName());
+            }
+        }
+
+        if(preparedFood[0] == "Burger Bread Down")
+        {
+            for (int i = 2; i < foodItem.transform.childCount; i++)
+            {
+                preparedFood.Add(foodItem.transform.GetChild(i).GetComponentInChildren<IngredientProperties>().GetPrefabName());
+            }
         }
         return preparedFood;
     }
@@ -84,9 +95,20 @@ public class CustomerTrayManager : MonoBehaviour
         if (preparedFood == "CoffeeCup")
             return "[" + preparedFood + "]";
 
-        for (int i = 2; i < foodItem.transform.childCount; i++)
+        if(preparedFood == "Dough Ketchup")
         {
-            preparedFood = preparedFood + ";" + foodItem.transform.GetChild(i).GetComponentInChildren<IngredientProperties>().GetPrefabName();
+            for (int i = 3; i < foodItem.transform.childCount; i++)
+            {
+                preparedFood = preparedFood + ";" + foodItem.transform.GetChild(i).GetComponentInChildren<IngredientProperties>().GetPrefabName();
+            }
+        }
+
+        if (preparedFood == "Burger Bread Down")
+        {
+            for (int i = 2; i < foodItem.transform.childCount; i++)
+            {
+                preparedFood = preparedFood + ";" + foodItem.transform.GetChild(i).GetComponentInChildren<IngredientProperties>().GetPrefabName();
+            }
         }
         return "[" + preparedFood + "]";
     }
