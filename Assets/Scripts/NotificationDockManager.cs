@@ -107,6 +107,12 @@ public class NotificationDockManager : MonoBehaviour
 
     public void ResetRotation()
     {
-        transform.rotation = Quaternion.identity;
+        PersistentGOManager.instance.AddData("Dock", "Released [" + transform.position.x.ToString() + ";" + transform.position.y.ToString() + ";" + transform.position.z.ToString() + "]", 2);
+        transform.rotation = Quaternion.Euler(0, transform.rotation.y, 0);
+    }
+
+    public void DockGrabbed()
+    {
+        PersistentGOManager.instance.AddData("Dock", "Grabbed [" + transform.position.x.ToString() + ";" + transform.position.y.ToString() + ";" + transform.position.z.ToString() + "]", 1);
     }
 }

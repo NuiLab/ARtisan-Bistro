@@ -158,8 +158,9 @@ public class CustomerManager : MonoBehaviour
             else
                 return false;
         }
-        if (preparedFood.Count != difficultyLevel + 3)
+        /* if (preparedFood.Count != difficultyLevel + 3)
             return false;
+        */
         for (int i = 0; i < preparedFood.Count; i++)
         {
             if (!ingredients.Contains(preparedFood[i]))

@@ -59,7 +59,7 @@ public class ServingStationManager : MonoBehaviour
     {
         numCustomers++;
         totalCustomers++;
-        globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().AddData("Customer", custRef.name + totalCustomers.ToString() + ":" + custRef.GetInstanceID().ToString(), 1);
+        PersistentGOManager.instance.AddData("Customer", custRef.name + totalCustomers.ToString() + ":" + custRef.GetInstanceID().ToString(), 1);
         customers[custPos] = custRef;
         custRef.transform.parent = transform;
         custRef.transform.localPosition = customerPositions[custPos];
@@ -104,7 +104,7 @@ public class ServingStationManager : MonoBehaviour
             }
         }
         numCustomers--;
-        globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().AddData("Customer", cust.name + ":" + cust.GetInstanceID().ToString(), 2);
+        PersistentGOManager.instance.AddData("Customer", cust.name + ":" + cust.GetInstanceID().ToString(), 2);
     }
 
     private IEnumerator BringCustomer()

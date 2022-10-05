@@ -1940,26 +1940,26 @@ MonoBehaviour:
   - {fileID: 598004675}
   - {fileID: 823526342}
   - {fileID: 1454839550}
+  - {fileID: 1447934184}
   - {fileID: 1939697352}
   - {fileID: 477541563}
   - {fileID: 819827975}
   - {fileID: 1947282545}
   - {fileID: 1771935289}
   - {fileID: 1147285376}
-  - {fileID: 1447934184}
   - {fileID: 754336012}
   instuctionText:
   - Pick up the bottom Burger Bun and place on the white surface
   - Place a beef patty on the grill to start cooking
   - Pick as many ingredients to add to burger
   - Finish the burger by placing the top Burger Bun
+  - Place food on tray, it will notify if the wrong food is placed
   - Pick up the PIzza Base and place on the white surface
   - Pick as many ingredients to add to pizza
   - Place the pizza in the oven to start cooking
   - Put the food not required in the trash
   - Press the button to start coffee maker
   - Pick up the coffee cup and place on table, pour coffee till lid appears
-  - Place food on tray, it will notify if the wrong food is placed
   - When you are done familiarizing press the button below or next button to start
     experiment.
   textGO: {fileID: 6912910073907646636}

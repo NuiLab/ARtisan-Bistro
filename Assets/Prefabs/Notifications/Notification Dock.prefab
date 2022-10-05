@@ -207,6 +207,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6177611606163464113}
   - component: {fileID: 672797907448665250}
+  - component: {fileID: 1988182848117078475}
   m_Layer: 0
   m_Name: Notification Dock
   m_TagString: Untagged
@@ -252,6 +253,20 @@ MonoBehaviour:
   notificationBtnMaterial:
   - {fileID: 2100000, guid: 1af45b7a97d3ae74191675020b760020, type: 2}
   - {fileID: 2100000, guid: 11b6605dfd44f534c8e6208d5f1506b2, type: 2}
+--- !u!114 &1988182848117078475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6177611606163464126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2547b4dd088644d6aaf64f45df657c79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pivotAxis: 0
+  targetTransform: {fileID: 0}
 --- !u!1 &6620079270872335911
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,7 +395,19 @@ MonoBehaviour:
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 672797907448665250}
+        m_TargetAssemblyTypeName: NotificationDockManager, Assembly-CSharp
+        m_MethodName: DockGrabbed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onManipulationEnded:
     m_PersistentCalls:
       m_Calls:
