@@ -27,8 +27,6 @@ public class ObjectManager : MonoBehaviour
         regionCollision = globalRecords_GO;
     }
 
- 
-
     // SetIsGrabbed is called when the object is grabbed
     public void SetIsGrabbed()
     {
@@ -47,7 +45,6 @@ public class ObjectManager : MonoBehaviour
                 else
                     transform.GetChild(numStackedIngredients + 1).GetChild(0).GetChild(1).gameObject.SetActive(false);  // Disable drop region
             }
-                
         }
     }
 
@@ -55,19 +52,22 @@ public class ObjectManager : MonoBehaviour
     public void SetIsNotGrabbed()
     {
         isGrabbed = false;
-        if (mode == 0 && !justSpawned)
+        if (!justSpawned)
         {
-            if (CompareTag("Ingredient_Base"))
-                transform.GetChild(1).gameObject.SetActive(true);
-        }
-        else
-        {
-            if (mode != 4)
+            if (mode == 0)
             {
-                if (transform.GetComponent<IngredientProperties>().GetPrefabName().Equals("Dough Ketchup"))
-                    transform.GetChild(numStackedIngredients + 2).GetChild(0).GetChild(1).gameObject.SetActive(true);  // Disable drop region
-                else
-                    transform.GetChild(numStackedIngredients + 1).GetChild(0).GetChild(1).gameObject.SetActive(true);  // Disable drop region
+                if (CompareTag("Ingredient_Base"))
+                    transform.GetChild(1).gameObject.SetActive(true);
+            }
+            else
+            {
+                if (mode != 4)
+                {
+                    if (transform.GetComponent<IngredientProperties>().GetPrefabName().Equals("Dough Ketchup"))
+                        transform.GetChild(numStackedIngredients + 2).GetChild(0).GetChild(1).gameObject.SetActive(true);  // Disable drop region
+                    else
+                        transform.GetChild(numStackedIngredients + 1).GetChild(0).GetChild(1).gameObject.SetActive(true);  // Disable drop region
+                }
             }
         }
     }

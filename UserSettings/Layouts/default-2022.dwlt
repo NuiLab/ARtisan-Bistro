@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -120,14 +120,14 @@ MonoBehaviour:
     y: 935
     width: 3072
     height: 364
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 19}
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
+  m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
   - {fileID: 19}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -398,22 +398,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Notifications
+    - Assets/Prefabs/Pizza
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 74
   m_LastFolders:
-  - Assets/Prefabs/Notifications
+  - Assets/Prefabs/Pizza
   m_LastFoldersGridSize: 74
   m_LastProjectPath: C:\Users\orteg\OneDrive - Colostate\repos\Unity\ARCooking2
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 31}
-    m_SelectedIDs: 089b0000
-    m_LastClickedID: 39688
-    m_ExpandedIDs: 00000000b8990000ba990000bc990000be990000c0990000c2990000c4990000c69900008a9a0000
+    scrollPos: {x: 0, y: 45}
+    m_SelectedIDs: 068f0000
+    m_LastClickedID: 36614
+    m_ExpandedIDs: 00000000c28d0000c48d0000c68d0000c88d0000ca8d0000cc8d0000ce8d0000d08d0000e68e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -441,7 +441,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000b8990000ba990000bc990000be990000c0990000c2990000c4990000c6990000
+    m_ExpandedIDs: 00000000c28d0000c48d0000c68d0000c88d0000ca8d0000cc8d0000ce8d0000d08d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -571,7 +571,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 2abafcff00bffcff3edcfcffa0e5fcff22f3fcffcc0efdffec62fdff70d1fdfff0d1fdff72dffdff2a0cfeff0e15feff0826feff06a3feff68b2feffea02fffff602fffffa02ffff900affff7e0fffff5a17ffffdc24ffff7e2affff182bffff1c2dffffe839ffffdc3bffffa848ffff944affffe456fffffe58ffff4e65ffff6467ffffe674ffffbe85ffffe891ffff4093ffff5695ffffd8a2ffff06a5ffff00b6ffff50b8ffffa0c4ffff04c7ffff54d3ffff56faffffbec4000090d600001ad70000e4dd00006ede0000a0f40000eafb000004fc00000826010022260100022701001c270100283d0100423d0100
+      m_ExpandedIDs: 4a8cf8ff3aa5f8ff0cb4f8ff1e24f9ff3024f9ff4a24f9ffd82af9ffd2e0f9ffb4edf9ffb821faffbc21faff2233faffbc3cfaffc498fafff47bfbff2086fbff2ef5fbff66f7fbff062cfcff9860fcff9296fcffd8ccfcff9ad5fcffb200fdff540dfdff9053feffae57feff405cffff425cffffbe5fffff1462ffff8862ffff1091ffff1291ffff8694ffff8a9affff26fbffff6cbf000090bf000060c3000084c3000024e800003ee80000040001001e000100f603010010040100e8070100da0b0100cc0f0100be130100d8130100261c0100401c0100ee2b010082330100443b0100624b0100844b01002254010068540100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -866,7 +866,7 @@ MonoBehaviour:
       index: 1
       layout: 0
   m_WindowGUID: f182bd40e618aac449ed1eed33905a15
-  m_Gizmos: 1
+  m_Gizmos: 0
   m_OverrideSceneCullingMask: 6917529027641081856
   m_SceneIsLit: 1
   m_SceneLighting: 1
@@ -875,9 +875,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.73227113, y: 0.18254131, z: 5.487577}
+    m_Target: {x: -8.753648, y: -3.057091, z: 2.6418867}
     speed: 2
-    m_Value: {x: 0.73227113, y: 0.18254131, z: 5.487577}
+    m_Value: {x: -8.753648, y: -3.057091, z: 2.6418867}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -923,13 +923,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.019287985, y: 0.9790427, z: -0.11149995, w: 0.16936629}
+    m_Target: {x: 0.122586295, y: -0.76191074, z: 0.15119885, w: 0.6177638}
     speed: 2
-    m_Value: {x: 0.01928785, y: 0.9790359, z: -0.11149918, w: 0.16936511}
+    m_Value: {x: 0.122584544, y: -0.7618998, z: 0.15119669, w: 0.617755}
   m_Size:
-    m_Target: 0.23764913
+    m_Target: 2.363344
     speed: 2
-    m_Value: 0.23764913
+    m_Value: 2.363344
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -988,7 +988,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 1322, y: 893}
+  m_TargetSize: {x: 2762, y: 893}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -1002,14 +1002,14 @@ MonoBehaviour:
   m_PlayFocused: 0
   m_Gizmos: 0
   m_Stats: 0
-  m_SelectedSizes: 09000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_SelectedSizes: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
   m_ZoomArea:
     m_HRangeLocked: 0
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -661
-    m_HBaseRangeMax: 661
+    m_HBaseRangeMin: -1381
+    m_HBaseRangeMax: 1381
     m_VBaseRangeMin: -446.5
     m_VBaseRangeMax: 446.5
     m_HAllowExceedBaseRangeMin: 1

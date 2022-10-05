@@ -1,3 +1,5 @@
+using Microsoft.MixedReality.Toolkit;
+using Microsoft.MixedReality.Toolkit.SceneSystem;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -13,6 +15,13 @@ public class NotificationManager : MonoBehaviour
     bool burgerNotification = false;
     GameObject cutletGO;
     Vector3 relativePos = new Vector3(0,0,0);
+    IMixedRealitySceneSystem sceneSystem;
+
+    private void Awake()
+    {
+        sceneSystem = MixedRealityToolkit.Instance.GetService<IMixedRealitySceneSystem>();
+
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -24,12 +33,15 @@ public class NotificationManager : MonoBehaviour
 
     private void Update()
     {
-        if (burgerNotification)
+        if (globalRecords_GO.GetComponent<Records>().GetNotificationType().Equals(0))
         {
-            if (cutletGO == null)
-                Destroy(transform.gameObject);
-            else
-                transform.localPosition = cutletGO.transform.localPosition + relativePos;
+            if (burgerNotification)
+            {
+                if (cutletGO == null)
+                    Destroy(transform.gameObject);
+                else
+                    transform.localPosition = cutletGO.transform.localPosition + relativePos;
+            }
         }
     }
 
@@ -85,10 +97,7 @@ public class NotificationManager : MonoBehaviour
             cutletGO = cutletGameObject;
             burgerNotification = true;
         }
-        else
-        {
-            transform.localPosition = pos.Value;
-        }
+        transform.localPosition = pos.Value;
         transform.localRotation = rot.Value;
         transform.localScale = scale.Value;
         // gameObjectId = objectId;
