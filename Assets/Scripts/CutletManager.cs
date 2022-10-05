@@ -83,5 +83,7 @@ public class CutletManager : MonoBehaviour
     public void SetCookingState(bool status)
     {
         cookingState = status;
+        if(status)
+            this.GetComponent<AudioSource>().Play();
     }
 }
