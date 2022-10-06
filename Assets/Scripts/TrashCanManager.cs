@@ -26,7 +26,6 @@ public class TrashCanManager : MonoBehaviour
             {
                 RecordData(other.gameObject);
                 Destroy(other.gameObject);
-
             }
         }
     }

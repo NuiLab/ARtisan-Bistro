@@ -29,7 +29,7 @@ public class BaseManager : MonoBehaviour
         // Check if object in collision mesh is appropriate object to stack;
         // Change parent tag; change material to green;
         // Set regionCollision of object to current collision mesh
-        if (Array.IndexOf(objects, other.gameObject.tag) != -1)
+        if (Array.IndexOf(objects, other.gameObject.tag) != -1 && CheckBaseIngredient(other.gameObject))
         {
             transform.GetComponent<Renderer>().material = greenMaterial;
             other.GetComponent<ObjectManager>().regionCollision = transform.gameObject;
@@ -42,7 +42,7 @@ public class BaseManager : MonoBehaviour
         // Check if object in collision mesh is appropriate object to stack;
         // Change parent tag; change material to red;
         // Set regionCollision of object to global records
-        if (Array.IndexOf(objects, other.gameObject.tag) != -1)
+        if (Array.IndexOf(objects, other.gameObject.tag) != -1 && CheckBaseIngredient(other.gameObject))
         {
             transform.GetComponent<Renderer>().material = redMaterial;
             other.GetComponent<ObjectManager>().regionCollision = other.GetComponent<ObjectManager>().globalRecords_GO;
@@ -56,7 +56,7 @@ public class BaseManager : MonoBehaviour
         // Find corresponding empty object in the prefabList and instantiate it;
         // Set parent and reset location, rotation and scale, and other properties;
         // Change mode of parent and object;
-        if (Array.IndexOf(objects, other.gameObject.tag) != -1 && !other.gameObject.GetComponent<ObjectManager>().isGrabbed)
+        if (Array.IndexOf(objects, other.gameObject.tag) != -1 && !other.gameObject.GetComponent<ObjectManager>().isGrabbed && CheckBaseIngredient(other.gameObject))
         {
             GameObject tempPrefab = new GameObject("Dummy");
             other.GetComponent<IngredientProperties>().SetPrefabName();
@@ -109,5 +109,81 @@ public class BaseManager : MonoBehaviour
             tempPrefabObject.transform.parent.GetComponent<ObjectManager>().topObjectLoc += tempPrefabObject.transform.GetChild(0).GetComponent<IngredientProperties>().GetLocation().y;
             transform.gameObject.SetActive(false);
         }
+    }
+
+    bool CheckBaseIngredient(GameObject baseObject)
+    {
+        List<string> pizzaIngredients = new List<string>() { "Basil Leaf Layer", "Mushroom Slice Layer", "Olive Black Slice Layer", "Pepper Green Layer", "Pepperoni Layer" };
+        List<string> burgerIngredients = new List<string>() { "Bacon Slice", "Cheese Slice A", "Cutlet B", "Onion Slice", "Salad Slice", "Tomato Slice", "Burger Bread Up" };
+        if (pizzaIngredients.Contains(baseObject.GetComponent<IngredientProperties>().GetPrefabName()))
+        {
+            if (transform.GetComponentInParent<IngredientProperties>().GetPrefabName().Equals("Dough Ketchup") || transform.parent.parent.GetComponentInParent<IngredientProperties>().GetPrefabName().Equals("Dough Ketchup"))
+            {
+                if (transform.parent.tag.Equals("Ingredient_Base") || transform.parent.parent.parent.tag.Equals("Ingredient_Base"))
+                    return true;
+                else
+                    return false;
+            }
+        }
+
+        if (burgerIngredients.Contains(baseObject.GetComponent<IngredientProperties>().GetPrefabName()))
+        {
+            if (transform.GetComponentInParent<IngredientProperties>().GetPrefabName().Equals("Burger Bread Down") || transform.parent.parent.GetComponentInParent<IngredientProperties>().GetPrefabName().Equals("Burger Bread Down"))
+            {
+                if (transform.parent.tag.Equals("Ingredient_Base") || transform.parent.parent.parent.tag.Equals("Ingredient_Base"))
+                    return true;
+                else
+                    return false;
+            }
+        }
+        /*
+        if (transform.GetComponentInParent<IngredientProperties>().GetPrefabName().Equals("Dough Ketchup") || transform.parent.parent.GetComponentInParent<IngredientProperties>().GetPrefabName().Equals("Dough Ketchup"))
+        {
+            if (transform.parent.tag.Equals("Ingredient_Base") || transform.parent.parent.parent.tag.Equals("Ingredient_Base"))
+            {
+                switch (baseObject.GetComponent<IngredientProperties>().GetPrefabName())
+                {
+                    case "Basil Leaf Layer":
+                        return true;
+                    case "Mushroom Slice Layer":
+                        return true;
+                    case "Olive Black Slice Layer":
+                        return true;
+                    case "Pepper Green Layer":
+                        return true;
+                    case "Pepperoni Layer":
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+        }
+
+        if (transform.GetComponentInParent<IngredientProperties>().GetPrefabName().Equals("Burger Bread Down") || transform.parent.parent.GetComponentInParent<IngredientProperties>().GetPrefabName().Equals("Burger Bread Down"))
+        {
+            if (transform.parent.tag.Equals("Ingredient_Base") || transform.parent.parent.parent.tag.Equals("Ingredient_Base"))
+            {
+                switch (baseObject.GetComponent<IngredientProperties>().GetPrefabName())
+                {
+                    case "Bacon Slice":
+                        return true;
+                    case "Cheese Slice A":
+                        return true;
+                    case "Cutlet B":
+                        return true;
+                    case "Onion Slice":
+                        return true;
+                    case "Salad Slice":
+                        return true;
+                    case "Tomato Slice":
+                        return true;
+                    case "Burger Bread Up":
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+        }*/
+        return false;
     }
 }
