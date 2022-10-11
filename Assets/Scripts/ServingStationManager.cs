@@ -7,7 +7,7 @@ public class ServingStationManager : MonoBehaviour
     [SerializeField] GameObject customerPrefab;
     [SerializeField] GameObject[] customerPositionGO;
     [SerializeField] GameObject globalRecords_GO;
-    float customerDuration = 90; 
+    float customerDuration = 120; 
     int maxCustomerCount = 9;
 
     Dictionary<int, GameObject> customers = new Dictionary<int, GameObject>();

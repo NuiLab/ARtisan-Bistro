@@ -33,11 +33,21 @@ public class TrashCanManager : MonoBehaviour
     private void RecordData(GameObject gObject)
     {
         globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().AddData("Ingredients", gObject.GetComponent<IngredientProperties>().GetPrefabName() + ":" + gObject.GetInstanceID().ToString(), 2);
-        for (int i = 2; i < gObject.GetComponent<ObjectManager>().numStackedIngredients+2; i++)
+        if (gObject.GetComponent<IngredientProperties>().GetPrefabName() == "Burger Bread Down")
         {
-            string prefabName = gObject.transform.GetChild(i).GetChild(0).GetComponent<IngredientProperties>().GetPrefabName();
-            globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().AddData("Ingredients", prefabName + ":" + gObject.transform.GetChild(i).GetChild(0).GetInstanceID().ToString(), 2);
+            for (int i = 2; i < gObject.GetComponent<ObjectManager>().numStackedIngredients + 2; i++)
+            {
+                string prefabName = gObject.transform.GetChild(i).GetChild(0).GetComponent<IngredientProperties>().GetPrefabName();
+                globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().AddData("Ingredients", prefabName + ":" + gObject.transform.GetChild(i).GetChild(0).GetInstanceID().ToString(), 2);
+            }
         }
-        
+        if (gObject.GetComponent<IngredientProperties>().GetPrefabName() == "Dough Ketchup")
+        {
+            for (int i = 3; i < gObject.GetComponent<ObjectManager>().numStackedIngredients + 3; i++)
+            {
+                string prefabName = gObject.transform.GetChild(i).GetChild(0).GetComponent<IngredientProperties>().GetPrefabName();
+                globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().AddData("Ingredients", prefabName + ":" + gObject.transform.GetChild(i).GetChild(0).GetInstanceID().ToString(), 2);
+            }
+        }
     }
 }
