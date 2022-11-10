@@ -6,11 +6,13 @@ public class CustomerTrayManager : MonoBehaviour
 {
     int numObjects = 0;
     GameObject persistentGO;
+    public CustomerManager cManager;
+    public GameObject records;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        records = GameObject.FindGameObjectsWithTag("Global Records")[0];
     }
 
     // Update is called once per frame
@@ -32,6 +34,7 @@ public class CustomerTrayManager : MonoBehaviour
                 {
                     persistentGO.GetComponent<PersistentGOManager>().AddData("Food Served", "Correct Food", 2, CreateIngredientsString(other.gameObject));
                     transform.parent.transform.GetComponentInParent<ServingStationManager>().RemoveCustomer(transform.parent.gameObject);
+                    records.GetComponent<Records>().score += cManager.timerRemaining;
                     Destroy(other.gameObject);
                     Destroy(transform.parent.gameObject);
                 }

@@ -380,6 +380,7 @@ MonoBehaviour:
   instructionsSceneCustomer: 0
   customerLifeTime: 110
   timer: {fileID: 6594262532877782660}
+  score: 0
 --- !u!1 &7816466866094366566
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,6 +493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5604170b1815f5443a64041ff5431b5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cManager: {fileID: -7765224008292336471}
 --- !u!1 &8002856378680062044
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,9 +16,10 @@ public class CustomerManager : MonoBehaviour
     [SerializeField] float customerLifeTime;
     [SerializeField] GameObject timer;
     GameObject speechBubble_GO;
+   
     
     List<string> ingredients = new List<string>();
-    float timerRemaining = 999;
+    public float timerRemaining;
     int difficultyLevel = 0;
     string[] currCustomerNames;
     int customerNumber = 0;

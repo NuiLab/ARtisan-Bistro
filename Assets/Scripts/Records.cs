@@ -17,6 +17,7 @@ public class Records : MonoBehaviour
     [SerializeField] int notificationType;
     [SerializeField] GameObject notificationSetManager;
 
+    public float score;
     GameObject persistentGO;
     /* 
      * Notification Types:
