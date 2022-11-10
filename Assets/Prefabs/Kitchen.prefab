@@ -2176,6 +2176,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Coffee_Pot
       objectReference: {fileID: 0}
+    - target: {fileID: 9034100281649584143, guid: 46ec918e4d07f4c48bfeabb961aa27c1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 9034100281649584143, guid: 46ec918e4d07f4c48bfeabb961aa27c1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.03
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 46ec918e4d07f4c48bfeabb961aa27c1, type: 3}

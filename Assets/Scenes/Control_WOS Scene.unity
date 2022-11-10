@@ -1481,6 +1481,14 @@ PrefabInstance:
       propertyPath: globalRecords_GO
       value: 
       objectReference: {fileID: 977751431}
+    - target: {fileID: 3838688290706577097, guid: febc95a75ac190f4ab76909b3be2f542, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 3838688290706577097, guid: febc95a75ac190f4ab76909b3be2f542, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.03
+      objectReference: {fileID: 0}
     - target: {fileID: 4939266691938856237, guid: febc95a75ac190f4ab76909b3be2f542, type: 3}
       propertyPath: globalRecords_GO
       value: 
