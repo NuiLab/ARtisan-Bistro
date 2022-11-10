@@ -202,7 +202,6 @@ public class CustomerManager : MonoBehaviour
             float minutes = Mathf.FloorToInt(timerRemaining / 60);
             float seconds = Mathf.FloorToInt(timerRemaining % 60);
             timer.GetComponent<TextMeshProUGUI>().SetText(string.Format("{0:00}:{1:00}", minutes, seconds));
-            Debug.Log(timerRemaining);
             yield return new WaitForSeconds(1f);
         }
         

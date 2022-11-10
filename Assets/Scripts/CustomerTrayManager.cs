@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CustomerTrayManager : MonoBehaviour
@@ -35,6 +36,7 @@ public class CustomerTrayManager : MonoBehaviour
                     persistentGO.GetComponent<PersistentGOManager>().AddData("Food Served", "Correct Food", 2, CreateIngredientsString(other.gameObject));
                     transform.parent.transform.GetComponentInParent<ServingStationManager>().RemoveCustomer(transform.parent.gameObject);
                     records.GetComponent<Records>().score += cManager.timerRemaining;
+                    records.GetComponent<Records>().scoreboard.GetComponent<TextMeshProUGUI>().SetText("Score: " + records.GetComponent<Records>().score);
                     Destroy(other.gameObject);
                     Destroy(transform.parent.gameObject);
                 }

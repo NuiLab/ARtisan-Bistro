@@ -27,9 +27,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7060564561299072046
 MonoBehaviour:
@@ -99,5 +100,7 @@ MonoBehaviour:
   - {fileID: 4935886732044555925, guid: 00d05c098e7546d44b48fb14ac16dd1e, type: 3}
   - {fileID: 4935886732044555925, guid: 830dc488c8955a044957ec236d107a43, type: 3}
   - {fileID: 4935886732044555925, guid: c11af91ba9ca4be40b25a54bb228a83b, type: 3}
-  notificationType: 2
+  notificationType: 3
   notificationSetManager: {fileID: 0}
+  scoreboard: {fileID: 0}
+  score: 0
