@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class CustomerManager : MonoBehaviour
@@ -12,10 +13,12 @@ public class CustomerManager : MonoBehaviour
     [SerializeField] GameObject[] malePrefabs;
     [SerializeField] GameObject[] femalePrefabs;
     [SerializeField] int instructionsSceneCustomer = 0;
-
+    [SerializeField] float customerLifeTime;
+    [SerializeField] GameObject timer;
     GameObject speechBubble_GO;
-    float customerLifeTime = 60;
+    
     List<string> ingredients = new List<string>();
+    float timerRemaining = 999;
     int difficultyLevel = 0;
     string[] currCustomerNames;
     int customerNumber = 0;
@@ -23,6 +26,9 @@ public class CustomerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        timerRemaining = customerLifeTime;
+      StartCoroutine(UpdateTimerText());
+
         if (instructionsSceneCustomer > 0)
         {
             switch (instructionsSceneCustomer)
@@ -39,6 +45,13 @@ public class CustomerManager : MonoBehaviour
             }
             PersistentGOManager.instance.AddData("Customer", transform.name + instructionsSceneCustomer.ToString() + ":" + GetInstanceID().ToString(), 1);
             PersistentGOManager.instance.AddData("Food Requested", transform.name + instructionsSceneCustomer.ToString() + ":" + GetInstanceID().ToString(), 1, CreateIngredientsString());
+        }
+    }
+     void Update()
+    {
+        if (timerRemaining > 0)
+        {
+            timerRemaining -= Time.deltaTime;
         }
     }
 
@@ -68,6 +81,7 @@ public class CustomerManager : MonoBehaviour
         customerLifeTime = custLife;
         InitializeFood(foodItem);
         StartCoroutine(CustomerLifeFunctions(foodItem));
+        
     }
 
     void InitializeFood(string foodItem)
@@ -181,6 +195,18 @@ public class CustomerManager : MonoBehaviour
         return true;
     }
 
+    IEnumerator UpdateTimerText() {
+        while (true)
+        {
+            float minutes = Mathf.FloorToInt(timerRemaining / 60);
+            float seconds = Mathf.FloorToInt(timerRemaining % 60);
+            timer.GetComponent<TextMeshProUGUI>().SetText(string.Format("{0:00}:{1:00}", minutes, seconds));
+            Debug.Log(timerRemaining);
+            yield return new WaitForSeconds(1f);
+        }
+        
+    }
+  
     public string CreateIngredientsString()
     {
         string ingredientString = "";
