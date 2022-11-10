@@ -465,6 +465,42 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 278080576}
     m_Modifications:
+    - target: {fileID: 1772524507972217319, guid: 877e830523fbe754c957791d26044dd7, type: 3}
+      propertyPath: location.y
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2195711948895483670, guid: 877e830523fbe754c957791d26044dd7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879256232634931649, guid: 877e830523fbe754c957791d26044dd7, type: 3}
+      propertyPath: onManipulationStarted.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879256232634931649, guid: 877e830523fbe754c957791d26044dd7, type: 3}
+      propertyPath: onManipulationStarted.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879256232634931649, guid: 877e830523fbe754c957791d26044dd7, type: 3}
+      propertyPath: onManipulationStarted.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2879256232634931649, guid: 877e830523fbe754c957791d26044dd7, type: 3}
+      propertyPath: onManipulationStarted.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: ObjectManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4420227490174382848, guid: 877e830523fbe754c957791d26044dd7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7051207466418558932, guid: 877e830523fbe754c957791d26044dd7, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7051207466418558932, guid: 877e830523fbe754c957791d26044dd7, type: 3}
+      propertyPath: m_Constraints
+      value: 126
+      objectReference: {fileID: 0}
     - target: {fileID: 8056244402672231699, guid: 877e830523fbe754c957791d26044dd7, type: 3}
       propertyPath: m_Name
       value: Coffee Cup Spawning Plate
@@ -2024,7 +2060,7 @@ GameObject:
   - component: {fileID: 1824789387}
   - component: {fileID: 1824789386}
   m_Layer: 0
-  m_Name: MixedRealityToolkit (Inactive)
+  m_Name: MixedRealityToolkit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 2204850734739059968}
   - component: {fileID: 330362425104370387}
   - component: {fileID: 2446965190478136614}
+  - component: {fileID: -385741858513114572}
   m_Layer: 0
   m_Name: CoffeeCup
   m_TagString: Coffee_Cup
@@ -181,7 +182,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &6424572905683672578
 MonoBehaviour:
@@ -309,11 +310,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdb8b2534e0b5fb4697415d0ebfdf8e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  location: {x: 0, y: 0, z: 0}
+  location: {x: 0, y: 0.1, z: 0}
   rotation: {x: -0.70710677, y: 0, z: 0, w: 0.70710677}
   scale: {x: 0, y: 0, z: 0}
   firePrefab: {fileID: 0}
   cookingStatus: Uncooked
+--- !u!114 &-385741858513114572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674746384106821702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa94a84d6f035b44a7abe087509ac57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  body: {fileID: 6392564532310211349}
 --- !u!1 &4868640720766502082
 GameObject:
   m_ObjectHideFlags: 0
