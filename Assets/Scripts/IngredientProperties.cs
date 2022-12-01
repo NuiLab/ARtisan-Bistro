@@ -105,6 +105,19 @@ public class IngredientProperties : MonoBehaviour
                 cookingStatus = "Uncooked";
                 break;
             case 1:
+                cookingStatus = "Cooked";
+                break;
+            case 2:
+                cookingStatus = "Burnt";
+                break;
+        }
+        /*
+        switch (x)
+        {
+            case 0:
+                cookingStatus = "Uncooked";
+                break;
+            case 1:
                 cookingStatus = "Partially Cooked";
                 break;
             case 2:
@@ -116,12 +129,12 @@ public class IngredientProperties : MonoBehaviour
             case 4:
                 cookingStatus = "Burnt";
                 break;
-        }
+        }*/
         if (cookingStatusEffectsObject != null)
             Destroy(cookingStatusEffectsObject);
         GameObject.FindWithTag("Global Records").GetComponent<Records>().SetCookingStatusEffects(x, transform.Find("Cooking Status").gameObject, foodItem);
 
-        if (x == 4)
+        if (x == 2) //if (x == 4)
         {
             // cookingStatusEffectsObject = Instantiate(transform.GetComponent<ObjectManager>().globalRecords_GO.GetComponent<Records>().GetCookingStatusEffects(x, foodItem));
             cookingStatusEffectsObject = Instantiate(GameObject.FindWithTag("Global Records").GetComponent<Records>().GetFirePrefab());

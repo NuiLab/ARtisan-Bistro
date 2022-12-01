@@ -45,6 +45,19 @@ public class CutletManager : MonoBehaviour
                         notifiText = "Uncooked";
                         break;
                     case 1:
+                        notifiText = "Cooked";
+                        break;
+                    case 2:
+                        notifiText = "Burnt";
+                        break;
+                }
+                /*
+                switch (prevQuotient)
+                {
+                    case 0:
+                        notifiText = "Uncooked";
+                        break;
+                    case 1:
                         notifiText = "Partially Cooked";
                         break;
                     case 2:
@@ -56,7 +69,7 @@ public class CutletManager : MonoBehaviour
                     case 4:
                         notifiText = "Burnt";
                         break;
-                }
+                }*/
                 if (globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().GetShowNotification())
                 {
                     switch (globalRecords_GO.GetComponent<Records>().GetNotificationType())

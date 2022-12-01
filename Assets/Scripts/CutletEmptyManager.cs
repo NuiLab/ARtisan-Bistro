@@ -27,6 +27,19 @@ public class CutletEmptyManager : MonoBehaviour
             case "Uncooked":
                 x = 0;
                 break;
+            case "Cooked":
+                x = 1;
+                break;
+            case "Burnt":
+                x = 2;
+                break;
+        }
+        /*
+        switch (cookingS)
+        {
+            case "Uncooked":
+                x = 0;
+                break;
             case "Partially Cooked":
                 x = 1;
                 break;
@@ -39,7 +52,7 @@ public class CutletEmptyManager : MonoBehaviour
             case "Burnt":
                 x = 4;
                 break;
-        }
+        }*/
         transform.GetComponent<IngredientProperties>().SetCookingStatus(x, "Burger");
         // transform.GetComponent<ObjectManager>().globalRecords_GO.GetComponent<Records>().SetCookingStatusEffects(x, cookingStatusObject, "Burger");
     }

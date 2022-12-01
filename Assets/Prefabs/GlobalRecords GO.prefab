@@ -70,15 +70,11 @@ MonoBehaviour:
   firePrefab: {fileID: 2588420543001007810, guid: 434278b6b425e73429d4b22946d1851f, type: 3}
   cookingStatusEffectsPizza:
   - {fileID: 2100000, guid: b822577634e6b7244a95d5389b9d259b, type: 2}
-  - {fileID: 2100000, guid: 8b3521a11892e6c44af19152abb52c7d, type: 2}
   - {fileID: 2100000, guid: d542e61b566204949beac87ddfa5d488, type: 2}
-  - {fileID: 2100000, guid: f511e267e91d20d49ba20addf56f6a7d, type: 2}
   - {fileID: 2100000, guid: 96eed08d9675af94e8cd6368df04898e, type: 2}
   cookingStatusEffectsBurger:
   - {fileID: 2100000, guid: 4dd02fdaff6e6b845a8631c650edd92a, type: 2}
-  - {fileID: 2100000, guid: 4907254d6e9fa8e47a99b388695a5c5c, type: 2}
   - {fileID: 2100000, guid: 2b45ea6fe0ab11c48aa6ab25da095919, type: 2}
-  - {fileID: 2100000, guid: e3d94e1c7ff8fe248a5d243179967536, type: 2}
   - {fileID: 2100000, guid: 7cead47f4afa12344bd4092c0689dc52, type: 2}
   selectablePizzaIngredientsMaterial:
   - {fileID: 2100000, guid: 9c1c72e5692e04b49a2dda20b3db004e, type: 2}

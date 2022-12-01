@@ -140,11 +140,11 @@ public class StudyInstructionsManager : MonoBehaviour
             "Note: The order of the ingredients presented should match the order requested by the customer.");
 
         instructions.Add("Burger Station\n\nThis is where you will find all ingredients to make a burger. A grill is present to the right of the ingredients. The grill is where you can put the beef patty to cook it. " +
-            "Beef patty has 5 stages of cooking: Uncooked, Partially Cooked, Cooked, Over Cooked, Burnt. \n\nNote: The customers will always request for Cooked beef patty.");
+            "Beef patty has 3 stages of cooking: Uncooked, Cooked, Burnt. \n\nNote: The customers will always request for Cooked beef patty.");
 
         instructions.Add("Pizza Station\n\nThis is where you will find all ingredients to make a pizza. An oven is present to the left of the ingredients. " +
             "After putting all the ingredients on the pizza you put the pizza in the oven to cook it. " +
-            "The pizza has 5 stages of cooking: Uncooked, Partially Cooked, Cooked, Over Cooked, Burnt. \n\nNote: The customers will always request for a cooked pizza.");
+            "The pizza has 3 stages of cooking: Uncooked, Cooked, Burnt. \n\nNote: The customers will always request for a cooked pizza.");
 
         instructions.Add("Coffee Station\n\nThis is where you will find a coffee machine and coffee cups. " +
             "When the coffee pot is placed in the coffee machine an indicator, displaying how many cups of coffee can be filled using current level of coffee, will be displayed to top left of the coffee machine. " +

@@ -38,6 +38,20 @@ public class OvenManager : MonoBehaviour
                         progressText_GO.GetComponent<TextMesh>().text = "Uncooked";
                         break;
                     case 1:
+                        progressText_GO.GetComponent<TextMesh>().text = "Cooked";
+                        break;
+                    case 2:
+                        progressText_GO.GetComponent<TextMesh>().text = "Burnt";
+                        cooking = false;
+                        break;
+                }
+                /*
+                switch (prevQuotient)
+                {
+                    case 0:
+                        progressText_GO.GetComponent<TextMesh>().text = "Uncooked";
+                        break;
+                    case 1:
                         progressText_GO.GetComponent<TextMesh>().text = "Partially Cooked";
                         break;
                     case 2:
@@ -50,7 +64,7 @@ public class OvenManager : MonoBehaviour
                         progressText_GO.GetComponent<TextMesh>().text = "Burnt";
                         cooking = false;
                         break;
-                }
+                }*/
                 if (globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().GetShowNotification())
                 {
                     switch (globalRecords_GO.GetComponent<Records>().GetNotificationType())
@@ -92,6 +106,19 @@ public class OvenManager : MonoBehaviour
                 case "Uncooked":
                     cookingProgress = 0;
                     break;
+                case "Cooked":
+                    cookingProgress = cookingSpeed * 1;
+                    break;
+                case "Burnt":
+                    cookingProgress = cookingSpeed * 2;
+                    break;
+            }
+            /*
+            switch (other.GetComponent<IngredientProperties>().GetCookingStatus())
+            {
+                case "Uncooked":
+                    cookingProgress = 0;
+                    break;
                 case "Partially Cooked":
                     cookingProgress = cookingSpeed * 1;
                     break;
@@ -104,7 +131,7 @@ public class OvenManager : MonoBehaviour
                 case "Burnt":
                     cookingProgress = cookingSpeed * 4;
                     break;
-            }
+            }*/
         }
         else if (other.CompareTag("Ingredient_Base") && other.gameObject.GetComponent<ObjectManager>().isGrabbed)
         {
