@@ -87,6 +87,8 @@ public class PersistentGOManager : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.I))
         {
             ShowInstructions(0);
+            StudyInstructionsManager.instance.SetInstructionsNumer(1);
+            // StudyInstructionsManager.instance.ResetInstructionNumber();
         }
     }
 
@@ -270,7 +272,7 @@ public class PersistentGOManager : MonoBehaviour
         {
             StudyBillboard.SetActive(true);
         }
-        StudyBillboard.GetComponent<StudyInstructionsManager>().SetNextInstruction(instructionNum);
+        StudyBillboard.GetComponentInParent<StudyInstructionsManager>().SetNextInstruction(instructionNum);
     }
 
     public GameObject GetStudyBillboard()

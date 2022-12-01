@@ -195,4 +195,9 @@ public class StudyInstructionsManager : MonoBehaviour
         instructionsNum = -1;
         transform.GetChild(0).gameObject.SetActive(false);
     }
+
+    public void SetInstructionsNumer(int instructionNumber)
+    {
+        instructionsNum = instructionNumber;
+    }
 }
