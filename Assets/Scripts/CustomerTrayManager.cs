@@ -1,3 +1,5 @@
+using Microsoft.MixedReality.Toolkit;
+using Microsoft.MixedReality.Toolkit.SceneSystem;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,16 +10,18 @@ public class CustomerTrayManager : MonoBehaviour
     int numObjects = 0;
     GameObject persistentGO;
     public CustomerManager cManager;
-    public GameObject records;
+    public GameObject records; 
+    IMixedRealitySceneSystem sceneSystem;
 
     // Start is called before the first frame update
     void Start()
     {
         records = GameObject.FindGameObjectsWithTag("Global Records")[0];
+        sceneSystem = MixedRealityToolkit.Instance.GetService<IMixedRealitySceneSystem>();
     }
 
     // Update is called once per frame
-  
+
     private void OnTriggerEnter(Collider other)
     {
         persistentGO = GameObject.FindGameObjectsWithTag("PersistentGO")[0];
@@ -35,8 +39,11 @@ public class CustomerTrayManager : MonoBehaviour
                 {
                     persistentGO.GetComponent<PersistentGOManager>().AddData("Food Served", "Correct Food", 2, CreateIngredientsString(other.gameObject));
                     transform.parent.transform.GetComponentInParent<ServingStationManager>().RemoveCustomer(transform.parent.gameObject);
-                    records.GetComponent<Records>().score += cManager.timerRemaining;
-                    records.GetComponent<Records>().scoreboard.GetComponent<TextMeshProUGUI>().SetText("Score: " + records.GetComponent<Records>().score);
+                    if (!sceneSystem.IsContentLoaded("Instructions Scene"))
+                    {
+                        records.GetComponent<Records>().score += cManager.timerRemaining;
+                        records.GetComponent<Records>().scoreboard.GetComponent<TextMeshProUGUI>().SetText("Score: " + records.GetComponent<Records>().score);
+                    }
                     Destroy(other.gameObject);
                     Destroy(transform.parent.gameObject);
                 }

@@ -16,6 +16,7 @@ public class OvenManager : MonoBehaviour
     GameObject food;
     GameObject notification_GO;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -105,6 +106,7 @@ public class OvenManager : MonoBehaviour
             {
                 case "Uncooked":
                     cookingProgress = 0;
+                    prevQuotient = 0;
                     break;
                 case "Cooked":
                     cookingProgress = cookingSpeed * 1;

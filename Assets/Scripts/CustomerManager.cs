@@ -185,7 +185,13 @@ public class CustomerManager : MonoBehaviour
         }
         if (preparedFood[0] == "Burger Bread Down")
         {
-            if (objectT.transform.GetChild(2).GetComponentInChildren<IngredientProperties>().GetCookingStatus() != "Cooked")
+            int cutletLoc = 0;
+            for (int i = 2; i < objectT.transform.childCount; i++)
+            {
+                if (objectT.transform.GetChild(i).name.Contains("Cutlet B"))
+                    cutletLoc = i - 1;
+            }
+            if (objectT.transform.Find("Cutlet B Empty " + cutletLoc).GetComponentInChildren<IngredientProperties>().GetCookingStatus() != "Cooked")
                 return false;
         }
         if (preparedFood[0] == "Dough Ketchup")

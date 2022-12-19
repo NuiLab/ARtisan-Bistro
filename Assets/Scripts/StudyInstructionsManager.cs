@@ -96,7 +96,7 @@ public class StudyInstructionsManager : MonoBehaviour
             "After completing each task press the right arrow to go to the next instruction. \n\n" +
             "There will be 3 customers each asking for different food item. You will have all the time you need to present them the food item they requested. " +
             "After preparing the food place it on the tray in front of the customer. If the food item is wrong, there will be a text stating it. If the food item is correct the customer will leave. \n\n" +
-            "Once you are done serving all customers you can press the next button on the last instruction (located at the left of trash can) to start the actual experiment.");
+            "Once you are done serving all customers, you can press the next button on the last instruction (located at the left of trash can) to start the actual experiment.");
 
         sceneInstructions.Add("NoD_WS Scene", "In this section you will be presented with a Dock where all the notifications will be stored. " +
             "You can think of this dock similar to how notifications are displayed on your phone when you swipe down. " +
@@ -136,8 +136,7 @@ public class StudyInstructionsManager : MonoBehaviour
 
         instructions.Add("Customer Station\n\nCustomers will appear at this station. Each customer will have a request for a food item. " +
             "This will be represented in a speech bubble top right of the customer. The images will display the ingredients for the food item in order. \n\n" +
-            "You have a limited amount of time to present the food item to the customer or else they'll leave. The order of the food item requested will be random. \n\n" +
-            "Note: The order of the ingredients presented should match the order requested by the customer.");
+            "You have a limited amount of time to present the food item to the customer or else they'll leave. The order of the food item requested will be random.");
 
         instructions.Add("Burger Station\n\nThis is where you will find all ingredients to make a burger. A grill is present to the right of the ingredients. The grill is where you can put the beef patty to cook it. " +
             "Beef patty has 3 stages of cooking: Uncooked, Cooked, Burnt. \n\nNote: The customers will always request for Cooked beef patty.");

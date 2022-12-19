@@ -326,7 +326,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &737982272
 Transform:
   m_ObjectHideFlags: 0
@@ -1425,6 +1425,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 1168392446}
     m_Modifications:
+    - target: {fileID: 681524516, guid: febc95a75ac190f4ab76909b3be2f542, type: 3}
+      propertyPath: m_text
+      value: 'Score:'
+      objectReference: {fileID: 0}
     - target: {fileID: 485836186264200169, guid: febc95a75ac190f4ab76909b3be2f542, type: 3}
       propertyPath: globalRecords_GO
       value: 
@@ -1481,10 +1485,22 @@ PrefabInstance:
       propertyPath: globalRecords_GO
       value: 
       objectReference: {fileID: 977751431}
+    - target: {fileID: 3332426837792118233, guid: febc95a75ac190f4ab76909b3be2f542, type: 3}
+      propertyPath: constraintsManager
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4939266691938856237, guid: febc95a75ac190f4ab76909b3be2f542, type: 3}
       propertyPath: globalRecords_GO
       value: 
       objectReference: {fileID: 977751431}
+    - target: {fileID: 5195554174979817095, guid: febc95a75ac190f4ab76909b3be2f542, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.23400003
+      objectReference: {fileID: 0}
+    - target: {fileID: 5195554174979817095, guid: febc95a75ac190f4ab76909b3be2f542, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.37700003
+      objectReference: {fileID: 0}
     - target: {fileID: 6571713048700345184, guid: febc95a75ac190f4ab76909b3be2f542, type: 3}
       propertyPath: playArea
       value: 
