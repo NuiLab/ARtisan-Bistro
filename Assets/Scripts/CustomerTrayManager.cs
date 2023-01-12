@@ -12,6 +12,10 @@ public class CustomerTrayManager : MonoBehaviour
     public CustomerManager cManager;
     public GameObject records; 
     IMixedRealitySceneSystem sceneSystem;
+    [SerializeField]
+     AudioSource correct;
+    [SerializeField]
+    AudioSource wrong;
 
     // Start is called before the first frame update
     void Start()
@@ -45,7 +49,10 @@ public class CustomerTrayManager : MonoBehaviour
                         records.GetComponent<Records>().scoreboard.GetComponent<TextMeshProUGUI>().SetText("Score: " + records.GetComponent<Records>().score);
                     }
                     Destroy(other.gameObject);
-                    Destroy(transform.parent.gameObject);
+                    // Destroy(transform.parent.gameObject);
+                    AudioSource audio = GetComponent<AudioSource>();
+                    audio.Play();
+                    StartCoroutine(CustomerLeave());
                 }
                 else
                 {
@@ -123,5 +130,11 @@ public class CustomerTrayManager : MonoBehaviour
             }
         }
         return "[" + preparedFood + "]";
+    }
+
+    IEnumerator CustomerLeave() {
+       
+        yield return new WaitForSeconds(2f);
+        Destroy(transform.parent.gameObject);
     }
 }
