@@ -18,7 +18,7 @@ public class CustomerManager : MonoBehaviour
     GameObject speechBubble_GO;
    
     
-    List<string> ingredients = new List<string>();
+    List<string> ingredients = new List<string>(); // this is the list of ingredients the customer wants
     public float timerRemaining;
     int difficultyLevel = 0;
     string[] currCustomerNames;
