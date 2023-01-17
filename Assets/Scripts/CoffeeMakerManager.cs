@@ -60,20 +60,20 @@ public class CoffeeMakerManager : MonoBehaviour
                     case 0:
                         if (notification_GO != null)
                             Destroy(notification_GO);
-                        notification_GO = globalRecords_GO.GetComponent<Records>().AddNotificationOnObject("Coffee", "Coffee cup added", transform.GetInstanceID());
-                        notification_GO.GetComponent<NotificationManager>().SetNotificationProperties("Coffee", "Coffee cup added", transform.gameObject, new Vector3(0, 0.25f, 0), scale: new Vector3(1.7f, 1.7f, 0.566666667f));
+                        notification_GO = globalRecords_GO.GetComponent<Records>().AddNotificationOnObject("Kaffee", "Kaffee Becher hinzugefügt", transform.GetInstanceID());
+                        notification_GO.GetComponent<NotificationManager>().SetNotificationProperties("Kaffee", "Kaffee Becher hinzugefügt", transform.gameObject, new Vector3(0, 0.25f, 0), scale: new Vector3(1.7f, 1.7f, 0.566666667f));
                         break;
                     case 1:
-                        globalRecords_GO.GetComponent<Records>().AddNotificationOnDock("Coffee", "Coffee cup added", transform.GetInstanceID());
+                        globalRecords_GO.GetComponent<Records>().AddNotificationOnDock("Kaffee", "Kaffee Becher hinzugefügt", transform.GetInstanceID());
                         break;
                     case 2:
-                        globalRecords_GO.GetComponent<Records>().AddNotificationOnViewport("Coffee", "Coffee cup added", transform.GetInstanceID());
+                        globalRecords_GO.GetComponent<Records>().AddNotificationOnViewport("Kaffee", "Kaffee Becher hinzugefügt", transform.GetInstanceID());
                         break;
                 }
             }
             if (globalRecords_GO.GetComponent<Records>().GetNotificationType() == 3 && PersistentGOManager.instance.GetNotificationSound())
             {
-                PersistentGOManager.instance.GetComponent<PersistentGOManager>().AddData("Notification", "Coffee cup added" + ":" + transform.GetInstanceID().ToString(), 1);
+                PersistentGOManager.instance.GetComponent<PersistentGOManager>().AddData("Notification", "Kaffee Becher hinzugefügt" + ":" + transform.GetInstanceID().ToString(), 1);
                 Camera.main.transform.GetComponent<AudioSource>().Play();
             }
         }

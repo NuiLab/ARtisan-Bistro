@@ -31,7 +31,7 @@ public class CutletManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.GetComponent<IngredientProperties>().GetCookingStatus() != "Burnt" && cookingState)
+        if (transform.GetComponent<IngredientProperties>().GetCookingStatus() != "Verbrannt" && cookingState)
         {
             cookingProgress += Time.deltaTime;
             if (cookingProgress / cookingSpeed > prevQuotient + 1)
@@ -42,13 +42,13 @@ public class CutletManager : MonoBehaviour
                 switch (prevQuotient)
                 {
                     case 0:
-                        notifiText = "Uncooked";
+                        notifiText = "Roh";
                         break;
                     case 1:
-                        notifiText = "Cooked";
+                        notifiText = "Fertig";
                         break;
                     case 2:
-                        notifiText = "Burnt";
+                        notifiText = "Verbrannt";
                         break;
                 }
                 /*

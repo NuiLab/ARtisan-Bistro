@@ -16,8 +16,8 @@ public class CustomerManager : MonoBehaviour
     [SerializeField] float customerLifeTime;
     [SerializeField] GameObject timer;
     GameObject speechBubble_GO;
-   
-    
+
+
     List<string> ingredients = new List<string>(); // this is the list of ingredients the customer wants
     public float timerRemaining;
     int difficultyLevel = 0;
@@ -28,7 +28,7 @@ public class CustomerManager : MonoBehaviour
     void Start()
     {
         timerRemaining = customerLifeTime;
-      StartCoroutine(UpdateTimerText());
+        StartCoroutine(UpdateTimerText());
 
         if (instructionsSceneCustomer > 0)
         {
@@ -48,12 +48,49 @@ public class CustomerManager : MonoBehaviour
             PersistentGOManager.instance.AddData("Food Requested", transform.name + instructionsSceneCustomer.ToString() + ":" + GetInstanceID().ToString(), 1, CreateIngredientsString());
         }
     }
-     void Update()
+    void Update()
     {
         if (timerRemaining > 0)
         {
             timerRemaining -= Time.deltaTime;
         }
+        Debug.Log(translateIngredients(ingredients));
+    }
+
+    public static string translateIngredients(List<string> ingredients)
+    {
+        Dictionary<string, string> translations = new Dictionary<string, string>()
+        {
+            { "CoffeeCup", "1 Becher Kaffee" },
+            { "Dough Ketchup", "Pizzateig" },
+            { "Pepperoni Layer", "Salami" },
+            { "Pepper Green Layer", "Paprika" },
+            { "Olive Black Slice Layer", "Oliven" },
+            { "Mushroom Slice Layer", "Pilze" },
+            { "Basil Leaf Layer", "Basilikum" },
+            { "Burger Bread Down", "Brötchenboden" },
+            { "Burger Bread Up", "Brötchendeckel" },
+            { "Cutlet B", "Fleisch" },
+            { "Bacon Slice", "Speck" },
+            { "Cheese Slice A", "Käse" },
+            { "Onion Slice", "Zwiebeln" },
+            { "Tomato Slice", "Tomate" },
+            { "Salad Slice", "Salat" }
+        };
+
+        List<string> germanIngredients = new List<string>();
+        for (int i = 0; i < ingredients.Count; i++)
+        {
+            if (translations.ContainsKey(ingredients[i]))
+            {
+                germanIngredients.Add(translations[ingredients[i]]);
+            }
+            else
+            {
+                germanIngredients.Add("Unbekanntes Ingredienz");
+            }
+        }
+        return string.Join(", ", germanIngredients);
     }
 
     private void OnDestroy()
@@ -82,7 +119,7 @@ public class CustomerManager : MonoBehaviour
         customerLifeTime = custLife;
         InitializeFood(foodItem);
         StartCoroutine(CustomerLifeFunctions(foodItem));
-        
+
     }
 
     void InitializeFood(string foodItem)
@@ -100,7 +137,12 @@ public class CustomerManager : MonoBehaviour
                 break;
         }
     }
-
+ /*
+    CreatePizza: This code creates a list of ingredients for a pizza by randomly selecting ingredients from a 
+    predefined list, and adding them to the ingredients list, while making sure that the same ingredient is 
+    not added twice, and the dough ketchup is always present. 
+    The number of ingredients added to the list is based on the value of the difficultyLevel variable.
+*/
     void CreatePizza()
     {
         string[] tmpArray = new string[] { "Dough Ketchup", "Pepperoni Layer", "Pepper Green Layer", "Olive Black Slice Layer", "Mushroom Slice Layer", "Basil Leaf Layer" };
@@ -115,6 +157,7 @@ public class CustomerManager : MonoBehaviour
         }
     }
 
+   
     void CreateBurger()
     {
         string[] tmpArray = new string[] { "Burger Bread Down", "Burger Bread Up", "Cutlet B", "Bacon Slice", "Cheese Slice A", "Onion Slice", "Tomato Slice", "Salad Slice" };
@@ -202,7 +245,8 @@ public class CustomerManager : MonoBehaviour
         return true;
     }
 
-    IEnumerator UpdateTimerText() {
+    IEnumerator UpdateTimerText()
+    {
         while (true)
         {
             float minutes = Mathf.FloorToInt(timerRemaining / 60);
@@ -210,9 +254,9 @@ public class CustomerManager : MonoBehaviour
             timer.GetComponent<TextMeshProUGUI>().SetText(string.Format("{0:00}:{1:00}", minutes, seconds));
             yield return new WaitForSeconds(1f);
         }
-        
+
     }
-  
+
     public string CreateIngredientsString()
     {
         string ingredientString = "";

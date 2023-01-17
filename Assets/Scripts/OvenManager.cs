@@ -29,7 +29,7 @@ public class OvenManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (cooking && food.GetComponent<IngredientProperties>().GetCookingStatus() != "Burnt")
+        if (cooking && food.GetComponent<IngredientProperties>().GetCookingStatus() != "Verbrannt")
         {
             cookingProgress += Time.deltaTime;
             if (cookingProgress / cookingSpeed > prevQuotient + 1)
@@ -39,13 +39,13 @@ public class OvenManager : MonoBehaviour
                 switch (prevQuotient)
                 {
                     case 0:
-                        progressText_GO.GetComponent<TextMesh>().text = "Uncooked";
+                        progressText_GO.GetComponent<TextMesh>().text = "Roh";
                         break;
                     case 1:
-                        progressText_GO.GetComponent<TextMesh>().text = "Cooked";
+                        progressText_GO.GetComponent<TextMesh>().text = "Fertig";
                         break;
                     case 2:
-                        progressText_GO.GetComponent<TextMesh>().text = "Burnt";
+                        progressText_GO.GetComponent<TextMesh>().text = "Verbrannt";
                         cooking = false;
                         break;
                 }
@@ -108,14 +108,14 @@ public class OvenManager : MonoBehaviour
             progressText_GO.GetComponent<TextMesh>().text = other.GetComponent<IngredientProperties>().GetCookingStatus();
             switch (other.GetComponent<IngredientProperties>().GetCookingStatus())
             {
-                case "Uncooked":
+                case "Roh":
                     cookingProgress = 0;
                     prevQuotient = 0;
                     break;
-                case "Cooked":
+                case "Fertig":
                     cookingProgress = cookingSpeed * 1;
                     break;
-                case "Burnt":
+                case "Verbrannt":
                     cookingProgress = cookingSpeed * 2;
                     break;
             }
