@@ -300,6 +300,9 @@ MonoBehaviour:
   cookingSpeed: 10
   progressText_GO: {fileID: 7086659081040218359}
   globalRecords_GO: {fileID: 0}
+  statusLight: {fileID: 5887290450477781876}
+  off: {fileID: 2100000, guid: d3a2a538c0f7e1b45be904c3d17ddf42, type: 2}
+  on: {fileID: 2100000, guid: 720d3ca22d1ed3d4dac344325fe94ecf, type: 2}
 --- !u!1 &7086659081040218359
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,5 +557,10 @@ PrefabInstance:
 --- !u!4 &5453869015846900618 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4342131284383539033, guid: c40dd7737627e2d43aaed533e25c4f57, type: 3}
+  m_PrefabInstance: {fileID: 8643060367898627283}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5887290450477781876 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2756637160640470951, guid: c40dd7737627e2d43aaed533e25c4f57, type: 3}
   m_PrefabInstance: {fileID: 8643060367898627283}
   m_PrefabAsset: {fileID: 0}

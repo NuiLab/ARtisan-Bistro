@@ -389,6 +389,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cookingSpeed: 10
+  statusLight: {fileID: 642012773167087034}
+  off: {fileID: 2100000, guid: d3a2a538c0f7e1b45be904c3d17ddf42, type: 2}
+  on: {fileID: 2100000, guid: 720d3ca22d1ed3d4dac344325fe94ecf, type: 2}
 --- !u!1 &8712330647688997002
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,6 +661,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: c40dd7737627e2d43aaed533e25c4f57, type: 3}
+--- !u!1 &642012773167087034 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2756637160640470951, guid: c40dd7737627e2d43aaed533e25c4f57, type: 3}
+  m_PrefabInstance: {fileID: 3362334953302843933}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1363236873114516804 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4342131284383539033, guid: c40dd7737627e2d43aaed533e25c4f57, type: 3}

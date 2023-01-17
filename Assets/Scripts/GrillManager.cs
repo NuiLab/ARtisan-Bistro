@@ -13,6 +13,7 @@ public class GrillManager : MonoBehaviour
     // Dictionary<int, Cutlets> cookingCutlets = new Dictionary<int, Cutlets>();
     List<string> cutletNames = new List<string>();
     int prevQuotient;
+    [SerializeField] GameObject statusLight;
 
 
     // Start is called before the first frame update
@@ -30,6 +31,7 @@ public class GrillManager : MonoBehaviour
         {
             if (other.GetComponent<IngredientProperties>().GetPrefabName() == "Cutlet B" && !other.gameObject.GetComponent<ObjectManager>().isGrabbed)
             {
+                statusLight.GetComponent<StatusLight>().setOn();
                 if (cutletNames.Count == 0)
                 {
                     cutletNames.Add(other.name);
@@ -60,5 +62,10 @@ public class GrillManager : MonoBehaviour
                 }
             }
         }
+        if (cutletNames.Count == 0)
+        {
+            statusLight.GetComponent<StatusLight>().setOff();
+        }
+
     }
 }

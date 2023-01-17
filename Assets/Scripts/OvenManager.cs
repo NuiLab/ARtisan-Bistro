@@ -9,6 +9,9 @@ public class OvenManager : MonoBehaviour
     [SerializeField] float cookingSpeed;
     [SerializeField] GameObject progressText_GO;
     [SerializeField] GameObject globalRecords_GO;
+    [SerializeField] GameObject statusLight;
+    [SerializeField] Material off;
+    [SerializeField] Material on;
 
     bool cooking = false;
     float cookingProgress = 0;
@@ -97,6 +100,7 @@ public class OvenManager : MonoBehaviour
     {
         if (other.CompareTag("Ingredient_Base") && !other.gameObject.GetComponent<ObjectManager>().isGrabbed && !cooking)
         {
+            statusLight.GetComponent<StatusLight>().setOn();
             food = other.gameObject;
             other.transform.position = pizzaPos.transform.position;
             other.transform.rotation = Quaternion.identity;
@@ -145,6 +149,7 @@ public class OvenManager : MonoBehaviour
     {
         if (other.CompareTag("Ingredient_Base") && other.gameObject.GetComponent<ObjectManager>().isGrabbed)
         {
+            statusLight.GetComponent<StatusLight>().setOff();
             other.transform.GetChild(1).gameObject.SetActive(false);
             progressText_GO.GetComponent<TextMesh>().text = "Place Food";
             if (notification_GO != null)

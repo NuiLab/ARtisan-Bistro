@@ -14,6 +14,9 @@ public class CoffeeMakerManager : MonoBehaviour
     [SerializeField] float coffeeFillRate = 2;
     [SerializeField] float maxCoffeeLevel = 0.05f;
     [SerializeField] GameObject globalRecords_GO;
+    [SerializeField] GameObject statusLight;
+
+
 
     bool coffeeMakerOn = false;
     Renderer rend;
@@ -32,6 +35,11 @@ public class CoffeeMakerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (coffeeMakerOn)
+            statusLight.GetComponent<StatusLight>().setOn();
+        else     
+            statusLight.GetComponent<StatusLight>().setOff();
+        
         if (coffeeMakerOn && coffeeLevel < maxCoffeeLevel && transform.GetChild(1).GetComponent<CoffeePotManager>().GetPlaced())
         {
             coffeeLevel += coffeeFillRate * 0.001f * Time.deltaTime;
