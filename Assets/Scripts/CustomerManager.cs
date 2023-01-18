@@ -18,7 +18,7 @@ public class CustomerManager : MonoBehaviour
     GameObject speechBubble_GO;
 
 
-    List<string> ingredients = new List<string>(); // this is the list of ingredients the customer wants
+    public List<string> ingredients = new List<string>(); // this is the list of ingredients the customer wants
     public float timerRemaining;
     int difficultyLevel = 0;
     string[] currCustomerNames;
@@ -54,7 +54,7 @@ public class CustomerManager : MonoBehaviour
         {
             timerRemaining -= Time.deltaTime;
         }
-        Debug.Log(translateIngredients(ingredients));
+
     }
 
     public static string translateIngredients(List<string> ingredients)
@@ -99,13 +99,13 @@ public class CustomerManager : MonoBehaviour
     }
 
     private IEnumerator CustomerLifeFunctions(string foodItem)
-    {
+    {   /*
         speechBubble_GO = Instantiate(speechBubble);
         speechBubble_GO.transform.parent = transform;
         speechBubble_GO.transform.localPosition = speechBubblePos.transform.localPosition;
         speechBubble_GO.GetComponent<SpeechBubbleManager>().SetContent(ingredients, foodItem);
-        speechBubble_GO.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
-        InitializeMesh();
+        speechBubble_GO.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f); 
+        InitializeMesh();*/
         yield return new WaitForSeconds(customerLifeTime);
         transform.GetComponentInParent<ServingStationManager>().RemoveCustomer(transform.gameObject);
         Destroy(gameObject);
@@ -113,6 +113,7 @@ public class CustomerManager : MonoBehaviour
 
     public void CreateCustomer(float custLife, string foodItem, int custPos, string[] customerNames, int custNum)
     {
+        InitializeMesh();
         // difficultyLevel = custPos;                      // For testing.
         customerNumber = custNum;
         currCustomerNames = customerNames;
@@ -137,12 +138,12 @@ public class CustomerManager : MonoBehaviour
                 break;
         }
     }
- /*
-    CreatePizza: This code creates a list of ingredients for a pizza by randomly selecting ingredients from a 
-    predefined list, and adding them to the ingredients list, while making sure that the same ingredient is 
-    not added twice, and the dough ketchup is always present. 
-    The number of ingredients added to the list is based on the value of the difficultyLevel variable.
-*/
+    /*
+       CreatePizza: This code creates a list of ingredients for a pizza by randomly selecting ingredients from a 
+       predefined list, and adding them to the ingredients list, while making sure that the same ingredient is 
+       not added twice, and the dough ketchup is always present. 
+       The number of ingredients added to the list is based on the value of the difficultyLevel variable.
+   */
     void CreatePizza()
     {
         string[] tmpArray = new string[] { "Dough Ketchup", "Pepperoni Layer", "Pepper Green Layer", "Olive Black Slice Layer", "Mushroom Slice Layer", "Basil Leaf Layer" };
@@ -157,7 +158,7 @@ public class CustomerManager : MonoBehaviour
         }
     }
 
-   
+
     void CreateBurger()
     {
         string[] tmpArray = new string[] { "Burger Bread Down", "Burger Bread Up", "Cutlet B", "Bacon Slice", "Cheese Slice A", "Onion Slice", "Tomato Slice", "Salad Slice" };
