@@ -99,13 +99,13 @@ public class CustomerManager : MonoBehaviour
     }
 
     private IEnumerator CustomerLifeFunctions(string foodItem)
-    {   /*
+    {   
         speechBubble_GO = Instantiate(speechBubble);
         speechBubble_GO.transform.parent = transform;
         speechBubble_GO.transform.localPosition = speechBubblePos.transform.localPosition;
         speechBubble_GO.GetComponent<SpeechBubbleManager>().SetContent(ingredients, foodItem);
         speechBubble_GO.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f); 
-        InitializeMesh();*/
+        InitializeMesh();
         yield return new WaitForSeconds(customerLifeTime);
         transform.GetComponentInParent<ServingStationManager>().RemoveCustomer(transform.gameObject);
         Destroy(gameObject);
@@ -113,7 +113,6 @@ public class CustomerManager : MonoBehaviour
 
     public void CreateCustomer(float custLife, string foodItem, int custPos, string[] customerNames, int custNum)
     {
-        InitializeMesh();
         // difficultyLevel = custPos;                      // For testing.
         customerNumber = custNum;
         currCustomerNames = customerNames;
