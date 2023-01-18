@@ -32,6 +32,7 @@ public class Notification : MonoBehaviour
     public GameObject button;
     public MeshRenderer buttonText;
     public List<GameObject> closeButtons = new List<GameObject>(3);
+    int stage = 1;
     public enum myEnum // your custom enumeration
     {
         Eye = 0,
@@ -98,6 +99,7 @@ public class Notification : MonoBehaviour
         title.text = titleText;
         content.text = contentText;
         icon.text = iconText;
+        // iconText is like "\uE84D". Person is "\e7df", burger is e57a, pizza e552, coffee efef, cofee maker eff0, grill ea47, oven e843
     }
     void setTransparent()
     {
@@ -215,6 +217,23 @@ public class Notification : MonoBehaviour
                 break;
             case "Voice":
                 closeButtons[2].SetActive(true);
+                break;
+        }
+    }
+    public void nextStage()
+    {
+        switch (stage)
+        {
+            case 1:
+                stage++;
+                break;
+            case 2:
+                stage++;
+                break;
+            case 3:
+                Destroy(this.transform.gameObject);
+                break;
+            default:
                 break;
         }
     }
