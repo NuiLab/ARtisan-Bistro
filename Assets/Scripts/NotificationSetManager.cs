@@ -96,7 +96,7 @@ public class NotificationSetManager : MonoBehaviour
         notifications.Add(notificationTxt);
         stations.Add(stationTxt);
     }
-
+    
     IEnumerator CreateNotification(float duration)
     {
         yield return new WaitForSeconds(duration);

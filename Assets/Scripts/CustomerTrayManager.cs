@@ -10,10 +10,10 @@ public class CustomerTrayManager : MonoBehaviour
     int numObjects = 0;
     GameObject persistentGO;
     public CustomerManager cManager;
-    public GameObject records; 
+    public GameObject records;
     IMixedRealitySceneSystem sceneSystem;
     [SerializeField]
-     AudioSource correct;
+    AudioSource correct;
     [SerializeField]
     AudioSource wrong;
 
@@ -34,42 +34,45 @@ public class CustomerTrayManager : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Coffee_Cup") || other.CompareTag("Ingredient_Base"))
+        if (cManager.completedOrder)
         {
-            if (!other.GetComponent<ObjectManager>().isGrabbed)
+            if (other.CompareTag("Coffee_Cup") || other.CompareTag("Ingredient_Base"))
             {
-                List<string> preparedFood = CreateIngredientsList(other.gameObject);
-                if (transform.parent.GetComponent<CustomerManager>().CheckIndredients(preparedFood, other.gameObject))
+                if (!other.GetComponent<ObjectManager>().isGrabbed)
                 {
-                    persistentGO.GetComponent<PersistentGOManager>().AddData("Food Served", "Correct Food", 2, CreateIngredientsString(other.gameObject));
-                    transform.parent.transform.GetComponentInParent<ServingStationManager>().RemoveCustomer(transform.parent.gameObject);
-                    if (!sceneSystem.IsContentLoaded("Instructions Scene"))
+                    List<string> preparedFood = CreateIngredientsList(other.gameObject);
+                    if (transform.parent.GetComponent<CustomerManager>().CheckIndredients(preparedFood, other.gameObject))
                     {
-                        records.GetComponent<Records>().score += cManager.timerRemaining;
-                        records.GetComponent<Records>().scoreboard.GetComponent<TextMeshProUGUI>().SetText("Score: " + records.GetComponent<Records>().score);
+                        persistentGO.GetComponent<PersistentGOManager>().AddData("Food Served", "Correct Food", 2, CreateIngredientsString(other.gameObject));
+                        transform.parent.transform.GetComponentInParent<ServingStationManager>().RemoveCustomer(transform.parent.gameObject);
+                        if (!sceneSystem.IsContentLoaded("Instructions Scene"))
+                        {
+                            records.GetComponent<Records>().score += cManager.timerRemaining;
+                            records.GetComponent<Records>().scoreboard.GetComponent<TextMeshProUGUI>().SetText("Score: " + records.GetComponent<Records>().score);
+                        }
+                        Destroy(other.gameObject);
+                        // Destroy(transform.parent.gameObject);
+                        AudioSource audio = GetComponent<AudioSource>();
+                        audio.Play();
+                        StartCoroutine(CustomerLeave());
                     }
-                    Destroy(other.gameObject);
-                    // Destroy(transform.parent.gameObject);
-                    AudioSource audio = GetComponent<AudioSource>();
-                    audio.Play();
-                    StartCoroutine(CustomerLeave());
-                }
-                else
-                {
-                    if (!transform.GetChild(0).gameObject.activeSelf)
+                    else
                     {
-                        persistentGO.GetComponent<PersistentGOManager>().AddData("Food Served", "Wrong Food", 2, CreateIngredientsString(other.gameObject));
-                        transform.GetChild(0).gameObject.SetActive(true);
+                        if (!transform.GetChild(0).gameObject.activeSelf)
+                        {
+                            persistentGO.GetComponent<PersistentGOManager>().AddData("Food Served", "Wrong Food", 2, CreateIngredientsString(other.gameObject));
+                            transform.GetChild(0).gameObject.SetActive(true);
+                        }
                     }
                 }
             }
-        }
-        else
-        {
-            if (!transform.GetChild(0).gameObject.activeSelf)
+            else
             {
-                persistentGO.GetComponent<PersistentGOManager>().AddData("Food Served", "Not Food", 2);
-                transform.GetChild(0).gameObject.SetActive(true);
+                if (!transform.GetChild(0).gameObject.activeSelf)
+                {
+                    persistentGO.GetComponent<PersistentGOManager>().AddData("Food Served", "Not Food", 2);
+                    transform.GetChild(0).gameObject.SetActive(true);
+                }
             }
         }
     }
@@ -90,7 +93,7 @@ public class CustomerTrayManager : MonoBehaviour
         if (preparedFood[0] == "CoffeeCup")
             return preparedFood;
 
-        if(preparedFood[0] == "Dough Ketchup")
+        if (preparedFood[0] == "Dough Ketchup")
         {
             for (int i = 3; i < foodItem.transform.childCount; i++)
             {
@@ -98,7 +101,7 @@ public class CustomerTrayManager : MonoBehaviour
             }
         }
 
-        if(preparedFood[0] == "Burger Bread Down")
+        if (preparedFood[0] == "Burger Bread Down")
         {
             for (int i = 2; i < foodItem.transform.childCount; i++)
             {
@@ -114,7 +117,7 @@ public class CustomerTrayManager : MonoBehaviour
         if (preparedFood == "CoffeeCup")
             return "[" + preparedFood + "]";
 
-        if(preparedFood == "Dough Ketchup")
+        if (preparedFood == "Dough Ketchup")
         {
             for (int i = 3; i < foodItem.transform.childCount; i++)
             {
@@ -132,8 +135,9 @@ public class CustomerTrayManager : MonoBehaviour
         return "[" + preparedFood + "]";
     }
 
-    IEnumerator CustomerLeave() {
-       
+    IEnumerator CustomerLeave()
+    {
+
         yield return new WaitForSeconds(2f);
         Destroy(transform.parent.gameObject);
     }

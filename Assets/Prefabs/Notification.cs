@@ -39,6 +39,7 @@ public class Notification : MonoBehaviour
         Touch = 1,
         Voice = 2
     };
+    public GameObject customer;
 
 
     void Awake()
@@ -64,12 +65,12 @@ public class Notification : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void Dismiss()
+    public void Dismiss(float delay = 0f)
     {
-        StartCoroutine(DismissCR());
+        StartCoroutine(DismissCR(delay));
     }
-    public IEnumerator DismissCR()
-    {
+    public IEnumerator DismissCR(float delay = 0f)
+    {   yield return new WaitForSeconds(delay);
         StartCoroutine(FadeOutObject());
         yield return new WaitForSeconds(1f);
         dockGrid.UpdateCollection();
@@ -226,9 +227,13 @@ public class Notification : MonoBehaviour
         {
             case 1:
                 stage++;
+                string tempContent = customer.GetComponent<CustomerManager>().translateIngredients();
+                ReceiveInput(this.title.text,tempContent,this.icon.text);
                 break;
             case 2:
-                stage++;
+                customer.GetComponent<CustomerManager>().completedOrder = true;
+                ReceiveInput(this.title.text,"Bestellung fertig","\\e5ca");
+                Dismiss(2f);
                 break;
             case 3:
                 Destroy(this.transform.gameObject);

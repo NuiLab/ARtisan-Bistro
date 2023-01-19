@@ -23,6 +23,7 @@ public class CustomerManager : MonoBehaviour
     int difficultyLevel = 0;
     string[] currCustomerNames;
     int customerNumber = 0;
+    public bool completedOrder= false;
 
     // Start is called before the first frame update
     void Start()
@@ -57,7 +58,7 @@ public class CustomerManager : MonoBehaviour
 
     }
 
-    public static string translateIngredients(List<string> ingredients)
+    public string translateIngredients()
     {
         Dictionary<string, string> translations = new Dictionary<string, string>()
         {
@@ -87,7 +88,7 @@ public class CustomerManager : MonoBehaviour
             }
             else
             {
-                germanIngredients.Add("Unbekanntes Ingredienz");
+                germanIngredients.Add("Unbekannte Zutat");
             }
         }
         return string.Join(", ", germanIngredients);
