@@ -3655,10 +3655,10 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4294967295
   m_fontSize: 19.05
-  m_fontSizeBase: 20
+  m_fontSizeBase: 5
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_fontSizeMin: 9.98
   m_fontSizeMax: 71.6
   m_fontStyle: 0
   m_HorizontalAlignment: 1

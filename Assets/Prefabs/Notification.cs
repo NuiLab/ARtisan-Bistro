@@ -45,7 +45,7 @@ public class Notification : MonoBehaviour
     {
         if (customer == null)
             Dismiss();
-        
+
         dockGrid = dockObj.GetComponent<GridObjectCollection>();
     }
     void Awake()
@@ -107,7 +107,7 @@ public class Notification : MonoBehaviour
     {
         if (titleText != null) title.text = titleText;
         if (contentText != null) content.text = contentText;
-        if (iconText != null) icon.text = iconText;
+        if (iconText != null) icon.iconUnicode = iconText;
         // iconText is like "\uE84D". Person is "\e7df", burger is e57a, pizza e552, coffee efef, cofee maker eff0, grill ea47, oven e843
     }
     void setTransparent()
@@ -235,11 +235,11 @@ public class Notification : MonoBehaviour
             case 1:
                 stage++;
                 string tempContent = customer.GetComponent<CustomerManager>().translateIngredients();
-                ReceiveInput(this.title.text, tempContent, this.icon.text);
+                ReceiveInput(null, tempContent, getFoodIcon());
                 break;
             case 2:
                 customer.GetComponent<CustomerManager>().completedOrder = true;
-                ReceiveInput(this.title.text, "Bestellung fertig", "\\e5ca");
+                ReceiveInput(this.title.text, "Bestellung fertig", "e5ca");
                 Dismiss(2f);
                 break;
             case 3:
@@ -249,6 +249,23 @@ public class Notification : MonoBehaviour
                 break;
         }
     }
+    string getFoodIcon() {
+        switch (customer.GetComponent<CustomerManager>().foodCategory)
+        {
+            case "Pizza":
+                return "e552";
+                
+            case "Burger":
+                return "e57a";
+                
+            case "Coffee":
+                return "efef";
+                
+            default:
+                return "";
+                
+        }
+     }
 }
 
 

@@ -70,7 +70,7 @@ public class ServingStationManager : MonoBehaviour
 
         GameObject notification = Instantiate(notificationType);
         notification.GetComponent<Notification>().customer = custRef;
-        notification.GetComponent<Notification>().ReceiveInput("Station "+ (custPos+1), "Neuer Kunde", "e7df");
+        notification.GetComponent<Notification>().ReceiveInput("Station "+ (custPos+1), "Neuer Kunde", "e7fd");
 
         /* switch (globalRecords_GO.GetComponent<Records>().GetNotificationType())
         {

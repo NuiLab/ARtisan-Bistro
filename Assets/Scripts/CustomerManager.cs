@@ -16,6 +16,7 @@ public class CustomerManager : MonoBehaviour
     [SerializeField] float customerLifeTime;
     [SerializeField] GameObject timer;
     GameObject speechBubble_GO;
+    public string foodCategory;
 
 
     public List<string> ingredients = new List<string>(); // this is the list of ingredients the customer wants
@@ -125,6 +126,7 @@ public class CustomerManager : MonoBehaviour
 
     void InitializeFood(string foodItem)
     {
+        foodCategory = foodItem;
         switch (foodItem)
         {
             case "Pizza":
