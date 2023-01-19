@@ -30,10 +30,10 @@ public class NotificationSetManager : MonoBehaviour
         globalRecordsGO = GameObject.FindWithTag("Global Records");
         persistentGO = GameObject.FindGameObjectsWithTag("PersistentGO")[0];
         bool nSound = persistentGO.GetComponent<PersistentGOManager>().GetNotificationSound();
-        foreach (var notifications in globalRecordsGO.GetComponent<Records>().GetAllNotificationPrefabs())
+        /* foreach (var notifications in globalRecordsGO.GetComponent<Records>().GetAllNotificationPrefabs())
             notifications.GetComponent<AudioSource>().mute = !nSound;
         if (notificationType == 1)
-            notificationDock.GetComponent<AudioSource>().mute = !nSound;
+            notificationDock.GetComponent<AudioSource>().mute = !nSound; */
     }
 
     // Update is called once per frame

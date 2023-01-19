@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5120479780027056223, guid: a23fc363e031a23448fa545b82252ce6, type: 3}
       propertyPath: m_Name
-      value: FoodSub
+      value: FoodSubTouch
       objectReference: {fileID: 0}
     - target: {fileID: 8448974428308967881, guid: a23fc363e031a23448fa545b82252ce6, type: 3}
       propertyPath: InteractionType

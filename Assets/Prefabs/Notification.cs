@@ -17,11 +17,11 @@ public class Notification : MonoBehaviour
     [Tooltip("Calculates Notification Duration based on character count")]
     public bool calcLifetime;
     public MaterialIcon icon;
-    GameObject manager;
+    public GameObject manager;
     MeshRenderer notificationBackground;
     MeshRenderer buttonBackground;
-    GameObject dockObj;
-    GridObjectCollection dockGrid;
+    public GameObject dockObj;
+    public GridObjectCollection dockGrid;
     bool isInHand;
     bool dockExists = false;
     public myEnum InteractionType = new myEnum();
@@ -41,17 +41,24 @@ public class Notification : MonoBehaviour
     };
     public GameObject customer;
 
-
+    void Update()
+    {
+        if (customer == null)
+            Dismiss();
+        
+        dockGrid = dockObj.GetComponent<GridObjectCollection>();
+    }
     void Awake()
     {
         setType();
-        manager = GameObject.FindGameObjectsWithTag("Manager")[0];
-        dockObj = manager.GetComponent<VariableManager>().dockObject;
+        manager = GameObject.FindGameObjectsWithTag("Global Records")[0];
+        dockObj = manager.GetComponent<Records>().dockObject; //needs to be the grid gameobject and not the actual dock
         if (dockObj != null)
         {
             dockExists = true;
             if (dockObj.name == "HandGrid")
                 isInHand = true;
+
             dockGrid = dockObj.GetComponent<GridObjectCollection>();
         }
         notificationBackground = this.gameObject.GetComponent<MeshRenderer>();
@@ -70,11 +77,12 @@ public class Notification : MonoBehaviour
         StartCoroutine(DismissCR(delay));
     }
     public IEnumerator DismissCR(float delay = 0f)
-    {   yield return new WaitForSeconds(delay);
+    {
+        yield return new WaitForSeconds(delay);
         StartCoroutine(FadeOutObject());
         yield return new WaitForSeconds(1f);
-        dockGrid.UpdateCollection();
         Destroy(this.gameObject);
+        dockGrid.UpdateCollection();
     }
     IEnumerator Disappear()
     {
@@ -95,11 +103,11 @@ public class Notification : MonoBehaviour
         lifetime = content.text.Length * 0.1f;
     }
 
-    public void ReceiveInput(string titleText, string contentText, string iconText)
+    public void ReceiveInput(string titleText = null, string contentText = null, string iconText = null)
     {
-        title.text = titleText;
-        content.text = contentText;
-        icon.text = iconText;
+        if (titleText != null) title.text = titleText;
+        if (contentText != null) content.text = contentText;
+        if (iconText != null) icon.text = iconText;
         // iconText is like "\uE84D". Person is "\e7df", burger is e57a, pizza e552, coffee efef, cofee maker eff0, grill ea47, oven e843
     }
     void setTransparent()
@@ -199,7 +207,6 @@ public class Notification : MonoBehaviour
             this.gameObject.transform.localScale = newScale;
 
         }
-
         dockGrid.UpdateCollection();
         this.gameObject.transform.localRotation = Quaternion.identity;
         if (isInHand && manager.GetComponent<VariableManager>().handMenuOpen == false)
@@ -228,11 +235,11 @@ public class Notification : MonoBehaviour
             case 1:
                 stage++;
                 string tempContent = customer.GetComponent<CustomerManager>().translateIngredients();
-                ReceiveInput(this.title.text,tempContent,this.icon.text);
+                ReceiveInput(this.title.text, tempContent, this.icon.text);
                 break;
             case 2:
                 customer.GetComponent<CustomerManager>().completedOrder = true;
-                ReceiveInput(this.title.text,"Bestellung fertig","\\e5ca");
+                ReceiveInput(this.title.text, "Bestellung fertig", "\\e5ca");
                 Dismiss(2f);
                 break;
             case 3:

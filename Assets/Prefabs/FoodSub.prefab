@@ -297,7 +297,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4817243909797668344}
         m_TargetAssemblyTypeName: Notification, Assembly-CSharp
-        m_MethodName: Dismiss
+        m_MethodName: nextStage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1298,7 +1298,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4817243909797668344}
         m_TargetAssemblyTypeName: Notification, Assembly-CSharp
-        m_MethodName: Dismiss
+        m_MethodName: nextStage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1639,7 +1639,7 @@ MonoBehaviour:
       - m_Target: {fileID: 4817243909797668344}
         m_TargetAssemblyTypeName: Notification, Assembly-CSharp
         m_MethodName: Dismiss
-        m_Mode: 1
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2693,7 +2693,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 4817243909797668344}
           m_TargetAssemblyTypeName: Notification, Assembly-CSharp
-          m_MethodName: Dismiss
+          m_MethodName: nextStage
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3560,8 +3560,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.2184, y: 0.069}
-  m_SizeDelta: {x: 17.1, y: 5}
+  m_AnchoredPosition: {x: -0.243, y: 0.069}
+  m_SizeDelta: {x: 15.3, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8112418415706827977
 MeshRenderer:
@@ -3654,7 +3654,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 21.1
+  m_fontSize: 19.05
   m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3879,10 +3879,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 010f4aae2d215684c908acb219f1d8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shouldDock: 0
+  shouldDock: 1
   lifetime: 8
   calcLifetime: 0
   icon: {fileID: 768644777802640927}
+  manager: {fileID: 0}
+  dockObj: {fileID: 0}
+  dockGrid: {fileID: 0}
   InteractionType: 0
   title: {fileID: 8112418414860460079}
   content: {fileID: 8112418415706827978}

@@ -12,13 +12,29 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\uE417"
       objectReference: {fileID: 0}
+    - target: {fileID: 1083479915220197515, guid: a7d4be856c2aece498b098fd33894a29, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3283769720947644147, guid: a7d4be856c2aece498b098fd33894a29, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4562665769327635912, guid: a7d4be856c2aece498b098fd33894a29, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817243909797668344, guid: a7d4be856c2aece498b098fd33894a29, type: 3}
+      propertyPath: shouldDock
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8112418416423679086, guid: a7d4be856c2aece498b098fd33894a29, type: 3}
       propertyPath: m_Name
-      value: FoodSub
+      value: FoodSubEye
       objectReference: {fileID: 0}
     - target: {fileID: 8112418416423679094, guid: a7d4be856c2aece498b098fd33894a29, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8112418416423679094, guid: a7d4be856c2aece498b098fd33894a29, type: 3}
       propertyPath: m_LocalPosition.x

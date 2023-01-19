@@ -321,7 +321,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &737982272
 Transform:
   m_ObjectHideFlags: 0
@@ -394,8 +394,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Kitchen
       objectReference: {fileID: 0}
+    - target: {fileID: 5195554175847860054, guid: febc95a75ac190f4ab76909b3be2f542, type: 3}
+      propertyPath: notificationType
+      value: 
+      objectReference: {fileID: 4514484533735222937, guid: fac398c97be266c448fca1f439b779a3, type: 3}
     m_RemovedComponents: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 602255586787812493, guid: febc95a75ac190f4ab76909b3be2f542, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 932282375}
   m_SourcePrefab: {fileID: 100100000, guid: febc95a75ac190f4ab76909b3be2f542, type: 3}
 --- !u!4 &765751376 stripped
 Transform:
@@ -406,6 +413,75 @@ Transform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 681524514, guid: febc95a75ac190f4ab76909b3be2f542, type: 3}
   m_PrefabInstance: {fileID: 765751375}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &932282373
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 765751376}
+    m_Modifications:
+    - target: {fileID: 3932371692351794086, guid: d72ebdb3186231d4a86a91a8f92b619d, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932371692351794086, guid: d72ebdb3186231d4a86a91a8f92b619d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.0269467
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932371692351794086, guid: d72ebdb3186231d4a86a91a8f92b619d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.412
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932371692351794086, guid: d72ebdb3186231d4a86a91a8f92b619d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.09180492
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932371692351794086, guid: d72ebdb3186231d4a86a91a8f92b619d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.93849033
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932371692351794086, guid: d72ebdb3186231d4a86a91a8f92b619d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932371692351794086, guid: d72ebdb3186231d4a86a91a8f92b619d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.34530553
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932371692351794086, guid: d72ebdb3186231d4a86a91a8f92b619d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932371692351794086, guid: d72ebdb3186231d4a86a91a8f92b619d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932371692351794086, guid: d72ebdb3186231d4a86a91a8f92b619d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 40.401
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932371692351794086, guid: d72ebdb3186231d4a86a91a8f92b619d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932371692351794111, guid: d72ebdb3186231d4a86a91a8f92b619d, type: 3}
+      propertyPath: m_Name
+      value: NotificationDock
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: d72ebdb3186231d4a86a91a8f92b619d, type: 3}
+--- !u!1 &932282374 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3932371691778834162, guid: d72ebdb3186231d4a86a91a8f92b619d, type: 3}
+  m_PrefabInstance: {fileID: 932282373}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &932282375 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3932371692351794086, guid: d72ebdb3186231d4a86a91a8f92b619d, type: 3}
+  m_PrefabInstance: {fileID: 932282373}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &935486566
 GameObject:
@@ -893,6 +969,10 @@ PrefabInstance:
       propertyPath: playArea
       value: 
       objectReference: {fileID: 1168392445}
+    - target: {fileID: 7060564561299072046, guid: d25bc2a5c38f35a429bb101c35b62536, type: 3}
+      propertyPath: dockObject
+      value: 
+      objectReference: {fileID: 932282374}
     - target: {fileID: 7060564561299072046, guid: d25bc2a5c38f35a429bb101c35b62536, type: 3}
       propertyPath: scoreboard
       value: 

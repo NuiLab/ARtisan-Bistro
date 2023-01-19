@@ -7,7 +7,7 @@ public class ServingStationManager : MonoBehaviour
     [SerializeField] GameObject customerPrefab;
     [SerializeField] GameObject[] customerPositionGO;
     [SerializeField] GameObject globalRecords_GO;
-    float customerDuration = 120; 
+    float customerDuration = 120;
     int maxCustomerCount = 6;
 
     Dictionary<int, GameObject> customers = new Dictionary<int, GameObject>();
@@ -19,6 +19,7 @@ public class ServingStationManager : MonoBehaviour
     string[] currCustomerNames;
     GameObject notification_GO;
     bool pauseCustCntCheck = false;
+    public GameObject notificationType;
 
 
     // Start is called before the first frame update
@@ -67,27 +68,29 @@ public class ServingStationManager : MonoBehaviour
         custRef.GetComponent<CustomerManager>().CreateCustomer(customerDuration, GetFoodItem(), custPos, currCustomerNames, totalCustomers);
         globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().AddData("Food Requested", custRef.name + totalCustomers.ToString() + ":" + custRef.GetInstanceID().ToString(), 1, custRef.GetComponent<CustomerManager>().CreateIngredientsString());
 
-        if (globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().GetShowNotification())
+        GameObject notification = Instantiate(notificationType);
+        notification.GetComponent<Notification>().customer = custRef;
+        notification.GetComponent<Notification>().ReceiveInput("Station "+ (custPos+1), "Neuer Kunde", "e7df");
+
+        /* switch (globalRecords_GO.GetComponent<Records>().GetNotificationType())
         {
-            switch (globalRecords_GO.GetComponent<Records>().GetNotificationType())
-            {
-                case 0:
-                    notification_GO = globalRecords_GO.GetComponent<Records>().AddNotificationOnObject("Customer", "New Customer", custRef.transform.GetInstanceID());
-                    notification_GO.GetComponent<NotificationManager>().SetNotificationProperties("Customer", "New Customer", custRef, new Vector3(0, 0.05f, -0.05f));
-                    break;
-                case 1:
-                    globalRecords_GO.GetComponent<Records>().AddNotificationOnDock("Customer", "New Customer", custRef.transform.GetInstanceID());
-                    break;
-                case 2:
-                    globalRecords_GO.GetComponent<Records>().AddNotificationOnViewport("Customer", "New Customer", custRef.transform.GetInstanceID());
-                    break;
-            }
+            case 0:
+                notification_GO = globalRecords_GO.GetComponent<Records>().AddNotificationOnObject("Customer", "New Customer", custRef.transform.GetInstanceID());
+                notification_GO.GetComponent<NotificationManager>().SetNotificationProperties("Customer", "New Customer", custRef, new Vector3(0, 0.05f, -0.05f));
+                break;
+            case 1:
+                globalRecords_GO.GetComponent<Records>().AddNotificationOnDock("Customer", "New Customer", custRef.transform.GetInstanceID());
+                break;
+            case 2:
+                globalRecords_GO.GetComponent<Records>().AddNotificationOnViewport("Customer", "New Customer", custRef.transform.GetInstanceID()); //stattdessen maybe hier ne notification spawnen? case switch entfernen, 
+                break;
         }
-        if (globalRecords_GO.GetComponent<Records>().GetNotificationType() == 3 && PersistentGOManager.instance.GetNotificationSound())
-        {
-            PersistentGOManager.instance.GetComponent<PersistentGOManager>().AddData("Notification", "Customer:New Customer" + ":" + custRef.GetInstanceID().ToString(), 1);
-            Camera.main.transform.GetComponent<AudioSource>().Play();
-        }
+
+    if (globalRecords_GO.GetComponent<Records>().GetNotificationType() == 3 && PersistentGOManager.instance.GetNotificationSound())
+    {
+        PersistentGOManager.instance.GetComponent<PersistentGOManager>().AddData("Notification", "Customer:New Customer" + ":" + custRef.GetInstanceID().ToString(), 1);
+        Camera.main.transform.GetComponent<AudioSource>().Play();
+    } */
     }
 
     public void RemoveCustomer(GameObject cust)
@@ -109,7 +112,7 @@ public class ServingStationManager : MonoBehaviour
 
     private IEnumerator BringCustomer()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(9f);
         GameObject tempCustomer = Instantiate(customerPrefab);
         for (int i = 0; i < 3; i++)
         {
