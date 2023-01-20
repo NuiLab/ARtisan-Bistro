@@ -24,14 +24,17 @@ public class CustomerManager : MonoBehaviour
     int difficultyLevel = 0;
     string[] currCustomerNames;
     int customerNumber = 0;
-    public bool completedOrder= false;
+    public bool completedOrder = false;
+    bool timerRunning = false;
 
     // Start is called before the first frame update
     void Start()
     {
         timerRemaining = customerLifeTime;
-        StartCoroutine(UpdateTimerText());
-
+        float minutes = Mathf.FloorToInt(timerRemaining / 60);
+        float seconds = Mathf.FloorToInt(timerRemaining % 60);
+        timer.GetComponent<TextMeshProUGUI>().SetText(string.Format("{0:00}:{1:00}", minutes, seconds));
+        timer.GetComponent<TextMeshProUGUI>().enabled = false;
         if (instructionsSceneCustomer > 0)
         {
             switch (instructionsSceneCustomer)
@@ -50,13 +53,21 @@ public class CustomerManager : MonoBehaviour
             PersistentGOManager.instance.AddData("Food Requested", transform.name + instructionsSceneCustomer.ToString() + ":" + GetInstanceID().ToString(), 1, CreateIngredientsString());
         }
     }
+    public void startTimer()
+    {
+        timer.GetComponent<TextMeshProUGUI>().enabled = true;
+        StartCoroutine(UpdateTimerText());
+    }
     void Update()
     {
-        if (timerRemaining > 0)
+        if (timerRunning)
         {
-            timerRemaining -= Time.deltaTime;
-        }
+            if (timerRemaining > 0)
+            {
+                timerRemaining -= Time.deltaTime;
+            }
 
+        }
     }
 
     public string translateIngredients()
@@ -101,12 +112,12 @@ public class CustomerManager : MonoBehaviour
     }
 
     private IEnumerator CustomerLifeFunctions(string foodItem)
-    {   
+    {
         speechBubble_GO = Instantiate(speechBubble);
         speechBubble_GO.transform.parent = transform;
         speechBubble_GO.transform.localPosition = speechBubblePos.transform.localPosition;
         speechBubble_GO.GetComponent<SpeechBubbleManager>().SetContent(ingredients, foodItem);
-        speechBubble_GO.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f); 
+        speechBubble_GO.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
         InitializeMesh();
         yield return new WaitForSeconds(customerLifeTime);
         transform.GetComponentInParent<ServingStationManager>().RemoveCustomer(transform.gameObject);
@@ -250,6 +261,7 @@ public class CustomerManager : MonoBehaviour
 
     IEnumerator UpdateTimerText()
     {
+        timerRunning = true;
         while (true)
         {
             float minutes = Mathf.FloorToInt(timerRemaining / 60);

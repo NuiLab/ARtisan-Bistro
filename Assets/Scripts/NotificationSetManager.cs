@@ -14,6 +14,7 @@ public class NotificationSetManager : MonoBehaviour
      * 2: Notification on Viewport
      */
     [SerializeField] GameObject[] notificationPrefabs;
+    [SerializeField] GameObject[] nonFoodNotifications;
 
     GameObject persistentGO;
     GameObject globalRecordsGO;
@@ -96,7 +97,7 @@ public class NotificationSetManager : MonoBehaviour
         notifications.Add(notificationTxt);
         stations.Add(stationTxt);
     }
-    
+
     IEnumerator CreateNotification(float duration)
     {
         yield return new WaitForSeconds(duration);
@@ -110,4 +111,8 @@ public class NotificationSetManager : MonoBehaviour
         stations.RemoveAt(0);
         waitTimeStarted = false;
     }
+    public GameObject addIngredientNotification() {
+        GameObject tempNoti = Instantiate(nonFoodNotifications[notificationType]);
+        return tempNoti;
+     }
 }

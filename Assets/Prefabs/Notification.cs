@@ -45,8 +45,6 @@ public class Notification : MonoBehaviour
     {
         if (customer == null)
             Dismiss();
-
-        dockGrid = dockObj.GetComponent<GridObjectCollection>();
     }
     void Awake()
     {
@@ -234,6 +232,7 @@ public class Notification : MonoBehaviour
         {
             case 1:
                 stage++;
+                 customer.GetComponent<CustomerManager>().startTimer();
                 string tempContent = customer.GetComponent<CustomerManager>().translateIngredients();
                 ReceiveInput(null, tempContent, getFoodIcon());
                 break;

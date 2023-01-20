@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 657805594733946269, guid: 5c3a76a1c9d751b46a6154db94c4ccbb, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 657805594733946269, guid: 5c3a76a1c9d751b46a6154db94c4ccbb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -83,6 +83,14 @@ PrefabInstance:
     - target: {fileID: 4779997211608116292, guid: 5c3a76a1c9d751b46a6154db94c4ccbb, type: 3}
       propertyPath: useAngleStepping
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5404249034636547777, guid: 5c3a76a1c9d751b46a6154db94c4ccbb, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8295385868559335412, guid: 5c3a76a1c9d751b46a6154db94c4ccbb, type: 3}
+      propertyPath: m_Text
+      value: "\uE0C9"
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1362141173, guid: 5c3a76a1c9d751b46a6154db94c4ccbb, type: 3}

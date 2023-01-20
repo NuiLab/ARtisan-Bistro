@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Microsoft.MixedReality.Toolkit.Utilities.Solvers;
+using Microsoft.MixedReality.Toolkit.Utilities;
 public class Records : MonoBehaviour
 {
     [SerializeField] GameObject[] prefabList;       // List of GameObjects that can be spawned
@@ -17,6 +18,7 @@ public class Records : MonoBehaviour
     [SerializeField] int notificationType;
     [SerializeField] GameObject notificationSetManager;
     public GameObject dockObject;
+    public GridObjectCollection dockGrid;
     public bool handMenuOpen;
     public GameObject scoreboard;
     public float score;
@@ -35,8 +37,12 @@ public class Records : MonoBehaviour
     {
         persistentGO = GameObject.FindGameObjectsWithTag("PersistentGO")[0];
         persistentGO.GetComponent<PersistentGOManager>().SetCurrGlobalRecordsGO(transform.gameObject);
+        dockGrid = dockObject.GetComponent<GridObjectCollection>();
     }
-
+    void Update()
+    {
+        dockGrid.UpdateCollection();
+    }
     public GameObject[] GetPrefabList()
     {
         return prefabList;
@@ -176,5 +182,10 @@ public class Records : MonoBehaviour
     {
         handMenuOpen = open;
 
+    }
+    public GameObject addIngredientNotification(string stationTxt, string notificationTxt, int objectId)
+    {
+        persistentGO.GetComponent<PersistentGOManager>().AddData("Notification", stationTxt + ":" + notificationTxt + ":" + objectId.ToString(), 1);
+        return notificationSetManager.GetComponent<NotificationSetManager>().addIngredientNotification();
     }
 }
