@@ -46,7 +46,7 @@ public class PersistentGOManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sceneNames = new List<string>() { "NoD_WS Scene", "NoD_WOS Scene", "NoO_WS Scene", "NoO_WOS Scene", "Control_WS Scene", "Control_WOS Scene" };
+        sceneNames = new List<string>() { "NoD_WS Scene", "NoD_WOS Scene", "NoO_WS Scene", "TouchDock", "Control_WS Scene", "Control_WOS Scene" };
         var rnd = new System.Random();
         sceneNames = sceneNames.OrderBy(item => rnd.Next()).ToList();
         sceneSystem = MixedRealityToolkit.Instance.GetService<IMixedRealitySceneSystem>();
@@ -69,7 +69,7 @@ public class PersistentGOManager : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha3))
             SetSceneNamesAndLoad("NoO_WS Scene");
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha4))
-            SetSceneNamesAndLoad("NoO_WOS Scene");
+            SetSceneNamesAndLoad("TouchDock");
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha5))
             SetSceneNamesAndLoad("NoV_WS Scene");
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha6))
@@ -103,8 +103,8 @@ public class PersistentGOManager : MonoBehaviour
             unloadSceneName = "NoD_WOS Scene";
         else if (sceneSystem.IsContentLoaded("NoO_WS Scene"))
             unloadSceneName = "NoO_WS Scene";
-        else if (sceneSystem.IsContentLoaded("NoO_WOS Scene"))
-            unloadSceneName = "NoO_WOS Scene";
+        else if (sceneSystem.IsContentLoaded("TouchDock"))
+            unloadSceneName = "TouchDock";
         else if (sceneSystem.IsContentLoaded("NoV_WS Scene"))
             unloadSceneName = "NoV_WS Scene";
         else if (sceneSystem.IsContentLoaded("NoV_WOS Scene"))
@@ -121,37 +121,9 @@ public class PersistentGOManager : MonoBehaviour
                 notificationSound = false;
                 StudyInstructionsManager.instance.ResetInstructionNumber();
                 break;
-            case "NoD_WS Scene":
+            default:
                 showNotification = true;
                 notificationSound = true;
-                break;
-            case "NoD_WOS Scene":
-                showNotification = true;
-                notificationSound = false;
-                break;
-            case "NoO_WS Scene":
-                showNotification = true;
-                notificationSound = true;
-                break;
-            case "NoO_WOS Scene":
-                showNotification = true;
-                notificationSound = false;
-                break;
-            case "NoV_WS Scene":
-                showNotification = true;
-                notificationSound = true;
-                break;
-            case "NoV_WOS Scene":
-                showNotification = true;
-                notificationSound = false;
-                break;
-            case "Control_WS Scene":
-                showNotification = false;
-                notificationSound = true;
-                break;
-            case "Control_WOS Scene":
-                showNotification = false;
-                notificationSound = false;
                 break;
         }
         GameManager.instance.SetSceneName(newSceneName);
