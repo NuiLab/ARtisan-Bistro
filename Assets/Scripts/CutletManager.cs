@@ -12,6 +12,7 @@ public class CutletManager : MonoBehaviour
     bool cookingState = false;
     float cookingProgress = 0;
     GameObject notification_GO;
+    bool notificationSent = false;
 
     // Start is called before the first frame update
     void Start()
@@ -46,56 +47,22 @@ public class CutletManager : MonoBehaviour
                         break;
                     case 1:
                         notifiText = "Fertig";
+                        if (!notificationSent)
+                        {
+                            GameObject tempNoti = globalRecords_GO.GetComponent<Records>().addIngredientNotification("Burgergrill", "Patty gekocht", transform.GetInstanceID());
+                            tempNoti.GetComponent<Notification>().ReceiveInput("Grill", "Fertig", "ea47");
+                            notificationSent = true;
+                        }
                         break;
                     case 2:
                         notifiText = "Verbrannt";
                         break;
                 }
-                /*
-                switch (prevQuotient)
-                {
-                    case 0:
-                        notifiText = "Uncooked";
-                        break;
-                    case 1:
-                        notifiText = "Partially Cooked";
-                        break;
-                    case 2:
-                        notifiText = "Cooked";
-                        break;
-                    case 3:
-                        notifiText = "Over Cooked";
-                        break;
-                    case 4:
-                        notifiText = "Burnt";
-                        break;
-                }*/
-                if (globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().GetShowNotification())
-                {
-                    switch (globalRecords_GO.GetComponent<Records>().GetNotificationType())
-                    {
-                        case 0:
-                            if (notification_GO != null)
-                                Destroy(notification_GO);
-                            notification_GO = globalRecords_GO.GetComponent<Records>().AddNotificationOnObject("Burger", notifiText, transform.GetInstanceID());
-                            notification_GO.GetComponent<NotificationManager>().SetNotificationProperties("Burger", notifiText, transform.parent.gameObject, new Vector3(0, 0.2f, 0), new Quaternion(0, -0.707106829f, 0, 0.707106829f), cutletGameObject:transform.gameObject);
-                            break;
-                        case 1:
-                            globalRecords_GO.GetComponent<Records>().AddNotificationOnDock("Burger", notifiText, transform.GetInstanceID());
-                            break;
-                        case 2:
-                            globalRecords_GO.GetComponent<Records>().AddNotificationOnViewport("Burger", notifiText, transform.GetInstanceID());
-                            break;
-                    }
-                }
-                if (globalRecords_GO.GetComponent<Records>().GetNotificationType() == 3 && PersistentGOManager.instance.GetNotificationSound())
-                {
-                    PersistentGOManager.instance.GetComponent<PersistentGOManager>().AddData("Notification", "Burger:" + notifiText + ":" + transform.GetInstanceID().ToString(), 1);
-                    Camera.main.transform.GetComponent<AudioSource>().Play();
-                }
             }
+
         }
     }
+
 
     public bool GetCookingState()
     {
@@ -105,7 +72,7 @@ public class CutletManager : MonoBehaviour
     public void SetCookingState(bool status)
     {
         cookingState = status;
-        if(status)
+        if (status)
             this.GetComponent<AudioSource>().Play();
     }
 }

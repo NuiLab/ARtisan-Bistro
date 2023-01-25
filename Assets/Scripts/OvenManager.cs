@@ -19,6 +19,8 @@ public class OvenManager : MonoBehaviour
     GameObject food;
     GameObject notification_GO;
 
+    bool notificationSent = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +45,13 @@ public class OvenManager : MonoBehaviour
                         break;
                     case 1:
                         progressText_GO.GetComponent<TextMesh>().text = "Fertig";
+                        if (!notificationSent)
+                        {
+                            GameObject tempNoti = globalRecords_GO.GetComponent<Records>().addIngredientNotification("Pizza", progressText_GO.GetComponent<TextMesh>().text, transform.GetInstanceID());
+                            tempNoti.GetComponent<Notification>().ReceiveInput("Ofen", "Fertig", "f204");
+                            notificationSent = true;
+                        }
+
                         break;
                     case 2:
                         progressText_GO.GetComponent<TextMesh>().text = "Verbrannt";
@@ -72,8 +81,7 @@ public class OvenManager : MonoBehaviour
 
 
                 //globalRecords_GO.GetComponent<Records>().AddNotificationOnDock("Pizza", progressText_GO.GetComponent<TextMesh>().text, transform.GetInstanceID());
-                GameObject tempNoti = globalRecords_GO.GetComponent<Records>().addIngredientNotification("Pizza", progressText_GO.GetComponent<TextMesh>().text, transform.GetInstanceID());
-                tempNoti.GetComponent<Notification>().ReceiveInput("Ofen","Fertig","f204");
+
             }
         }
     }
