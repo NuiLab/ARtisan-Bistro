@@ -9,7 +9,7 @@ public class HandDock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       manager = GameObject.FindGameObjectsWithTag("Manager")[0];
+       manager = GameObject.FindGameObjectsWithTag("Global Records")[0];
     }
 
     // Update is called once per frame
@@ -18,6 +18,6 @@ public class HandDock : MonoBehaviour
         
     }
     public void setHandOpen(bool open){
-        manager.GetComponent<VariableManager>().setHandOpen(open);
+        manager.GetComponent<Records>().setHandOpen(open);
     }
 }

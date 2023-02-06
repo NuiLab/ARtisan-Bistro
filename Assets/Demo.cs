@@ -7,6 +7,7 @@ public class Demo : MonoBehaviour
     public GameObject notificationPrefab;
     public float interval;
     public GameObject demoObject;
+    public GameObject demoNotification;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,11 @@ public class Demo : MonoBehaviour
     {
         if (Input.GetKeyDown("m"))
         {
-            demoObject.SetActive(true);
+            demoNotification.GetComponent<Notification>().setTransparent();
+        }
+         if (Input.GetKeyDown("n"))
+        {
+            demoNotification.GetComponent<Notification>().FadeInObject();
         }
     }
 
@@ -28,7 +33,7 @@ public class Demo : MonoBehaviour
     IEnumerator demoCR()
     {
 
-        Instantiate(notificationPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        demoNotification = Instantiate(notificationPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         yield return new WaitForSeconds(interval);
         demoFunction();
     }

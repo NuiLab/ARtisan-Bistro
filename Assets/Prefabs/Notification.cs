@@ -18,8 +18,8 @@ public class Notification : MonoBehaviour
     public bool calcLifetime;
     public MaterialIcon icon;
     public GameObject manager;
-    MeshRenderer notificationBackground;
-    MeshRenderer buttonBackground;
+    public MeshRenderer notificationBackground;
+    public MeshRenderer buttonBackground;
     public GameObject dockObj;
     public GridObjectCollection dockGrid;
     bool isInHand;
@@ -65,7 +65,11 @@ public class Notification : MonoBehaviour
         buttonBackground.material = new Material(buttonBackground.material);
 
         if (calcLifetime) calculateLifetime();
-        StartCoroutine(FadeInObject());
+        if (manager.GetComponent<Records>().notificationInViewport)
+            this.GetComponent<Orbital>().LocalOffset = new Vector3(0f, -0.1f, 1.25f);
+
+        manager.GetComponent<Records>().notificationInViewport = true;
+        //StartCoroutine(FadeInObject());
         StartCoroutine(Disappear());
     }
 
@@ -80,14 +84,17 @@ public class Notification : MonoBehaviour
         StartCoroutine(FadeOutObject());
         yield return new WaitForSeconds(1f);
         Destroy(this.gameObject);
-        dockGrid.UpdateCollection();
+        if (dockGrid != null) dockGrid.UpdateCollection();
     }
     IEnumerator Disappear()
     {
 
         yield return new WaitForSeconds(lifetime - 1f);
         if (shouldDock)
+        {
             goToDock();
+            manager.GetComponent<Records>().notificationInViewport = false;
+        }
         else
         {
             StartCoroutine(FadeOutObject());
@@ -108,7 +115,7 @@ public class Notification : MonoBehaviour
         if (iconText != null) icon.iconUnicode = iconText;
         // iconText is like "\uE84D". Person is "\e7df", burger is e57a, pizza e552, coffee efef, cofee maker eff0, grill ea47, oven e843
     }
-    void setTransparent()
+    public void setTransparent()
     {
         Color color = notificationBackground.materials[0].color;
         Color colorB = buttonBackground.materials[0].color;
@@ -127,6 +134,7 @@ public class Notification : MonoBehaviour
         icon.color = iconColor;
         buttonText.materials[0].color = colorButtonX;
     }
+
     public IEnumerator FadeOutObject()
     {
         float speed = 0.03f;
@@ -161,7 +169,7 @@ public class Notification : MonoBehaviour
     public IEnumerator FadeInObject()
     {
         setTransparent();
-        float speed = 0.02f;
+        float speed = 0.01f;
 
         Color color = notificationBackground.materials[0].color;
         Color colorB = buttonBackground.materials[0].color;
@@ -188,7 +196,7 @@ public class Notification : MonoBehaviour
         }
 
         // If the material's color's alpha value is less than or equal to 0, end the coroutine
-        yield return new WaitUntil(() => notificationBackground.materials[0].color.a >= 1f);
+        yield return new WaitUntil(() => notificationBackground.materials[0].color.a == 1f);
     }
     public void goToDock()
     {
@@ -207,7 +215,7 @@ public class Notification : MonoBehaviour
         }
         dockGrid.UpdateCollection();
         this.gameObject.transform.localRotation = Quaternion.identity;
-        if (isInHand && manager.GetComponent<VariableManager>().handMenuOpen == false)
+        if (isInHand && manager.GetComponent<Records>().handMenuOpen == false)
             dockObj.transform.parent.gameObject.SetActive(false);
 
     }
@@ -232,7 +240,7 @@ public class Notification : MonoBehaviour
         {
             case 1:
                 stage++;
-                 customer.GetComponent<CustomerManager>().startTimer();
+                customer.GetComponent<CustomerManager>().startTimer();
                 string tempContent = customer.GetComponent<CustomerManager>().translateIngredients();
                 ReceiveInput(null, tempContent, getFoodIcon());
                 break;
@@ -248,23 +256,24 @@ public class Notification : MonoBehaviour
                 break;
         }
     }
-    string getFoodIcon() {
+    string getFoodIcon()
+    {
         switch (customer.GetComponent<CustomerManager>().foodCategory)
         {
             case "Pizza":
                 return "e552";
-                
+
             case "Burger":
                 return "e57a";
-                
+
             case "Coffee":
                 return "efef";
-                
+
             default:
                 return "";
-                
+
         }
-     }
+    }
 }
 
 

@@ -51,6 +51,7 @@ public class CutletManager : MonoBehaviour
                         {
                             GameObject tempNoti = globalRecords_GO.GetComponent<Records>().addIngredientNotification("Burgergrill", "Patty gekocht", transform.GetInstanceID());
                             tempNoti.GetComponent<Notification>().ReceiveInput("Grill", "Fertig", "ea47");
+                            tempNoti.GetComponent<Notification>().customer = globalRecords_GO;
                             notificationSent = true;
                         }
                         break;

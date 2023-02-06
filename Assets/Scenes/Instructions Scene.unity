@@ -913,7 +913,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &737982272
 Transform:
   m_ObjectHideFlags: 0
@@ -4049,6 +4049,7 @@ MonoBehaviour:
   - {fileID: 30565205}
   - {fileID: 598568748}
   globalRecords_GO: {fileID: 0}
+  notificationType: {fileID: 0}
 --- !u!1001 &1046702318014185713
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -117,7 +117,7 @@ public class CustomerManager : MonoBehaviour
         speechBubble_GO.transform.parent = transform;
         speechBubble_GO.transform.localPosition = speechBubblePos.transform.localPosition;
         speechBubble_GO.GetComponent<SpeechBubbleManager>().SetContent(ingredients, foodItem);
-        speechBubble_GO.transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
+        speechBubble_GO.transform.localScale = new Vector3(0.0001f, 0.0001f, 0.0001f);
         InitializeMesh();
         yield return new WaitForSeconds(customerLifeTime);
         transform.GetComponentInParent<ServingStationManager>().RemoveCustomer(transform.gameObject);

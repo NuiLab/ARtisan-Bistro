@@ -46,7 +46,7 @@ public class PersistentGOManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sceneNames = new List<string>() { "NoD_WS Scene", "NoD_WOS Scene", "NoO_WS Scene", "TouchDock", "Control_WS Scene", "Control_WOS Scene" };
+        sceneNames = new List<string>() { "EyeDock", "EyeHand", "TouchHand", "TouchDock", "VoiceHand", "VoiceDock" };
         var rnd = new System.Random();
         sceneNames = sceneNames.OrderBy(item => rnd.Next()).ToList();
         sceneSystem = MixedRealityToolkit.Instance.GetService<IMixedRealitySceneSystem>();
@@ -63,22 +63,17 @@ public class PersistentGOManager : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha0))
             SetSceneNamesAndLoad("Instructions Scene");
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha1))
-            SetSceneNamesAndLoad("NoD_WS Scene");
+            SetSceneNamesAndLoad("EyeDock");
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha2))
-            SetSceneNamesAndLoad("NoD_WOS Scene");
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha3))
-            SetSceneNamesAndLoad("NoO_WS Scene");
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha4))
             SetSceneNamesAndLoad("TouchDock");
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha3))
+            SetSceneNamesAndLoad("VoiceDock");
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha4))
+            SetSceneNamesAndLoad("EyeHand");
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha5))
-            SetSceneNamesAndLoad("NoV_WS Scene");
+            SetSceneNamesAndLoad("TouchHand");
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha6))
-            SetSceneNamesAndLoad("NoV_WOS Scene");
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha7))
-            SetSceneNamesAndLoad("Control_WS Scene");
-        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.Alpha8))
-            SetSceneNamesAndLoad("Control_WOS Scene");
-
+            SetSceneNamesAndLoad("VoiceHand");
 
         if (Input.GetKeyDown(KeyCode.N))
         {
@@ -97,23 +92,18 @@ public class PersistentGOManager : MonoBehaviour
         sceneChanged = true;
         if (sceneSystem.IsContentLoaded("Instructions Scene"))
             unloadSceneName = "Instructions Scene";
-        else if (sceneSystem.IsContentLoaded("NoD_WS Scene"))
-            unloadSceneName = "NoD_WS Scene";
-        else if (sceneSystem.IsContentLoaded("NoD_WOS Scene"))
-            unloadSceneName = "NoD_WOS Scene";
-        else if (sceneSystem.IsContentLoaded("NoO_WS Scene"))
-            unloadSceneName = "NoO_WS Scene";
+        else if (sceneSystem.IsContentLoaded("EyeDock"))
+            unloadSceneName = "EyeDock";
         else if (sceneSystem.IsContentLoaded("TouchDock"))
             unloadSceneName = "TouchDock";
-        else if (sceneSystem.IsContentLoaded("NoV_WS Scene"))
-            unloadSceneName = "NoV_WS Scene";
-        else if (sceneSystem.IsContentLoaded("NoV_WOS Scene"))
-            unloadSceneName = "NoV_WOS Scene";
-        else if (sceneSystem.IsContentLoaded("Control_WS Scene"))
-            unloadSceneName = "Control_WS Scene";
-        else if (sceneSystem.IsContentLoaded("Control_WOS Scene"))
-            unloadSceneName = "Control_WOS Scene";
-
+        else if (sceneSystem.IsContentLoaded("VoiceDock"))
+            unloadSceneName = "VoiceDock";
+        else if (sceneSystem.IsContentLoaded("EyeHand"))
+            unloadSceneName = "EyeHand";
+        else if (sceneSystem.IsContentLoaded("TouchHand"))
+            unloadSceneName = "TouchHand";
+        else if (sceneSystem.IsContentLoaded("VoiceHand"))
+            unloadSceneName = "VoiceHand";
         switch (newSceneName)
         {
             case "Instructions Scene":

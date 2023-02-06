@@ -15,14 +15,15 @@ public class Records : MonoBehaviour
     [SerializeField] Material[] selectablePizzaIngredientsMaterial;
     [SerializeField] Material[] selectableBurgerIngredientsMaterial;
     GameObject[] notificationPrefabs;
-    [SerializeField] int notificationType;
-    [SerializeField] GameObject notificationSetManager;
+    public int notificationType;
+    public  GameObject notificationSetManager;
     public GameObject dockObject;
     public GridObjectCollection dockGrid;
     public bool handMenuOpen;
     public GameObject scoreboard;
     public float score;
     GameObject persistentGO;
+    public bool notificationInViewport = false;
     /* 
      * Notification Types:
      * 0. Notification on the Object(NoO)
@@ -186,6 +187,7 @@ public class Records : MonoBehaviour
     public GameObject addIngredientNotification(string stationTxt, string notificationTxt, int objectId)
     {
         persistentGO.GetComponent<PersistentGOManager>().AddData("Notification", stationTxt + ":" + notificationTxt + ":" + objectId.ToString(), 1);
+
         return notificationSetManager.GetComponent<NotificationSetManager>().addIngredientNotification();
     }
 }

@@ -831,7 +831,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f5febd09e17ac74db62bc92dc8a0457, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showNotification: 0
+  showNotification: 1
   StudyBillboard: {fileID: 605944634}
 --- !u!114 &957078365
 MonoBehaviour:

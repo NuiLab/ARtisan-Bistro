@@ -115,10 +115,10 @@ public enum GameState
 public enum Conditions
 {
     Tutorial,
-    NoO_WS,
-    NoO_WOS,
-    NoD_WS,
-    NoD_WOS,
-    Control_WS,
-    Control_WOS
+    EyeDock,
+    EyeHand,
+    TouchDock,
+    TouchHand,
+    VoiceDock,
+    VoiceHand
 }

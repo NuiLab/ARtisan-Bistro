@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1166702388725119249, guid: b88f3ac387c82ab4ca4c4923cff610a7, type: 3}
+      propertyPath: shouldDock
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2485887923458484359, guid: b88f3ac387c82ab4ca4c4923cff610a7, type: 3}
       propertyPath: m_Name
       value: SubNotificationE

@@ -27,9 +27,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8036052415483413504
 MonoBehaviour:
@@ -43,10 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddcb85b43b8295544b4d27154fdb5773, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  notificationDock: {fileID: 6177611606163464126, guid: e58123c2ed29c1a41a6a2133c3f0155c, type: 3}
+  notificationDock: {fileID: 0}
   notificationBillboard: {fileID: 0}
-  notificationType: 2
+  notificationType: 0
   notificationPrefabs:
-  - {fileID: 4935886732044555925, guid: 00d05c098e7546d44b48fb14ac16dd1e, type: 3}
-  - {fileID: 4935886732044555925, guid: 830dc488c8955a044957ec236d107a43, type: 3}
-  - {fileID: 4935886732044555925, guid: c11af91ba9ca4be40b25a54bb228a83b, type: 3}
+  - {fileID: 5120479780027056223, guid: a23fc363e031a23448fa545b82252ce6, type: 3}
+  - {fileID: 4514484533735222937, guid: fac398c97be266c448fca1f439b779a3, type: 3}
+  - {fileID: 9036654934545022763, guid: 553085b84d1695f47a719bbea0d74312, type: 3}
+  nonFoodNotifications:
+  - {fileID: 2643133694159729597, guid: 6837b93a7449cf849941dea5a7520714, type: 3}
+  - {fileID: 4580026251200667391, guid: 232a34b32fb17b840bdd74e1a4c5cf8f, type: 3}
+  - {fileID: 396158017046751275, guid: a10d27ffd0d2d2240b59978dd717905a, type: 3}

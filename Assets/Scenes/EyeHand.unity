@@ -321,7 +321,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &737982272
 Transform:
   m_ObjectHideFlags: 0
@@ -1513,22 +1513,6 @@ PrefabInstance:
       propertyPath: notificationDock
       value: 
       objectReference: {fileID: 763292498}
-    - target: {fileID: 8036052415483413504, guid: dbff56f050a83414eb57b12e66819c16, type: 3}
-      propertyPath: notificationType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8036052415483413504, guid: dbff56f050a83414eb57b12e66819c16, type: 3}
-      propertyPath: notificationPrefabs.Array.data[0]
-      value: 
-      objectReference: {fileID: 2643133694159729597, guid: 6837b93a7449cf849941dea5a7520714, type: 3}
-    - target: {fileID: 8036052415483413504, guid: dbff56f050a83414eb57b12e66819c16, type: 3}
-      propertyPath: notificationPrefabs.Array.data[1]
-      value: 
-      objectReference: {fileID: 4580026251200667391, guid: 232a34b32fb17b840bdd74e1a4c5cf8f, type: 3}
-    - target: {fileID: 8036052415483413504, guid: dbff56f050a83414eb57b12e66819c16, type: 3}
-      propertyPath: notificationPrefabs.Array.data[2]
-      value: 
-      objectReference: {fileID: 396158017046751275, guid: a10d27ffd0d2d2240b59978dd717905a, type: 3}
     - target: {fileID: 8036052415483413506, guid: dbff56f050a83414eb57b12e66819c16, type: 3}
       propertyPath: m_Name
       value: Notification Set Manager

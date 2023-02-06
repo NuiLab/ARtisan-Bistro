@@ -31,6 +31,7 @@ public class NotificationSetManager : MonoBehaviour
         globalRecordsGO = GameObject.FindWithTag("Global Records");
         persistentGO = GameObject.FindGameObjectsWithTag("PersistentGO")[0];
         bool nSound = persistentGO.GetComponent<PersistentGOManager>().GetNotificationSound();
+        notificationType = globalRecordsGO.GetComponent<Records>().notificationType;
         /* foreach (var notifications in globalRecordsGO.GetComponent<Records>().GetAllNotificationPrefabs())
             notifications.GetComponent<AudioSource>().mute = !nSound;
         if (notificationType == 1)

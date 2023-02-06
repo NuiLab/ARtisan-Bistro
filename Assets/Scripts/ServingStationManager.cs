@@ -19,13 +19,14 @@ public class ServingStationManager : MonoBehaviour
     string[] currCustomerNames;
     GameObject notification_GO;
     bool pauseCustCntCheck = false;
-    public GameObject notificationType;
+    GameObject notificationType;
 
 
     // Start is called before the first frame update
     void Start()
     {
         globalRecords_GO = GameObject.FindWithTag("Global Records");
+        notificationType = globalRecords_GO.GetComponent<Records>().notificationSetManager.GetComponent<NotificationSetManager>().GetNotificationPrefab();
         for (int i = 0; i < customerPositionGO.Length; i++)
         {
             customers.Add(i, null);
@@ -70,7 +71,7 @@ public class ServingStationManager : MonoBehaviour
 
         GameObject notification = Instantiate(notificationType);
         notification.GetComponent<Notification>().customer = custRef;
-        notification.GetComponent<Notification>().ReceiveInput("Station "+ (custPos+1), "Neuer Kunde", "e7fd");
+        notification.GetComponent<Notification>().ReceiveInput("Station " + (custPos + 1), "Neuer Kunde", "e7fd");
 
         /* switch (globalRecords_GO.GetComponent<Records>().GetNotificationType())
         {
