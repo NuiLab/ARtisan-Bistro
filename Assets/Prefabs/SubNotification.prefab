@@ -120,13 +120,25 @@ PrefabInstance:
       propertyPath: onDwell.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5161220120402762101, guid: 5c3a76a1c9d751b46a6154db94c4ccbb, type: 3}
+      propertyPath: onDwell.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: buttonDismiss
+      objectReference: {fileID: 0}
     - target: {fileID: 5404249034636547777, guid: 5c3a76a1c9d751b46a6154db94c4ccbb, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5404249034636547777, guid: 5c3a76a1c9d751b46a6154db94c4ccbb, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: buttonDismiss
+      objectReference: {fileID: 0}
     - target: {fileID: 6064004594111874835, guid: 5c3a76a1c9d751b46a6154db94c4ccbb, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6064004594111874835, guid: 5c3a76a1c9d751b46a6154db94c4ccbb, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: buttonDismiss
       objectReference: {fileID: 0}
     - target: {fileID: 6064004594111874840, guid: 5c3a76a1c9d751b46a6154db94c4ccbb, type: 3}
       propertyPath: m_IsActive

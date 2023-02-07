@@ -91,12 +91,19 @@ public class StudyInstructionsManager : MonoBehaviour
 
     void InitializeSceneInstructions()
     {
-        sceneInstructions.Add("Instructions Scene", "In this section you will follow a tutorial to learn how to interact with the objects. " +
+      /*   sceneInstructions.Add("Instructions Scene", "In this section you will follow a tutorial to learn how to interact with the objects. " +
             "There will be instructions with an arrow pointing to the object used to complete the current task. If the instruction is not in the viewport there will be an arrow guiding you to it. " +
             "After completing each task press the right arrow to go to the next instruction. \n\n" +
             "There will be 3 customers each asking for different food item. You will have all the time you need to present them the food item they requested. " +
             "After preparing the food place it on the tray in front of the customer. If the food item is wrong, there will be a text stating it. If the food item is correct the customer will leave. \n\n" +
-            "Once you are done serving all customers, you can press the next button on the last instruction (located at the left of trash can) to start the actual experiment.");
+            "Once you are done serving all customers, you can press the next button on the last instruction (located at the left of trash can) to start the actual experiment."); */
+
+        sceneInstructions.Add("Instructions Scene", "In diesem Teil werden Sie einer Einführung folgen um zu lernen wie man mit den versch. Objekten interagiert. " +
+       "Es werden Ihnen Pfeile eingeblendet die zu den jeweiligen Objekten zeigen, die Sie für die aktuelle Aufgabe benötigen." +
+       "Wenn sie die Anweisung befolgt haben, drücken Sie mit Ihrem Finger auf den Pfeil um zur nächsten Anweisung zu kommen. \n\n" +
+       "Es werden 3 Kunden warten, die jeweils eine der 3 verschiedenen Essen bestellen. In der Erklärung haben sie so lange Zeit wie Sie brauchen. " +
+       "Sobald Sie das Essen zubereitet haben, stellen Sie es auf das Tablett vor dem Kunden. Falls das Essen richtig zubereitet wurde verschwindet der Kunde. \n\n" +
+       "Bedienen Sie die 3 Kunden und folgem dem Tutorial bitte bis zum Schluss.");
 
         sceneInstructions.Add("NoD_WS Scene", "In this section you will be presented with a Dock where all the notifications will be stored. " +
             "You can think of this dock similar to how notifications are displayed on your phone when you swipe down. " +

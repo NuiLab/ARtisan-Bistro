@@ -59,6 +59,7 @@ public class Notification : MonoBehaviour
 
             dockGrid = dockObj.GetComponent<GridObjectCollection>();
         }
+
         notificationBackground = this.gameObject.GetComponent<MeshRenderer>();
         notificationBackground.material = new Material(notificationBackground.material);
         buttonBackground = this.gameObject.GetComponent<MeshRenderer>();
@@ -76,6 +77,11 @@ public class Notification : MonoBehaviour
     // Update is called once per frame
     public void Dismiss(float delay = 0f)
     {
+        StartCoroutine(DismissCR(delay));
+    }
+    public void buttonDismiss(float delay = 0f)
+    {
+        notificationDataLog("Food notification", "dismissed");
         StartCoroutine(DismissCR(delay));
     }
     public IEnumerator DismissCR(float delay = 0f)
@@ -102,7 +108,10 @@ public class Notification : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
+    void notificationDataLog(string notificationCat,string action)
+    {
+        manager.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().AddData(notificationCat, action + ":" + this.GetInstanceID().ToString());
+    }
     void calculateLifetime()
     {
         lifetime = content.text.Length * 0.1f;
@@ -239,12 +248,14 @@ public class Notification : MonoBehaviour
         switch (stage)
         {
             case 1:
+                notificationDataLog("Order Notification", "accepted");
                 stage++;
                 customer.GetComponent<CustomerManager>().startTimer();
                 string tempContent = customer.GetComponent<CustomerManager>().translateIngredients();
                 ReceiveInput(null, tempContent, getFoodIcon());
                 break;
             case 2:
+                notificationDataLog("Order Notification", "complete");
                 customer.GetComponent<CustomerManager>().completedOrder = true;
                 ReceiveInput(this.title.text, "Bestellung fertig", "e5ca");
                 Dismiss(2f);

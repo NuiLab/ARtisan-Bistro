@@ -194,7 +194,7 @@ public class PersistentGOManager : MonoBehaviour
         if (sceneChanged)
             independentCSVData.Add(category + "," + action + "," + status + "," + ingredients);
         else
-            csvData.AppendLine(participantNumber + "," + DateTime.Now.ToString("yyyyMMdd_HHmmss_fff") + "," + time_s + "," + currGlobalRecordsGO.GetComponent<Records>().GetNotificationType() + "," + notificationSound + "," + category + "," + action + "," + status + "," + ingredients);
+            csvData.AppendLine(participantNumber + "," + DateTime.Now.ToString("yyyyMMdd_HHmmss_fff") + "," + time_s + "," + currGlobalRecordsGO.GetComponent<Records>().GetNotificationType() + "," + category + "," + action + "," + status + "," + ingredients);
         if (csvData.Length >= FlushAfter)
         {
             FlushData();
