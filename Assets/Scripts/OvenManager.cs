@@ -49,6 +49,7 @@ public class OvenManager : MonoBehaviour
                         {
                             GameObject tempNoti = globalRecords_GO.GetComponent<Records>().addIngredientNotification("Pizza", progressText_GO.GetComponent<TextMesh>().text, transform.GetInstanceID());
                             tempNoti.GetComponent<Notification>().ReceiveInput("Ofen", "Fertig", "f204");
+                            tempNoti.GetComponent<Notification>().customer = globalRecords_GO;
                             notificationSent = true;
                         }
 

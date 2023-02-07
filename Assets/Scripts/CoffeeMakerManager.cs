@@ -58,6 +58,7 @@ public class CoffeeMakerManager : MonoBehaviour
 
                 GameObject tempNoti = globalRecords_GO.GetComponent<Records>().addIngredientNotification("Kaffeemaschine", "Becher", transform.GetInstanceID());
                 tempNoti.GetComponent<Notification>().ReceiveInput("Kaffee", "Neuer Becher", "eff0");
+                tempNoti.GetComponent<Notification>().customer = globalRecords_GO;
             }
 
         }
