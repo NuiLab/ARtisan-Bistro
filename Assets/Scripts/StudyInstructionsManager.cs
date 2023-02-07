@@ -63,18 +63,18 @@ public class StudyInstructionsManager : MonoBehaviour
                 mainText.GetComponent<TextMeshProUGUI>().text = instructions[instructionsNum++];
                 break;
             case GameState.Scene:
-                if (GameManager.instance.GetSceneName().Equals("NoD_WS Scene"))
-                    mainText.GetComponent<TextMeshProUGUI>().text = sceneInstructions["NoD_WS Scene"];
-                else if (GameManager.instance.GetSceneName().Equals("NoD_WOS Scene"))
-                    mainText.GetComponent<TextMeshProUGUI>().text = sceneInstructions["NoD_WOS Scene"];
-                else if (GameManager.instance.GetSceneName().Equals("NoO_WS Scene"))
-                    mainText.GetComponent<TextMeshProUGUI>().text = sceneInstructions["NoO_WS Scene"];
-                else if (GameManager.instance.GetSceneName().Equals("NoO_WOS Scene"))
-                    mainText.GetComponent<TextMeshProUGUI>().text = sceneInstructions["NoO_WOS Scene"];
-                else if (GameManager.instance.GetSceneName().Equals("Control_WS Scene"))
-                    mainText.GetComponent<TextMeshProUGUI>().text = sceneInstructions["Control_WS Scene"];
-                else if (GameManager.instance.GetSceneName().Equals("Control_WOS Scene"))
-                    mainText.GetComponent<TextMeshProUGUI>().text = sceneInstructions["Control_WOS Scene"];
+                if (GameManager.instance.GetSceneName().Equals("EyeDock"))
+                    mainText.GetComponent<TextMeshProUGUI>().text = sceneInstructions["EyeDock"];
+                else if (GameManager.instance.GetSceneName().Equals("EyeHand"))
+                    mainText.GetComponent<TextMeshProUGUI>().text = sceneInstructions["EyeHand"];
+                else if (GameManager.instance.GetSceneName().Equals("TouchDock"))
+                    mainText.GetComponent<TextMeshProUGUI>().text = sceneInstructions["TouchDock"];
+                else if (GameManager.instance.GetSceneName().Equals("TouchHand"))
+                    mainText.GetComponent<TextMeshProUGUI>().text = sceneInstructions["TouchHand"];
+                else if (GameManager.instance.GetSceneName().Equals("VoiceDock"))
+                    mainText.GetComponent<TextMeshProUGUI>().text = sceneInstructions["VoiceDock"];
+                else if (GameManager.instance.GetSceneName().Equals("VoiceHand"))
+                    mainText.GetComponent<TextMeshProUGUI>().text = sceneInstructions["VoiceHand"];
                 break;
             case GameState.End:
                 mainText.GetComponent<TextMeshProUGUI>().text = instructions[instructions.Count - 1];
@@ -91,12 +91,12 @@ public class StudyInstructionsManager : MonoBehaviour
 
     void InitializeSceneInstructions()
     {
-      /*   sceneInstructions.Add("Instructions Scene", "In this section you will follow a tutorial to learn how to interact with the objects. " +
-            "There will be instructions with an arrow pointing to the object used to complete the current task. If the instruction is not in the viewport there will be an arrow guiding you to it. " +
-            "After completing each task press the right arrow to go to the next instruction. \n\n" +
-            "There will be 3 customers each asking for different food item. You will have all the time you need to present them the food item they requested. " +
-            "After preparing the food place it on the tray in front of the customer. If the food item is wrong, there will be a text stating it. If the food item is correct the customer will leave. \n\n" +
-            "Once you are done serving all customers, you can press the next button on the last instruction (located at the left of trash can) to start the actual experiment."); */
+        /*   sceneInstructions.Add("Instructions Scene", "In this section you will follow a tutorial to learn how to interact with the objects. " +
+              "There will be instructions with an arrow pointing to the object used to complete the current task. If the instruction is not in the viewport there will be an arrow guiding you to it. " +
+              "After completing each task press the right arrow to go to the next instruction. \n\n" +
+              "There will be 3 customers each asking for different food item. You will have all the time you need to present them the food item they requested. " +
+              "After preparing the food place it on the tray in front of the customer. If the food item is wrong, there will be a text stating it. If the food item is correct the customer will leave. \n\n" +
+              "Once you are done serving all customers, you can press the next button on the last instruction (located at the left of trash can) to start the actual experiment."); */
 
         sceneInstructions.Add("Instructions Scene", "In diesem Teil werden Sie einer Einführung folgen um zu lernen wie man mit den versch. Objekten interagiert. " +
        "Es werden Ihnen Pfeile eingeblendet die zu den jeweiligen Objekten zeigen, die Sie für die aktuelle Aufgabe benötigen." +
@@ -105,74 +105,84 @@ public class StudyInstructionsManager : MonoBehaviour
        "Sobald Sie das Essen zubereitet haben, stellen Sie es auf das Tablett vor dem Kunden. Falls das Essen richtig zubereitet wurde verschwindet der Kunde. \n\n" +
        "Bedienen Sie die 3 Kunden und folgem dem Tutorial bitte bis zum Schluss.");
 
-        sceneInstructions.Add("NoD_WS Scene", "In this section you will be presented with a Dock where all the notifications will be stored. " +
-            "You can think of this dock similar to how notifications are displayed on your phone when you swipe down. " +
-            "You can place the dock wherever you want by moving it how you move any other objects. \n\n " +
-            "There is a button next to the dock which serves three purposes:\n " +
-            "1. Clicking the button allows you to show or hide the notifications.\n 2. The number on the button shows number of non-interacted notifications.\n " +
-            "3. Red color represents there is a new notification and Blue color represents you have looked at all notifications (this doesn't mean you have interacted with it.)\n\n " +
-            "Note: In this section a bubble popping sound will accompany the notifications to help draw your attention to the notification. The sound will originate from the dock.");
+        sceneInstructions.Add("EyeDock", "In diesem Durchlauf  existiert ein Dock in der Welt in dem alle Benachrichtigungen angezeigt werden sobald Sie nicht mehr im Sichtfeld sind. " +
+            "Dieses Dock ist ähnlich wie der Ort wo an Ihrem Smartphone die Benachrichtigungen angezeigt werden " +
+            "Sie können, so wie die anderen Objekte im Restaurant auch, das Dock greifen und bewegen.  \n\n " +
+            "Jede Benachrichtigung hat einen Knopf. Wenn es sich um eine Bestellung handelt schaltet der Knopf die Bestellung weiter. Bei einer Koch Benachrichtigung schliesst der Knopf die Benachrichtigung.\n " +
+            "Der Knopf wird hier betätigt, indem sie den Knopf mit ihren Augen anschauen und ca 1 Sekunde fokussieren.  ");
 
-        sceneInstructions.Add("NoD_WOS Scene", "In this section you will be presented with a Dock where all the notifications will be stored. " +
-            "You can think of this dock similar to how notifications are displayed on your phone when you swipe down. " +
-            "You can place the dock wherever you want by moving it how you move any other objects. \n\n " +
-            "There is a button next to the dock which serves three purposes:\n " +
-            "1. Clicking the button allows you to show or hide the notifications.\n 2. The number on the button shows number of non-interacted notifications.\n " +
-            "3. Red color represents there is a new notification and Blue color represents you have looked at all notifications (this doesn't mean you have interacted with it.)");
+        sceneInstructions.Add("TouchDock", "In diesem Durchlauf existiert ein Dock in der Welt in dem alle Benachrichtigungen angezeigt werden sobald Sie nicht mehr im Sichtfeld sind. " +
+            "Dieses Dock ist ähnlich wie der Ort wo an Ihrem Smartphone die Benachrichtigungen angezeigt werden " +
+            "Sie können, so wie die anderen Objekte im Restaurant auch, das Dock greifen und bewegen.  \n\n " +
+            "Jede Benachrichtigung hat einen Knopf. Wenn es sich um eine Bestellung handelt schaltet der Knopf die Bestellung weiter. Bei einer Koch Benachrichtigung schliesst der Knopf die Benachrichtigung.\n " +
+            "Der Knopf wird hier betätigt, indem sie den Knopf  mit ihrem Zeigefinger drücken.");
 
-        sceneInstructions.Add("NoO_WS Scene", "In this section the notification will pop-up above the objects that changed state, those that prompted the notification. \n\n" +
-            "Note: In this section a bubble popping sound will accompany the notifications to help draw your attention to the notification. The sound will originate from the notification itself.");
+        sceneInstructions.Add("VoiceDock", "In diesem Durchlauf existiert ein Dock in der Welt in dem alle Benachrichtigungen angezeigt werden sobald Sie nicht mehr im Sichtfeld sind. " +
+       "Dieses Dock ist ähnlich wie der Ort wo an Ihrem Smartphone die Benachrichtigungen angezeigt werden " +
+       "Sie können, so wie die anderen Objekte im Restaurant auch, das Dock greifen und bewegen.  \n\n " +
+       "Jede Benachrichtigung hat einen Knopf. Wenn es sich um eine Bestellung handelt schaltet der Knopf die Bestellung weiter. Bei einer Koch Benachrichtigung schliesst der Knopf die Benachrichtigung.\n " +
+       "Jeder Knopf hat eine Zahl die für die Betätigung notwendig ist \n " +
+       "Der Knopf wird hier betätigt, indem sie folgenden Sprachbefehl sagen: Auswahl *Zahl auf dem Knopf*.");
+        sceneInstructions.Add("EyeHand", "In diesem Durchlauf  werden ihnen Benachrichtigungen  sobald Sie nicht mehr im Sichtfeld sind neben Ihrer linken Hand angezeigt. " +
+                    "Dieses Menü ist ähnlich wie der Ort wo an Ihrem Smartphone die Benachrichtigungen angezeigt werden " +
+                    "Sie können dieses Menü aufrufen, indem Sie Ihre linke Handfläche ansehen. \n\n " +
+                    "Jede Benachrichtigung hat einen Knopf. Wenn es sich um eine Bestellung handelt schaltet der Knopf die Bestellung weiter. Bei einer Koch Benachrichtigung schliesst der Knopf die Benachrichtigung.\n " +
+                    "Der Knopf wird hier betätigt, indem sie den Knopf mit ihren Augen anschauen und ca 1 Sekunde fokussieren.  ");
 
-        sceneInstructions.Add("NoO_WOS Scene", "In this section the notification will pop-up above the objects that changed state, those that prompted the notification.");
+        sceneInstructions.Add("TouchHand", "In diesem Durchlauf  werden ihnen Benachrichtigungen  sobald Sie nicht mehr im Sichtfeld sind neben Ihrer linken Hand angezeigt. " +
+                    "Dieses Menü ist ähnlich wie der Ort wo an Ihrem Smartphone die Benachrichtigungen angezeigt werden " +
+                    "Sie können dieses Menü aufrufen, indem Sie Ihre linke Handfläche ansehen. \n\n " +
+            "Jede Benachrichtigung hat einen Knopf. Wenn es sich um eine Bestellung handelt schaltet der Knopf die Bestellung weiter. Bei einer Koch Benachrichtigung schliesst der Knopf die Benachrichtigung.\n " +
+            "Der Knopf wird hier betätigt, indem sie den Knopf  mit ihrem Zeigefinger drücken.");
 
-        sceneInstructions.Add("Control_WS Scene", "In this section there will be no notifications. " +
-            "You will have to pay attention to all stations at all times and serve the customers to the best of your ability. \n\n" +
-            "Note: In this section a bubble popping sound will play to help you realize there is a state change on one of the stations. You can think of this as an audio notification. " +
-            "The sound will not have a distinguishable origin point and will seem like it's playing right in your head.");
+        sceneInstructions.Add("VoiceHand", "In diesem Durchlauf  werden ihnen Benachrichtigungen  sobald Sie nicht mehr im Sichtfeld sind neben Ihrer linken Hand angezeigt. " +
+                    "Dieses Menü ist ähnlich wie der Ort wo an Ihrem Smartphone die Benachrichtigungen angezeigt werden " +
+                    "Sie können dieses Menü aufrufen, indem Sie Ihre linke Handfläche ansehen. \n\n " +
+       "Jede Benachrichtigung hat einen Knopf. Wenn es sich um eine Bestellung handelt schaltet der Knopf die Bestellung weiter. Bei einer Koch Benachrichtigung schliesst der Knopf die Benachrichtigung.\n " +
+       "Jeder Knopf hat eine Zahl die für die Betätigung notwendig ist \n " +
+       "Der Knopf wird hier betätigt, indem sie folgenden Sprachbefehl sagen: Auswahl *Zahl auf dem Knopf*.");
 
-        sceneInstructions.Add("Control_WOS Scene", "In this section there will be no notifications. " +
-            "You will have to pay attention to all stations at all times and serve the customers to the best of your ability.");
+
+
+        sceneInstructions.Add("Control", "In diesem Durchlauf gibt es keine Benachrichtigungen " +
+            "Die Bestellungen werden Ihnen über dem Tablett der Kunden angezeigt. Passen Sie auf die Geräte auf und kochen Sie alle Bestellungen.");
     }
     void InitializeInstructions()
     {
-        instructions.Add("Welcome to study titled \"Notifications in Pervasive Augmented Reality Scenario\"");
+        instructions.Add("Willkommen zu der Studie \"Notification Interaktion in Augmented Reality\"");
 
-        instructions.Add("The following screens will help you get familiarized with different elements of the environment. The textual instructions will give majority of the details. " +
-            "This will be followed by a tutorial section where in place instructions will guide you through the process of interacting with the environment. \n\n" +
-            "Note: If you have any questions, it is encouraged to ask them starting now till the end of tutorial section.");
+        instructions.Add("Die folgenden Texte werden Ihnen helfen mit den verschienden Elementen in der Umgebung zu interagieren. Die meisten Fragen werden Ihnen durch die Texte erklärt. " +
+       "Danach folgt eine Passage in der ihnen interaktiv die Anwendung gezeigt wird. \n\n" +
+       "Hinweis: Falls Sie Fragen haben stellen Sie diese bitte sofort oder während der interaktiven Erklärung");
 
-        instructions.Add("Customer Station\n\nCustomers will appear at this station. Each customer will have a request for a food item. " +
-            "This will be represented in a speech bubble top right of the customer. The images will display the ingredients for the food item in order. \n\n" +
-            "You have a limited amount of time to present the food item to the customer or else they'll leave. The order of the food item requested will be random.");
-
-        instructions.Add("Burger Station\n\nThis is where you will find all ingredients to make a burger. A grill is present to the right of the ingredients. The grill is where you can put the beef patty to cook it. " +
-            "Beef patty has 3 stages of cooking: Uncooked, Cooked, Burnt. \n\nNote: The customers will always request for Cooked beef patty.");
-
-        instructions.Add("Pizza Station\n\nThis is where you will find all ingredients to make a pizza. An oven is present to the left of the ingredients. " +
-            "After putting all the ingredients on the pizza you put the pizza in the oven to cook it. " +
-            "The pizza has 3 stages of cooking: Uncooked, Cooked, Burnt. \n\nNote: The customers will always request for a cooked pizza.");
-
-        instructions.Add("Coffee Station\n\nThis is where you will find a coffee machine and coffee cups. " +
-            "When the coffee pot is placed in the coffee machine an indicator, displaying how many cups of coffee can be filled using current level of coffee, will be displayed to top left of the coffee machine. " +
-            "Make sure to remove the coffee cups from the blue spawning plate before you pour the coffee in the cup. " +
-            "Once the cup is filled a cap will automatically appear to close the coffee cup. \n\nNote: The customers will always request for a full cup of coffee.");
-
-        instructions.Add("To help you with the tasks, you will be provided with visual and auditory aid to help you with your tasks. " +
-            "The visual aids are presented in a blue box with 2 pieces of information in format - Station:Status. " +
-            "Where \"Station\" represents different categories of notification invoking objects (Burger, Pizza, Coffee, and Customer), and \"Status\" represents the different states of the station as mentioned before. " +
-            "In some sections visual aid will be accompanied by a \"bubble popping sound\". \n\n" +
-            "For each notification, interact with it by clicking on it using your finger, like a button. " +
-            "This to acknowledge you have read the notification (This doesn't mean you have to interact with the object that prompted the notification.)");
-
-        instructions.Add("In this section you will follow a tutorial to learn how to interact with the objects. " +
-            "There will be instructions with an arrow pointing to the object used to complete the current task. If the instruction is not in the viewport there will be an arrow guiding you to it. " +
-            "After completing each task press the right arrow to go to the next instruction. \n\n" +
-            "There will be 3 customers each asking for different food item. You will have all the time you need to present them the food item they requested. " +
-            "After preparing the food place it on the tray in front of the customer. If the food item is wrong, there will be a text stating it. If the food item is correct the customer will leave. \n\n" +
-            "Once you are done serving all customers you can press the next button on the last instruction (located at the left of trash can) to start the actual experiment.");
+        instructions.Add("Aufgabe\n\n Willkommen im Bistro. In dieser Studie geht es darum wie in einem Fast Food Restaurant Kunden zu bedienen und Essen zuzubereiten. " +
+            "Es gibt entweder eine Burger- Pizza- oder Kaffeebestellung. Ihre Aufgabe wird es sein, so schnell wie möglich alle Bestellungen der Kunden innerhalb einer Schicht zu bearbeiten.");
 
 
-        instructions.Add("Thank you for participating!");
+        instructions.Add("Kunden Station\n\nKunden erscheinen an der Theke. Jeder Kunde hat eine eigene Bestellung für ein Gericht. " +
+            "Sobald ein Kunde erscheint erhalten Sie eine Benachrichtigung. Um die Bestellung zu starten, betätigen Sie bitte den Knopf auf der Benachrichtigung. Ab dann wird Ihnen die Bestellung angezeigt und die Wartezeit startet. \n\n" +
+            "Wenn die Wartezeit abgelaufen ist geht der Kunde ohne seine Bestellung. Wenn die Bestellung zubereitet ist, stellen Sie bitte das Essen auf das Tablett und bestätigen sie die Bestellung, indem Sie den Knopf auf der Bestell-benachrichtigung betätigen");
+
+        instructions.Add("Burger Station\n\nHier sind alle Zutaten die für das Zubereiten eines Burgers notwendig sind. Rechts neben den Zutaten befindet sich ein Grill, auf dem sie das Burger Patty zubereiten müssen. " +
+            "Das Patty ist zu Beginn roh, wird dann gekocht, und fängt dann zu brennen an wenn es verkocht ist. Sie erhalten eine Benachrichtigung sobald das Patty fertig ist.\n\nKunden wollen immer ein gekochtes Patty.");
+
+        instructions.Add("Pizza Station\n\nHier sind alle Zutaten die für das Zubereiten einer Pizza notwendig sind. Links neben den Zutaten ist der Ofen, in dem die Pizza gebacken werden muss. " +
+            "Belegen Sie immer zuerst die Pizza und legen Sie sie dann in den Ofen. " +
+            "Die Pizza ist zunächst roh, ist dann fertig und wenn sie zu lange im Ofen ist verbrannt. Sie erhalten eine Benachrichtigung wenn die Pizza fertig ist. \n\nKunden wollen immer eine fertige Pizza.");
+
+        instructions.Add("Kaffee Station\n\nHier finden sie die Kaffeemaschine und Kaffeebecher. " +
+            "Wenn die Kaffeemaschine läuft erscheint neben der Maschine eine Anzeige wie viele Becher in der Kanne sind. " +
+            "Um Kaffe einzuschenken, nehmen Sie bitte einen Becher aus dem Spender und schenken erst dann ein. " +
+            "Sobald der Becher voll ist erscheint automatisch ein Deckel auf dem Becher und der Kaffee kann ausgegeben werden.");
+
+        instructions.Add("In diesem Teil werden Sie einer Einführung folgen um zu lernen wie man mit den versch. Objekten interagiert. " +
+       "Es werden Ihnen Pfeile eingeblendet die zu den jeweiligen Objekten zeigen, die Sie für die aktuelle Aufgabe benötigen." +
+       "Wenn sie die Anweisung befolgt haben, drücken Sie mit Ihrem Finger auf den Pfeil um zur nächsten Anweisung zu kommen. \n\n" +
+       "Es werden 3 Kunden warten, die jeweils eine der 3 verschiedenen Essen bestellen. In der Erklärung haben sie so lange Zeit wie Sie brauchen. " +
+       "Sobald Sie das Essen zubereitet haben, stellen Sie es auf das Tablett vor dem Kunden. Falls das Essen richtig zubereitet wurde verschwindet der Kunde. \n\n" +
+       "Bedienen Sie die 3 Kunden und folgem dem Tutorial bitte bis zum Schluss.");
+        // NEED NOTIFICATION TUTORIAL
+        instructions.Add("Danke für die Teilnahme");
     }
 
     public void SetNextInstruction(int index)
