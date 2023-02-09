@@ -332,6 +332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3932371691778834175}
   - component: {fileID: 3932371691778834172}
+  - component: {fileID: 3143376359290368085}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Dock
@@ -404,6 +405,18 @@ MonoBehaviour:
   cellWidth: 0.5
   cellHeight: 0.11
   assetVersion: 1
+--- !u!114 &3143376359290368085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3932371691778834162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b4a3f7ac0d99b04b85a57dad3c41d63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3932371692093727553
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,7 +1302,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3932371692351794111}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d1fea68463e4e84b86c395b654f950d, type: 3}
   m_Name: 

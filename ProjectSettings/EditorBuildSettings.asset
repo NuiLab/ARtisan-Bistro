@@ -9,45 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScene.unity
     guid: cabe1af6d0a014e419be6422a18ae340
   - enabled: 1
-    path: Assets/Scenes/Instructions Scene.unity
-    guid: 09200f1d0030d2f458167a2e8e288b75
-  - enabled: 1
-    path: Assets/Scenes/AD Scenes/NoD_WS Scene.unity
-    guid: e117557af2ec725428ada48f96732aaa
-  - enabled: 1
-    path: Assets/Scenes/AD Scenes/NoD_WOS Scene.unity
-    guid: 988c92bc66c15df4da7ed5067153178f
-  - enabled: 1
-    path: Assets/Scenes/AD Scenes/NoO_WS Scene.unity
-    guid: 8a5068513349d424a9439f540544f1e0
-  - enabled: 1
-    path: 
-    guid: ac47903e574515c4c95cbdd29da3d7f7
-  - enabled: 1
-    path: Assets/Scenes/AD Scenes/NoV_WS Scene.unity
-    guid: 706813e6043b6024fb8573abf7a695e1
-  - enabled: 1
-    path: Assets/Scenes/AD Scenes/NoV_WOS Scene.unity
-    guid: feaedbde65276314a8d257c71efc890b
-  - enabled: 1
-    path: Assets/Scenes/AD Scenes/Control_WS Scene.unity
-    guid: d37b299efccd56a49b81029bd7c956a8
-  - enabled: 1
-    path: Assets/Scenes/AD Scenes/Control_WOS Scene.unity
-    guid: 02df772330437054e9374ca9e1d93d15
-  - enabled: 1
-    path: Assets/Scenes/AD Scenes/NoV_WOS Scene.unity
-    guid: feaedbde65276314a8d257c71efc890b
-  - enabled: 1
-    path: Assets/Scenes/Instructions Scene.unity
-    guid: 09200f1d0030d2f458167a2e8e288b75
-  - enabled: 1
-    path: Assets/Scenes/Instructions Scene.unity
-    guid: 09200f1d0030d2f458167a2e8e288b75
-  - enabled: 1
-    path: Assets/Scenes/Instructions Scene.unity
-    guid: 09200f1d0030d2f458167a2e8e288b75
-  - enabled: 1
     path: Assets/Scenes/EyeDock.unity
     guid: cecd650da3c178d41b4b040fcc0e0518
   - enabled: 1
@@ -66,8 +27,26 @@ EditorBuildSettings:
     path: Assets/Scenes/VoiceHand.unity
     guid: c57e2c043bef3c8409cb5a475bd55acf
   - enabled: 1
-    path: Assets/Scenes/AD Scenes/NoV_WS Scene.unity
-    guid: 706813e6043b6024fb8573abf7a695e1
+    path: Assets/Scenes/Instructions Scene.unity
+    guid: 09200f1d0030d2f458167a2e8e288b75
+  - enabled: 1
+    path: Assets/Scenes/AD Scenes/Control_WOS Scene.unity
+    guid: 02df772330437054e9374ca9e1d93d15
+  - enabled: 1
+    path: Assets/Scenes/AD Scenes/Control_WS Scene.unity
+    guid: d37b299efccd56a49b81029bd7c956a8
+  - enabled: 1
+    path: Assets/Scenes/AD Scenes/NoD_WOS Scene.unity
+    guid: 988c92bc66c15df4da7ed5067153178f
+  - enabled: 1
+    path: Assets/Scenes/AD Scenes/NoD_WS Scene.unity
+    guid: e117557af2ec725428ada48f96732aaa
+  - enabled: 1
+    path: Assets/Scenes/AD Scenes/NoO_WS Scene.unity
+    guid: 8a5068513349d424a9439f540544f1e0
+  - enabled: 1
+    path: Assets/Scenes/AD Scenes/NoV_WOS Scene.unity
+    guid: feaedbde65276314a8d257c71efc890b
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: eb2f83d806c558546af7ded5ab69ef72, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: e665940620a013b4ab8997f461bf4d77, type: 2}

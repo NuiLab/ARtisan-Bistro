@@ -72,6 +72,14 @@ PrefabInstance:
       propertyPath: m_Text
       value: "\uE029"
       objectReference: {fileID: 0}
+    - target: {fileID: 9041515746939346397, guid: fac398c97be266c448fca1f439b779a3, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9041515746939346397, guid: fac398c97be266c448fca1f439b779a3, type: 3}
+      propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: buttonDismiss
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: fac398c97be266c448fca1f439b779a3, type: 3}

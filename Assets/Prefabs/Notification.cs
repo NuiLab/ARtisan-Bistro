@@ -17,6 +17,7 @@ public class Notification : MonoBehaviour
     [Tooltip("Calculates Notification Duration based on character count")]
     public bool calcLifetime;
     public MaterialIcon icon;
+    public TextMeshPro voiceNumber;
     public GameObject manager;
     public MeshRenderer notificationBackground;
     public MeshRenderer buttonBackground;
@@ -24,7 +25,7 @@ public class Notification : MonoBehaviour
     public GridObjectCollection dockGrid;
     bool isInHand;
     bool dockExists = false;
-    public myEnum InteractionType = new myEnum();
+    [SerializeField] myEnum InteractionType = new myEnum();
 
     [Header("References")]
     public TextMeshPro title;
@@ -62,12 +63,22 @@ public class Notification : MonoBehaviour
 
         notificationBackground = this.gameObject.GetComponent<MeshRenderer>();
         notificationBackground.material = new Material(notificationBackground.material);
-        buttonBackground = this.gameObject.GetComponent<MeshRenderer>();
+        foreach (Transform child in transform)
+        {
+            if (child.CompareTag("ButtonBackground"))
+            {
+                buttonBackground = child.gameObject.GetComponent<MeshRenderer>();
+            }
+        }
+        
         buttonBackground.material = new Material(buttonBackground.material);
 
         if (calcLifetime) calculateLifetime();
-        if (manager.GetComponent<Records>().notificationInViewport)
+        if (manager.GetComponent<Records>().notificationInViewport) //checks if is only notification in viewport
+        {
             this.GetComponent<Orbital>().LocalOffset = new Vector3(0f, -0.1f, 1.25f);
+            voiceNumber.text = "B";
+        }
 
         manager.GetComponent<Records>().notificationInViewport = true;
         //StartCoroutine(FadeInObject());
@@ -84,13 +95,21 @@ public class Notification : MonoBehaviour
         notificationDataLog("Food notification", "dismissed");
         StartCoroutine(DismissCR(delay));
     }
+    public string GetNotificationType()
+    {
+        return this.InteractionType.ToString();
+    }
     public IEnumerator DismissCR(float delay = 0f)
     {
         yield return new WaitForSeconds(delay);
         StartCoroutine(FadeOutObject());
         yield return new WaitForSeconds(1f);
         Destroy(this.gameObject);
-        if (dockGrid != null) dockGrid.UpdateCollection();
+        if (dockGrid != null)
+        {
+            dockGrid.UpdateCollection();
+            dockObj.GetComponent<NotificationDock>().updateNumbers();
+        }
     }
     IEnumerator Disappear()
     {
@@ -108,7 +127,8 @@ public class Notification : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    void notificationDataLog(string notificationCat,string action)
+
+    void notificationDataLog(string notificationCat, string action)
     {
         manager.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().AddData(notificationCat, action + ":" + this.GetInstanceID().ToString());
     }
@@ -223,6 +243,7 @@ public class Notification : MonoBehaviour
 
         }
         dockGrid.UpdateCollection();
+        dockObj.GetComponent<NotificationDock>().updateNumbers();
         this.gameObject.transform.localRotation = Quaternion.identity;
         if (isInHand && manager.GetComponent<Records>().handMenuOpen == false)
             dockObj.transform.parent.gameObject.SetActive(false);
@@ -234,12 +255,20 @@ public class Notification : MonoBehaviour
         {
             case "Eye":
                 closeButtons[0].SetActive(true);
+                button = closeButtons[0];
                 break;
             case "Touch":
                 closeButtons[1].SetActive(true);
+                button = closeButtons[1];
                 break;
             case "Voice":
                 closeButtons[2].SetActive(true);
+                button = closeButtons[2];
+                foreach (Transform child in this.transform)
+                {
+                    if (child.CompareTag("IconNumber"))
+                        voiceNumber = child.gameObject.GetComponent<TextMeshPro>();
+                }
                 break;
         }
     }

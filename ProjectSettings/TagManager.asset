@@ -3,7 +3,19 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Global Records
+  - Ingredient
+  - Ingredient_Base
+  - Drop Region
+  - Cooking_Status_Object
+  - Coffee_Pour
+  - Coffee_Pot
+  - Dock
+  - Ingredient_Cap
+  - Coffee_Cup
+  - PersistentGO
+  - Button
   layers:
   - Default
   - TransparentFX
