@@ -47,6 +47,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AD Scenes/NoV_WOS Scene.unity
     guid: feaedbde65276314a8d257c71efc890b
+  - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: cabe1af6d0a014e419be6422a18ae340
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: eb2f83d806c558546af7ded5ab69ef72, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: e665940620a013b4ab8997f461bf4d77, type: 2}

@@ -34,12 +34,8 @@ public class Notification : MonoBehaviour
     public MeshRenderer buttonText;
     public List<GameObject> closeButtons = new List<GameObject>(3);
     int stage = 1;
-    public enum myEnum // your custom enumeration
-    {
-        Eye = 0,
-        Touch = 1,
-        Voice = 2
-    };
+    public enum myEnum { Eye = 0, Touch = 1, Voice = 2 };
+    GameObject viewportGrid;
     public GameObject customer;
 
     void Update()
@@ -47,11 +43,15 @@ public class Notification : MonoBehaviour
         if (customer == null)
             Dismiss();
     }
-    void Awake()
+    void Start()
     {
         setType();
         manager = GameObject.FindGameObjectsWithTag("Global Records")[0];
         dockObj = manager.GetComponent<Records>().dockObject; //needs to be the grid gameobject and not the actual dock
+        viewportGrid = GameObject.FindGameObjectsWithTag("SubtitleGrid")[0];
+
+
+
         if (dockObj != null)
         {
             dockExists = true;
@@ -63,6 +63,7 @@ public class Notification : MonoBehaviour
 
         notificationBackground = this.gameObject.GetComponent<MeshRenderer>();
         notificationBackground.material = new Material(notificationBackground.material);
+
         foreach (Transform child in transform)
         {
             if (child.CompareTag("ButtonBackground"))
@@ -70,18 +71,15 @@ public class Notification : MonoBehaviour
                 buttonBackground = child.gameObject.GetComponent<MeshRenderer>();
             }
         }
-        
+
         buttonBackground.material = new Material(buttonBackground.material);
 
         if (calcLifetime) calculateLifetime();
-        if (manager.GetComponent<Records>().notificationInViewport) //checks if is only notification in viewport
-        {
-            this.GetComponent<Orbital>().LocalOffset = new Vector3(0f, -0.1f, 1.25f);
-            voiceNumber.text = "B";
-        }
-
         manager.GetComponent<Records>().notificationInViewport = true;
-        //StartCoroutine(FadeInObject());
+        this.transform.SetParent(viewportGrid.transform);
+        viewportGrid.GetComponent<GridObjectCollection>().UpdateCollection();
+        if (voiceNumber != null) viewportGrid.GetComponent<NotificationDock>().updateLetters();
+        StartCoroutine(FadeInObject());
         StartCoroutine(Disappear());
     }
 
@@ -89,6 +87,17 @@ public class Notification : MonoBehaviour
     public void Dismiss(float delay = 0f)
     {
         StartCoroutine(DismissCR(delay));
+    }
+    void GetButtonBackground(GameObject parent)
+    {
+        foreach (Transform child in transform)
+        {
+            if (child.CompareTag("ButtonBackground"))
+            {
+                buttonBackground = child.gameObject.GetComponent<MeshRenderer>();
+            }
+            GetButtonBackground(child.gameObject);
+        }
     }
     public void buttonDismiss(float delay = 0f)
     {
