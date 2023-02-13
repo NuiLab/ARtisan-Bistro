@@ -35,7 +35,7 @@ public class Notification : MonoBehaviour
     public List<GameObject> closeButtons = new List<GameObject>(3);
     int stage = 1;
     public enum myEnum { Eye = 0, Touch = 1, Voice = 2 };
-    GameObject viewportGrid;
+    public GameObject viewportGrid;
     public GameObject customer;
 
     void Update()
@@ -49,8 +49,7 @@ public class Notification : MonoBehaviour
         manager = GameObject.FindGameObjectsWithTag("Global Records")[0];
         dockObj = manager.GetComponent<Records>().dockObject; //needs to be the grid gameobject and not the actual dock
         viewportGrid = GameObject.FindGameObjectsWithTag("SubtitleGrid")[0];
-
-
+        this.transform.SetParent(viewportGrid.transform);
 
         if (dockObj != null)
         {
@@ -64,19 +63,12 @@ public class Notification : MonoBehaviour
         notificationBackground = this.gameObject.GetComponent<MeshRenderer>();
         notificationBackground.material = new Material(notificationBackground.material);
 
-        foreach (Transform child in transform)
-        {
-            if (child.CompareTag("ButtonBackground"))
-            {
-                buttonBackground = child.gameObject.GetComponent<MeshRenderer>();
-            }
-        }
-
+        SetButtonBackground(this.gameObject);
         buttonBackground.material = new Material(buttonBackground.material);
 
         if (calcLifetime) calculateLifetime();
         manager.GetComponent<Records>().notificationInViewport = true;
-        this.transform.SetParent(viewportGrid.transform);
+
         viewportGrid.GetComponent<GridObjectCollection>().UpdateCollection();
         if (voiceNumber != null) viewportGrid.GetComponent<NotificationDock>().updateLetters();
         StartCoroutine(FadeInObject());
@@ -88,15 +80,26 @@ public class Notification : MonoBehaviour
     {
         StartCoroutine(DismissCR(delay));
     }
-    void GetButtonBackground(GameObject parent)
+    void SetButtonBackground(GameObject parent)
     {
-        foreach (Transform child in transform)
+        foreach (Transform child in parent.transform)
         {
             if (child.CompareTag("ButtonBackground"))
             {
                 buttonBackground = child.gameObject.GetComponent<MeshRenderer>();
             }
-            GetButtonBackground(child.gameObject);
+            SetButtonBackground(child.gameObject);
+        }
+    }
+    void SetVoiceText(GameObject parent)
+    {
+        foreach (Transform child in parent.transform)
+        {
+            if (child.CompareTag("IconNumber"))
+            {
+                voiceNumber = child.gameObject.GetComponent<TextMeshPro>();
+            }
+            SetVoiceText(child.gameObject);
         }
     }
     public void buttonDismiss(float delay = 0f)
@@ -252,7 +255,7 @@ public class Notification : MonoBehaviour
 
         }
         dockGrid.UpdateCollection();
-        dockObj.GetComponent<NotificationDock>().updateNumbers();
+        if (GetNotificationType() == "Voice") dockObj.GetComponent<NotificationDock>().updateNumbers();
         this.gameObject.transform.localRotation = Quaternion.identity;
         if (isInHand && manager.GetComponent<Records>().handMenuOpen == false)
             dockObj.transform.parent.gameObject.SetActive(false);
@@ -273,11 +276,7 @@ public class Notification : MonoBehaviour
             case "Voice":
                 closeButtons[2].SetActive(true);
                 button = closeButtons[2];
-                foreach (Transform child in this.transform)
-                {
-                    if (child.CompareTag("IconNumber"))
-                        voiceNumber = child.gameObject.GetComponent<TextMeshPro>();
-                }
+                SetVoiceText(this.gameObject);
                 break;
         }
     }
