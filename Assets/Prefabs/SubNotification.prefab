@@ -238,7 +238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1511877988507515262, guid: 5c3a76a1c9d751b46a6154db94c4ccbb, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1849849605544828939, guid: 5c3a76a1c9d751b46a6154db94c4ccbb, type: 3}
       propertyPath: m_IsActive
@@ -282,7 +282,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4779997211608116292, guid: 5c3a76a1c9d751b46a6154db94c4ccbb, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4779997211608116292, guid: 5c3a76a1c9d751b46a6154db94c4ccbb, type: 3}
       propertyPath: localOffset.y
@@ -291,6 +291,10 @@ PrefabInstance:
     - target: {fileID: 4779997211608116292, guid: 5c3a76a1c9d751b46a6154db94c4ccbb, type: 3}
       propertyPath: localOffset.z
       value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4779997211608116292, guid: 5c3a76a1c9d751b46a6154db94c4ccbb, type: 3}
+      propertyPath: orientationType
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4779997211608116292, guid: 5c3a76a1c9d751b46a6154db94c4ccbb, type: 3}
       propertyPath: tetherAngleSteps

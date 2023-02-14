@@ -49,8 +49,10 @@ public class Notification : MonoBehaviour
         manager = GameObject.FindGameObjectsWithTag("Global Records")[0];
         dockObj = manager.GetComponent<Records>().dockObject; //needs to be the grid gameobject and not the actual dock
         viewportGrid = GameObject.FindGameObjectsWithTag("SubtitleGrid")[0];
-        this.transform.SetParent(viewportGrid.transform);
 
+        this.transform.SetParent(viewportGrid.transform);
+        this.transform.localScale = new Vector3(1f, 1f, 1f);
+        this.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
         if (dockObj != null)
         {
             dockExists = true;
@@ -235,7 +237,7 @@ public class Notification : MonoBehaviour
             // Wait for the frame to update
             yield return new WaitForEndOfFrame();
         }
-
+        viewportGrid.GetComponent<GridObjectCollection>().UpdateCollection();
         // If the material's color's alpha value is less than or equal to 0, end the coroutine
         yield return new WaitUntil(() => notificationBackground.materials[0].color.a == 1f);
     }
@@ -247,6 +249,7 @@ public class Notification : MonoBehaviour
             dockObj.transform.parent.gameObject.SetActive(true);
         }
         this.gameObject.transform.SetParent(dockObj.transform);
+        this.transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
 
         if (isInHand)
         {

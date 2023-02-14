@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: InteractionType
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2276648619470288687, guid: b88f3ac387c82ab4ca4c4923cff610a7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.009
+      objectReference: {fileID: 0}
     - target: {fileID: 2485887923458484359, guid: b88f3ac387c82ab4ca4c4923cff610a7, type: 3}
       propertyPath: m_Name
       value: SubNotificationV
@@ -67,6 +71,10 @@ PrefabInstance:
     - target: {fileID: 6359217013479092982, guid: b88f3ac387c82ab4ca4c4923cff610a7, type: 3}
       propertyPath: m_Text
       value: "\uE31D"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7907023676039737633, guid: b88f3ac387c82ab4ca4c4923cff610a7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
