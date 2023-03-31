@@ -37,7 +37,7 @@ public class CustomerTrayManager : MonoBehaviour
                 List<string> preparedFood = CreateIngredientsList(other.gameObject);
                 if (transform.parent.GetComponent<CustomerManager>().CheckIndredients(preparedFood, other.gameObject))
                 {
-                    persistentGO.GetComponent<PersistentGOManager>().AddData("Food Served", "Correct Food", 2, CreateIngredientsString(other.gameObject));
+                    persistentGO.GetComponent<PersistentGOManager>().AddData("Food Served", "Correct Food:" + transform.GetComponentInParent<CustomerManager>().GetObjectID(), 2, CreateIngredientsString(other.gameObject));
                     transform.parent.transform.GetComponentInParent<ServingStationManager>().RemoveCustomer(transform.parent.gameObject);
                     if (!sceneSystem.IsContentLoaded("Instructions Scene"))
                     {
@@ -51,7 +51,7 @@ public class CustomerTrayManager : MonoBehaviour
                 {
                     if (!transform.GetChild(0).gameObject.activeSelf)
                     {
-                        persistentGO.GetComponent<PersistentGOManager>().AddData("Food Served", "Wrong Food", 2, CreateIngredientsString(other.gameObject));
+                        persistentGO.GetComponent<PersistentGOManager>().AddData("Food Served", "Wrong Food:"+transform.GetComponentInParent<CustomerManager>().GetObjectID(), 2, CreateIngredientsString(other.gameObject));
                         transform.GetChild(0).gameObject.SetActive(true);
                     }
                 }
@@ -61,7 +61,7 @@ public class CustomerTrayManager : MonoBehaviour
         {
             if (!transform.GetChild(0).gameObject.activeSelf)
             {
-                persistentGO.GetComponent<PersistentGOManager>().AddData("Food Served", "Not Food", 2);
+                persistentGO.GetComponent<PersistentGOManager>().AddData("Food Served", "Not Food:" + transform.GetComponentInParent<CustomerManager>().GetObjectID(), 2);
                 transform.GetChild(0).gameObject.SetActive(true);
             }
         }

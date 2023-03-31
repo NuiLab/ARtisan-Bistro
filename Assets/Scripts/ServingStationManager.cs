@@ -65,6 +65,7 @@ public class ServingStationManager : MonoBehaviour
         custRef.transform.localPosition = customerPositions[custPos];
         custRef.transform.localRotation = Quaternion.identity;
         custRef.GetComponent<CustomerManager>().CreateCustomer(customerDuration, GetFoodItem(), custPos, currCustomerNames, totalCustomers);
+        custRef.GetComponent<CustomerManager>().SetObjectID(custRef.GetInstanceID().ToString());
         globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().AddData("Food Requested", custRef.name + totalCustomers.ToString() + ":" + custRef.GetInstanceID().ToString(), 1, custRef.GetComponent<CustomerManager>().CreateIngredientsString());
 
         if (globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().GetShowNotification())

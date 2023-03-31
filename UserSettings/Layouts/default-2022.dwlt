@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 3440
     height: 1349
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Scene
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 42
+  controlID: 102
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 43
+  controlID: 44
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 44
+  controlID: 45
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -226,7 +226,7 @@ MonoBehaviour:
   - {fileID: 17}
   - {fileID: 18}
   m_Selected: 0
-  m_LastSelected: 2
+  m_LastSelected: 1
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -321,22 +321,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 74
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Scenes
   m_LastFoldersGridSize: 74
   m_LastProjectPath: C:\Users\orteg\OneDrive - Colostate\repos\Unity\ARCooking2
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 189}
-    m_SelectedIDs: 70b90000
-    m_LastClickedID: 47472
-    m_ExpandedIDs: 000000002ab900002cb900002eb9000030b9000032b9000034b9000040b9000050b90000
+    scrollPos: {x: 0, y: 173}
+    m_SelectedIDs: 66b90000
+    m_LastClickedID: 47462
+    m_ExpandedIDs: 000000003ab900003cb900003eb9000040b9000042b9000044b9000046b9000064b90000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -364,7 +364,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000002ab900002cb900002eb9000030b9000032b9000034b90000
+    m_ExpandedIDs: 000000003ab900003cb900003eb9000040b9000042b9000044b9000046b90000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -451,9 +451,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 461f0000
+      m_SelectedIDs: c47f0000
       m_LastClickedID: 0
-      m_ExpandedIDs: b61efdfff21efdff4e31fdff263efdff7a4bfdffd058fdffa865fdff8072fdff8c80fdff9e8efdff16a9fdff96aafdff00adfdff9cccfdff7ed2fdffb8dbfdff52dffdff28e1fdff64fbfdff8800feff5c0dfeff240ffeff6029feff6635feffa235fefffe47feffd654feff2a62feff806ffeff587cfeff3089feff3c97feff4ea5feffc6bffeff46c1feffe2c3feffb0c5feff86d2feff54d4feff2ae1feff02e3feff0cf1feffe2f2feffec00ffffbc02fffff81cffffe01effffb62bffff882dffff5c3affff283cfffff63dffff484bffff164dffff685affff465cffff1c69ffff046bffffda77ffffa879ffffb287ffff8a89ffff9497ffff6299ffff9eb3ffff90b5ffff66c2ffff38c4ffff0cd1fffffcf0ffff4af3ffff6af3ffff7ef7ffff24fbffff547e0000787e0000ce190100261b0100
+      m_ExpandedIDs: 20ebffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -757,9 +757,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.956512, y: -0.7989162, z: 2.5437868}
+    m_Target: {x: 1.1151308, y: -0.006491415, z: 3.0829747}
     speed: 2
-    m_Value: {x: 1.956512, y: -0.7989162, z: 2.5437868}
+    m_Value: {x: 1.1151308, y: -0.006491415, z: 3.0829747}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -805,9 +805,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.069384344, y: 0.30329946, z: -0.022148447, w: 0.950111}
+    m_Target: {x: -0.006458853, y: 0.2069888, z: 0.0013672542, w: 0.9783244}
     speed: 2
-    m_Value: {x: 0.06938413, y: 0.3032985, z: -0.022148378, w: 0.95010805}
+    m_Value: {x: -0.0049913437, y: 0.20698994, z: 0.0010567622, w: 0.97832984}
   m_Size:
     m_Target: 1.2940979
     speed: 2

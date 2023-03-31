@@ -23,6 +23,7 @@ public class CustomerManager : MonoBehaviour
     int difficultyLevel = 0;
     string[] currCustomerNames;
     int customerNumber = 0;
+    string objectID;
 
     // Start is called before the first frame update
     void Start()
@@ -229,5 +230,15 @@ public class CustomerManager : MonoBehaviour
     public int GetCustomerNumber()
     {
         return customerNumber;
+    }
+
+    public void SetObjectID(string iD)
+    {
+        objectID = iD;
+    }
+
+    public string GetObjectID()
+    {
+        return objectID;
     }
 }
