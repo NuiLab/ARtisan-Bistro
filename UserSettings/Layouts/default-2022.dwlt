@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 3440
     height: 1349
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Scene
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -321,22 +321,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Prefabs/Burger
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 74
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Prefabs/Burger
   m_LastFoldersGridSize: 74
   m_LastProjectPath: C:\Users\orteg\OneDrive - Colostate\repos\Unity\ARCooking2
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 413}
-    m_SelectedIDs: c48f0000
-    m_LastClickedID: 36804
-    m_ExpandedIDs: 00000000bc8e0000be8e0000c08e0000c28e0000c48e0000c68e0000c88e0000ca8e0000cc8e0000ce8e0000d08e00007a8f0000
+    scrollPos: {x: 0, y: 109}
+    m_SelectedIDs: 90b80000
+    m_LastClickedID: 47248
+    m_ExpandedIDs: 00000000b0b70000b2b70000b4b70000b6b70000b8b70000bab70000bcb70000beb70000c0b70000c2b70000c4b700006cb80000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -364,7 +364,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000bc8e0000be8e0000c08e0000c28e0000c48e0000c68e0000c88e0000ca8e0000cc8e0000ce8e0000d08e0000
+    m_ExpandedIDs: 00000000b0b70000b2b70000b4b70000b6b70000b8b70000bab70000bcb70000beb70000c0b70000c2b70000c4b70000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -451,23 +451,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 32130000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 22fbffff
+      m_ExpandedIDs: 9cc1fdffaec1fdff12dffdff24dffdffb2e5fdff4aacfeff7ac1feff7ec1feff70c3feffc0d1feff5ccfffff6ecfffffcce2fffff8e7ffff04ba00009ef400005a020100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Start
+        m_OriginalName: Start
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 46270
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 8}
       m_SearchString: 
@@ -757,9 +757,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.011943568, y: 0.22874379, z: 4.1963997}
+    m_Target: {x: 0, y: 0, z: 0.5}
     speed: 2
-    m_Value: {x: -0.011943568, y: 0.22874379, z: 4.1963997}
+    m_Value: {x: 0, y: 0, z: 0.5}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -805,13 +805,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.017101, y: -0.0059990725, z: -0.000102816346, w: 0.99984044}
+    m_Target: {x: 0.14111531, y: 0.065290175, z: -0.009325253, w: 0.98779976}
     speed: 2
-    m_Value: {x: 0.017101, y: 0.0059990725, z: 0.000102816346, w: -0.99984044}
+    m_Value: {x: 0.14111449, y: 0.065289795, z: -0.009325199, w: 0.987794}
   m_Size:
-    m_Target: 1.2940979
+    m_Target: 0.8660254
     speed: 2
-    m_Value: 1.2940979
+    m_Value: 0.8660254
   m_Ortho:
     m_Target: 0
     speed: 2

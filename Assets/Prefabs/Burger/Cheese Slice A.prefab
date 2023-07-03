@@ -33,6 +33,7 @@ Transform:
   m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7692097629484223101}
   m_Father: {fileID: 0}
@@ -124,7 +125,7 @@ MonoBehaviour:
   rotateLerpTime: 0.001
   scaleLerpTime: 0.001
   enableConstraints: 1
-  constraintsManager: {fileID: 3320570220575806919, guid: 6e357ea382d465241b426bf1802eac5e, type: 3}
+  constraintsManager: {fileID: 7488542875974204229, guid: 66376da6e402eb94fb4ecdc7cb16c89e, type: 3}
   elasticsManager: {fileID: 0}
   onManipulationStarted:
     m_PersistentCalls:
@@ -196,6 +197,8 @@ MonoBehaviour:
   location: {x: 0, y: 1, z: 0}
   rotation: {x: 0, y: 0, z: 0, w: 0}
   scale: {x: 0, y: 0, z: 0}
+  firePrefab: {fileID: 0}
+  cookingStatus: Uncooked
 --- !u!1 &8825459762834453157
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,6 +227,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5828157934093229705}
   m_RootOrder: 0
@@ -247,6 +251,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1

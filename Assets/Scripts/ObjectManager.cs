@@ -27,6 +27,12 @@ public class ObjectManager : MonoBehaviour
         regionCollision = globalRecords_GO;
     }
 
+    private void Update()
+    {
+        if (!justSpawned && !transform.GetComponent<Rigidbody>().isKinematic && !isGrabbed)
+            transform.GetComponent<Rigidbody>().isKinematic = true;
+    }
+
     // SetIsGrabbed is called when the object is grabbed
     public void SetIsGrabbed()
     {
