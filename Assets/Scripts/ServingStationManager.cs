@@ -70,17 +70,18 @@ public class ServingStationManager : MonoBehaviour
 
         if (globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().GetShowNotification())
         {
+            int notificationNumber = globalRecords_GO.GetComponent<Records>().GetNotificationSetManager().GetComponent<NotificationSetManager>().GetNumber();
             switch (globalRecords_GO.GetComponent<Records>().GetNotificationType())
             {
                 case 0:
-                    notification_GO = globalRecords_GO.GetComponent<Records>().AddNotificationOnObject("Customer", "New Customer", custRef.transform.GetInstanceID());
-                    notification_GO.GetComponent<NotificationManager>().SetNotificationProperties("Customer", "New Customer", custRef, new Vector3(0, 0.05f, -0.05f));
+                    notification_GO = globalRecords_GO.GetComponent<Records>().AddNotificationOnObject(notificationNumber, "Customer", "New Customer", custRef.transform.GetInstanceID());
+                    notification_GO.GetComponent<NotificationManager>().SetNotificationProperties(notificationNumber, "Customer", "New Customer", custRef, new Vector3(0, 0.05f, -0.05f));
                     break;
                 case 1:
-                    globalRecords_GO.GetComponent<Records>().AddNotificationOnDock("Customer", "New Customer", custRef.transform.GetInstanceID());
+                    globalRecords_GO.GetComponent<Records>().AddNotificationOnDock(notificationNumber, "Customer", "New Customer", custRef.transform.GetInstanceID());
                     break;
                 case 2:
-                    globalRecords_GO.GetComponent<Records>().AddNotificationOnViewport("Customer", "New Customer", custRef.transform.GetInstanceID());
+                    globalRecords_GO.GetComponent<Records>().AddNotificationOnViewport(notificationNumber, "Customer", "New Customer", custRef.transform.GetInstanceID());
                     break;
             }
         }

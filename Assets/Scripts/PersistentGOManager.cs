@@ -29,6 +29,7 @@ public class PersistentGOManager : MonoBehaviour
     bool sceneChanged = false;
     List<string> sceneNames;
     int sceneIndex = 0;
+    string typedNotificationNumberTracker = "";
 
     int participantNumber = 0;
     string filePath;
@@ -89,6 +90,66 @@ public class PersistentGOManager : MonoBehaviour
             ShowInstructions(0);
             StudyInstructionsManager.instance.SetInstructionsNumer(1);
             // StudyInstructionsManager.instance.ResetInstructionNumber();
+        }
+
+        if (Input.GetKey(KeyCode.Tab))
+        {
+            if (Input.GetKeyDown(KeyCode.Keypad0))
+            {
+                typedNotificationNumberTracker += 0;
+                Debug.Log("0: " + typedNotificationNumberTracker);
+            }
+            if (Input.GetKeyDown(KeyCode.Keypad1))
+            {
+                typedNotificationNumberTracker += 1;
+                Debug.Log("1: " + typedNotificationNumberTracker);
+            }
+            if (Input.GetKeyDown(KeyCode.Keypad2))
+            {
+                typedNotificationNumberTracker += 2;
+                Debug.Log("2: " + typedNotificationNumberTracker);
+            }
+            if (Input.GetKeyDown(KeyCode.Keypad3))
+            {
+                typedNotificationNumberTracker += 3;
+                Debug.Log("3: " + typedNotificationNumberTracker);
+            }
+            if (Input.GetKeyDown(KeyCode.Keypad4))
+            {
+                typedNotificationNumberTracker += 4;
+                Debug.Log("4: " + typedNotificationNumberTracker);
+            }
+            if (Input.GetKeyDown(KeyCode.Keypad5))
+            {
+                typedNotificationNumberTracker += 5;
+                Debug.Log("5: " + typedNotificationNumberTracker);
+            }
+            if (Input.GetKeyDown(KeyCode.Keypad6))
+            {
+                typedNotificationNumberTracker += 6;
+                Debug.Log("6: " + typedNotificationNumberTracker);
+            }
+            if (Input.GetKeyDown(KeyCode.Keypad7))
+            {
+                typedNotificationNumberTracker += 7;
+                Debug.Log("7: " + typedNotificationNumberTracker);
+            }
+            if (Input.GetKeyDown(KeyCode.Keypad8))
+            {
+                typedNotificationNumberTracker += 8;
+                Debug.Log("8: " + typedNotificationNumberTracker);
+            }
+            if (Input.GetKeyDown(KeyCode.Keypad9))
+            {
+                typedNotificationNumberTracker += 9;
+                Debug.Log("9: " + typedNotificationNumberTracker);
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.Tab))
+        {
+            AddData("Notification Number", "Called:" + typedNotificationNumberTracker, 2);
+            typedNotificationNumberTracker = "";
         }
     }
 

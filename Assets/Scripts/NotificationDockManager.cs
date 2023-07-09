@@ -11,17 +11,30 @@ public class NotificationDockManager : MonoBehaviour
     [SerializeField] GameObject notificationParent;
     [SerializeField] GameObject notificationBtnBackplate;
     [SerializeField] Material[] notificationBtnMaterial;
+    [SerializeField] float duration = -1;
 
     List<GameObject> notificationsList = new List<GameObject>();
     List<string> notificationText = new List<string>();
     List<string> stationText = new List<string>();
     List<int> gameObjectId = new List<int>();
+    List<int> notificationNumbers = new List<int>();
+    List<float> notificationDurations = new List<float>();
     AudioSource audioSource;
+    float timeTracker = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        ShowNotifications();
+    }
+
+    private void Update()
+    {
+        timeTracker += Time.deltaTime;
+        if (duration > 0)
+            for (int i = 0; i < notificationDurations.Count; i++)
+                if (timeTracker > notificationDurations[i] + duration)
+                    RemoveNotification(i);
     }
 
     public void ShowNotifications()
@@ -43,12 +56,12 @@ public class NotificationDockManager : MonoBehaviour
             {
                 notificationsList.Add(Instantiate(notificationButton, new Vector3(0, 0, 0), Quaternion.identity));
                 float y = -1 * (float)i / 10;
-                notificationsList[i].GetComponent<NotificationManager>().SetNotificationProperties(stationText[i], notificationText[i], notificationParent, new Vector3(0, y, 0), Quaternion.identity, new Vector3(3, 3, 1));
+                notificationsList[i].GetComponent<NotificationManager>().SetNotificationProperties(notificationNumbers[i], stationText[i], notificationText[i], notificationParent, new Vector3(0, y, 0), Quaternion.identity, new Vector3(3, 3, 1));
             }
         }
     }
 
-    public void AddNotification(string stationTxt, string notificationTxt, int objectId)
+    public void AddNotification(int notifiNum, string stationTxt, string notificationTxt, int objectId)
     {
         if (gameObjectId.Contains(objectId))
         {
@@ -62,13 +75,17 @@ public class NotificationDockManager : MonoBehaviour
                 gameObjectId.RemoveAt(index);
                 notificationText.RemoveAt(index);
                 stationText.RemoveAt(index);
+                notificationNumbers.RemoveAt(index);
+                notificationDurations.RemoveAt(index);
             }
         }
         
         notificationCountGO.GetComponentInChildren<TextMeshPro>().text = (int.Parse(notificationCountGO.GetComponentInChildren<TextMeshPro>().text) + 1).ToString();
         notificationText.Insert(0, notificationTxt);
         stationText.Insert(0, stationTxt);
+        notificationNumbers.Insert(0, notifiNum);
         gameObjectId.Insert(0, objectId);
+        notificationDurations.Insert(0, timeTracker);
         audioSource = GetComponent<AudioSource>();
         audioSource.Play();
         ShowNotifications();
@@ -100,8 +117,27 @@ public class NotificationDockManager : MonoBehaviour
                 gameObjectId.RemoveAt(index);
                 notificationText.RemoveAt(index);
                 stationText.RemoveAt(index);
+                notificationNumbers.RemoveAt(index);
+                notificationDurations.RemoveAt(index);
             }
         }
+    }
+
+    public void RemoveNotification(int index)
+    {
+        if (notificationBtnText.GetComponent<TextMeshPro>().text == "Hide Notifications")
+        {
+            ManageNotificationLayout(notificationsList[index]);
+        }
+        else
+        {
+            gameObjectId.RemoveAt(index);
+            notificationText.RemoveAt(index);
+            stationText.RemoveAt(index);
+            notificationNumbers.RemoveAt(index);
+            notificationDurations.RemoveAt(index);
+        }
+        notificationCountGO.GetComponent<TextMeshPro>().text = gameObjectId.Count.ToString();
     }
 
     public void ManageNotificationLayout(GameObject notificationGO)
@@ -113,14 +149,16 @@ public class NotificationDockManager : MonoBehaviour
             gameObjectId.RemoveAt(index);
             notificationText.RemoveAt(index);
             stationText.RemoveAt(index);
+            notificationNumbers.RemoveAt(index);
             notificationsList.RemoveAt(index);
+            notificationDurations.RemoveAt(index);
             Destroy(GOtoDestroy);
             if (notificationBtnText.GetComponent<TextMeshPro>().text == "Hide Notifications")
             {
                 for (int i = 0; i < notificationText.Count; i++)
                 {
                     float y = -1 * (float)i / 10;
-                    notificationsList[i].GetComponent<NotificationManager>().SetNotificationProperties(stationText[i], notificationText[i], notificationParent, new Vector3(0, y, 0), Quaternion.identity, new Vector3(3, 3, 1));
+                    notificationsList[i].GetComponent<NotificationManager>().SetNotificationProperties(notificationNumbers[i], stationText[i], notificationText[i], notificationParent, new Vector3(0, y, 0), Quaternion.identity, new Vector3(3, 3, 1));
                 }
             }
             notificationCountGO.GetComponentInChildren<TextMeshPro>().text = (int.Parse(notificationCountGO.GetComponentInChildren<TextMeshPro>().text) - 1).ToString();

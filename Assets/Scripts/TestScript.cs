@@ -24,8 +24,10 @@ public class TestScript : MonoBehaviour
         Debug.Log(logString);
     }
 
+    /*
     public void ButtonPress()
     {
         dockButton.GetComponent<NotificationDockManager>().AddNotification("test", "test" + dockButton.GetComponent<NotificationDockManager>().GetNotificationCountGO(), 0);
     }
+    */
 }

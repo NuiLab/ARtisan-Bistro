@@ -253,6 +253,7 @@ MonoBehaviour:
   notificationBtnMaterial:
   - {fileID: 2100000, guid: 1af45b7a97d3ae74191675020b760020, type: 2}
   - {fileID: 2100000, guid: 11b6605dfd44f534c8e6208d5f1506b2, type: 2}
+  duration: 7
 --- !u!114 &1988182848117078475
 MonoBehaviour:
   m_ObjectHideFlags: 0

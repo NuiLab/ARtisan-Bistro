@@ -15,7 +15,7 @@ public class CoffeeMakerManager : MonoBehaviour
     [SerializeField] float maxCoffeeLevel = 0.05f;
     [SerializeField] GameObject globalRecords_GO;
 
-    bool coffeeMakerOn = false;
+    bool coffeeMakerOn = true;
     Renderer rend;
     float coffeeLevel = -0.05f;
     int coffeeCupCnt = 0;
@@ -47,19 +47,20 @@ public class CoffeeMakerManager : MonoBehaviour
             coffeeCupCnt++;
             if (globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().GetShowNotification())
             {
+                int notificationNumber = globalRecords_GO.GetComponent<Records>().GetNotificationSetManager().GetComponent<NotificationSetManager>().GetNumber();
                 switch (globalRecords_GO.GetComponent<Records>().GetNotificationType())
                 {
                     case 0:
                         if (notification_GO != null)
                             Destroy(notification_GO);
-                        notification_GO = globalRecords_GO.GetComponent<Records>().AddNotificationOnObject("Coffee", "Coffee cup added", transform.GetInstanceID());
-                        notification_GO.GetComponent<NotificationManager>().SetNotificationProperties("Coffee", "Coffee cup added", transform.gameObject, new Vector3(0, 0.25f, 0), scale: new Vector3(1.7f, 1.7f, 0.566666667f));
+                        notification_GO = globalRecords_GO.GetComponent<Records>().AddNotificationOnObject(notificationNumber, "Coffee", "Coffee cup added", transform.GetInstanceID());
+                        notification_GO.GetComponent<NotificationManager>().SetNotificationProperties(notificationNumber, "Coffee", "Coffee cup added", transform.gameObject, new Vector3(0, 0.25f, 0), scale: new Vector3(1.7f, 1.7f, 0.566666667f));
                         break;
                     case 1:
-                        globalRecords_GO.GetComponent<Records>().AddNotificationOnDock("Coffee", "Coffee cup added", transform.GetInstanceID());
+                        globalRecords_GO.GetComponent<Records>().AddNotificationOnDock(notificationNumber, "Coffee", "Coffee cup added", transform.GetInstanceID());
                         break;
                     case 2:
-                        globalRecords_GO.GetComponent<Records>().AddNotificationOnViewport("Coffee", "Coffee cup added", transform.GetInstanceID());
+                        globalRecords_GO.GetComponent<Records>().AddNotificationOnViewport(notificationNumber, "Coffee", "Coffee cup added", transform.GetInstanceID());
                         break;
                 }
             }

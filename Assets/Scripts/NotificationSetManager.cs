@@ -22,6 +22,9 @@ public class NotificationSetManager : MonoBehaviour
     List<string> stations = new List<string>();
     List<int> gameObjectId = new List<int>();
     bool waitTimeStarted = false;
+    List<int> pool;
+    int poolCount = 0;
+    HashSet<int> inUse;
 
 
     // Start is called before the first frame update
@@ -34,6 +37,16 @@ public class NotificationSetManager : MonoBehaviour
             notifications.GetComponent<AudioSource>().mute = !nSound;
         if (notificationType == 1)
             notificationDock.GetComponent<AudioSource>().mute = !nSound;
+
+        // Initialize the pool with numbers from minNumber to maxNumber
+        pool = new List<int>();
+        inUse = new HashSet<int>();
+
+        for (int i = 0; i < 15; i++)
+        {
+            pool.Add(i);
+            poolCount++;
+        }
     }
 
     // Update is called once per frame
@@ -75,7 +88,7 @@ public class NotificationSetManager : MonoBehaviour
 
     public void AddNotificationOnDock(string stationTxt, string notificationTxt, int objectId)
     {
-        notificationDock.GetComponent<NotificationDockManager>().AddNotification(stationTxt, notificationTxt, objectId);
+        notificationDock.GetComponent<NotificationDockManager>().AddNotification(GetNumber(), stationTxt, notificationTxt, objectId);
     }
 
     public void RemoveNotificationOnDock(GameObject cutletGO)
@@ -95,6 +108,44 @@ public class NotificationSetManager : MonoBehaviour
         gameObjectId.Add(objectId);
         notifications.Add(notificationTxt);
         stations.Add(stationTxt);
+    }
+
+    public int GetNumber()
+    {
+        if (pool.Count == 0)
+        {
+            AddNumbers(1);
+        }
+
+        int number = pool[Random.Range(0, pool.Count)];
+        pool.Remove(number);
+
+        inUse.Add(number);
+
+        return number;
+    }
+
+    public void ReturnNumber(int number)
+    {
+        // if (!inUse.Contains(number))
+        // {
+        //     throw new Exception("Number is not in use.");
+        // }
+
+        inUse.Remove(number);
+
+        pool.Add(number);
+    }
+
+    public void AddNumbers(int count)
+    {
+        int startNumber = poolCount + 1;
+
+        for (int i = 0; i < count; i++)
+        {
+            int newNumber = startNumber + i;
+            pool.Add(newNumber);
+        }
     }
 
     IEnumerator CreateNotification(float duration)

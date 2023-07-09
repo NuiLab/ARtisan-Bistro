@@ -56,7 +56,7 @@ public class BaseManager : MonoBehaviour
         // Find corresponding empty object in the prefabList and instantiate it;
         // Set parent and reset location, rotation and scale, and other properties;
         // Change mode of parent and object;
-        if (Array.IndexOf(objects, other.gameObject.tag) != -1 && !other.gameObject.GetComponent<ObjectManager>().isGrabbed && CheckBaseIngredient(other.gameObject))
+        if (Array.IndexOf(objects, other.gameObject.tag) != -1 && !other.GetComponent<ObjectManager>().justSpawned && !other.gameObject.GetComponent<ObjectManager>().isGrabbed && CheckBaseIngredient(other.gameObject))
         {
             GameObject tempPrefab = new GameObject("Dummy");
             other.GetComponent<IngredientProperties>().SetPrefabName();

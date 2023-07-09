@@ -9,6 +9,7 @@ public class NotificationManager : MonoBehaviour
 {
     [SerializeField] GameObject notificationTxt_GO;
     [SerializeField] GameObject stationTxt_GO;
+    [SerializeField] GameObject notificationNumber_GO;
     [SerializeField] float duration;
     public GameObject globalRecords_GO;     // Reference to global records
     int gameObjectId = 0;
@@ -16,19 +17,20 @@ public class NotificationManager : MonoBehaviour
     GameObject cutletGO;
     Vector3 relativePos = new Vector3(0,0,0);
     IMixedRealitySceneSystem sceneSystem;
+    int notificationNumber = -1;
 
     private void Awake()
     {
         sceneSystem = MixedRealityToolkit.Instance.GetService<IMixedRealitySceneSystem>();
-
+        if (duration > 0)
+            StartCoroutine(NotificationDuration(duration));
+        globalRecords_GO = GameObject.FindWithTag("Global Records");
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        if (duration > 0)
-            StartCoroutine(NotificationDuration(duration));
-        globalRecords_GO = GameObject.FindWithTag("Global Records");
+        
     }
 
     private void Update()
@@ -47,11 +49,16 @@ public class NotificationManager : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (!globalRecords_GO.GetComponent<Records>().GetNotificationType().Equals(2))
+        {
+            globalRecords_GO.GetComponent<Records>().GetNotificationSetManager().GetComponent<NotificationSetManager>().ReturnNumber(notificationNumber);
+        }
         StopAllCoroutines();
     }
 
     public void setText(string stationTxt, string notificationTxt)
     {
+        notificationNumber_GO.GetComponent<TextMeshPro>().text = notificationNumber.ToString();
         notificationTxt_GO.GetComponent<TextMeshPro>().text = notificationTxt;
         stationTxt_GO.GetComponent<TextMeshPro>().text = stationTxt;
     }
@@ -81,7 +88,7 @@ public class NotificationManager : MonoBehaviour
         StartCoroutine(PauseForSound());
     }
 
-    public void SetNotificationProperties(string stationTxt, string notificationTxt, GameObject parent, Vector3? pos = null, Quaternion? rot = null, Vector3? scale = null, GameObject cutletGameObject = null)
+    public void SetNotificationProperties(int notifiNum, string stationTxt, string notificationTxt, GameObject parent, Vector3? pos = null, Quaternion? rot = null, Vector3? scale = null, GameObject cutletGameObject = null)
     {
         if (pos == null)
             pos = Vector3.zero;
@@ -89,6 +96,7 @@ public class NotificationManager : MonoBehaviour
             rot = Quaternion.identity;
         if (scale == null)
             scale = transform.localScale;
+        notificationNumber = notifiNum;
         setText(stationTxt, notificationTxt);
         transform.SetParent(parent.transform);
         if (stationTxt == "Burger")

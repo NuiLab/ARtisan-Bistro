@@ -68,19 +68,20 @@ public class OvenManager : MonoBehaviour
                 }*/
                 if (globalRecords_GO.GetComponent<Records>().GetPersistentGO().GetComponent<PersistentGOManager>().GetShowNotification())
                 {
+                    int notificationNumber = globalRecords_GO.GetComponent<Records>().GetNotificationSetManager().GetComponent<NotificationSetManager>().GetNumber();
                     switch (globalRecords_GO.GetComponent<Records>().GetNotificationType())
                     {
                         case 0:
                             if (notification_GO != null)
                                 Destroy(notification_GO);
-                            notification_GO = globalRecords_GO.GetComponent<Records>().AddNotificationOnObject("Pizza", progressText_GO.GetComponent<TextMesh>().text, transform.GetInstanceID());
-                            notification_GO.GetComponent<NotificationManager>().SetNotificationProperties("Pizza", progressText_GO.GetComponent<TextMesh>().text, transform.gameObject, new Vector3(-0.2f, 0.5f, 0), new Quaternion(0, 0.707106829f, 0, 0.707106829f), new Vector3(4, 4, 1.33333337f));
+                            notification_GO = globalRecords_GO.GetComponent<Records>().AddNotificationOnObject(notificationNumber, "Pizza", progressText_GO.GetComponent<TextMesh>().text, transform.GetInstanceID());
+                            notification_GO.GetComponent<NotificationManager>().SetNotificationProperties(notificationNumber, "Pizza", progressText_GO.GetComponent<TextMesh>().text, transform.gameObject, new Vector3(-0.2f, 0.5f, 0), new Quaternion(0, 0.707106829f, 0, 0.707106829f), new Vector3(4, 4, 1.33333337f));
                             break;
                         case 1:
-                            globalRecords_GO.GetComponent<Records>().AddNotificationOnDock("Pizza", progressText_GO.GetComponent<TextMesh>().text, transform.GetInstanceID());
+                            globalRecords_GO.GetComponent<Records>().AddNotificationOnDock(notificationNumber, "Pizza", progressText_GO.GetComponent<TextMesh>().text, transform.GetInstanceID());
                             break;
                         case 2:
-                            globalRecords_GO.GetComponent<Records>().AddNotificationOnViewport("Pizza", progressText_GO.GetComponent<TextMesh>().text, transform.GetInstanceID());
+                            globalRecords_GO.GetComponent<Records>().AddNotificationOnViewport(notificationNumber, "Pizza", progressText_GO.GetComponent<TextMesh>().text, transform.GetInstanceID());
                             break;
                     }
                 }
