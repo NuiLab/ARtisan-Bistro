@@ -81,7 +81,8 @@ public class ServingStationManager : MonoBehaviour
                     globalRecords_GO.GetComponent<Records>().AddNotificationOnDock(notificationNumber, "Customer", "New Customer", custRef.transform.GetInstanceID());
                     break;
                 case 2:
-                    globalRecords_GO.GetComponent<Records>().AddNotificationOnViewport(notificationNumber, "Customer", "New Customer", custRef.transform.GetInstanceID());
+                    notification_GO = globalRecords_GO.GetComponent<Records>().AddNotificationOnViewport(notificationNumber, "Customer", "New Customer", custRef.transform.GetInstanceID());
+                    notification_GO.GetComponent<NotificationManager>().SetNotificationProperties(notificationNumber, "Customer", "New Customer", globalRecords_GO.GetComponent<Records>().GetNotificationSetManager().GetComponent<NotificationSetManager>().GetNotificationBillboard(), new Vector3(0, 0.1f, 0), Quaternion.identity);
                     break;
             }
         }

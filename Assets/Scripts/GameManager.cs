@@ -73,7 +73,8 @@ public class GameManager : MonoBehaviour
 
     private void HandleScene()
     {
-        persistentGO.GetComponent<PersistentGOManager>().SetSceneNamesAndLoad(persistentGO.GetComponent<PersistentGOManager>().GetNextScene());
+        persistentGO.GetComponent<PersistentGOManager>().SetSceneNamesAndLoad("NoV_WS Scene");
+        // persistentGO.GetComponent<PersistentGOManager>().SetSceneNamesAndLoad(persistentGO.GetComponent<PersistentGOManager>().GetNextScene());
         /*
         if (persistentGO.GetComponent<PersistentGOManager>().GetSceneIndex() < 6)
         {

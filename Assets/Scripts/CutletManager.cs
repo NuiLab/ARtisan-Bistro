@@ -85,7 +85,8 @@ public class CutletManager : MonoBehaviour
                             globalRecords_GO.GetComponent<Records>().AddNotificationOnDock(notificationNumber, "Burger", notifiText, transform.GetInstanceID());
                             break;
                         case 2:
-                            globalRecords_GO.GetComponent<Records>().AddNotificationOnViewport(notificationNumber, "Burger", notifiText, transform.GetInstanceID());
+                            notification_GO = globalRecords_GO.GetComponent<Records>().AddNotificationOnViewport(notificationNumber, "Burger", notifiText, transform.GetInstanceID());
+                            notification_GO.GetComponent<NotificationManager>().SetNotificationProperties(notificationNumber, "Burger", notifiText, globalRecords_GO.GetComponent<Records>().GetNotificationSetManager().GetComponent<NotificationSetManager>().GetNotificationBillboard(), new Vector3(0, 0.1f, 0), Quaternion.identity, cutletGameObject: transform.gameObject);
                             break;
                     }
                 }

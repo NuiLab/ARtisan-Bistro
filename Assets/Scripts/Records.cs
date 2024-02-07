@@ -171,9 +171,9 @@ public class Records : MonoBehaviour
     }
 
 
-    public void AddNotificationOnViewport(int notifiNum, string stationTxt, string notificationTxt, int objectId)
+    public GameObject AddNotificationOnViewport(int notifiNum, string stationTxt, string notificationTxt, int objectId)
     {
         persistentGO.GetComponent<PersistentGOManager>().AddData("Notification", notifiNum.ToString() + ":" + stationTxt + ":" + notificationTxt + ":" + objectId.ToString(), 1);
-        notificationSetManager.GetComponent<NotificationSetManager>().AddNotificationOnViewport(stationTxt, notificationTxt, objectId);
+        return notificationSetManager.GetComponent<NotificationSetManager>().AddNotificationOnViewport(stationTxt, notificationTxt, objectId, notifiNum);
     }
 }

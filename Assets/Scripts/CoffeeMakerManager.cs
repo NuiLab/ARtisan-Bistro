@@ -60,7 +60,8 @@ public class CoffeeMakerManager : MonoBehaviour
                         globalRecords_GO.GetComponent<Records>().AddNotificationOnDock(notificationNumber, "Coffee", "Coffee cup added", transform.GetInstanceID());
                         break;
                     case 2:
-                        globalRecords_GO.GetComponent<Records>().AddNotificationOnViewport(notificationNumber, "Coffee", "Coffee cup added", transform.GetInstanceID());
+                        notification_GO = globalRecords_GO.GetComponent<Records>().AddNotificationOnViewport(notificationNumber, "Coffee", "Coffee cup added", transform.GetInstanceID());
+                        notification_GO.GetComponent<NotificationManager>().SetNotificationProperties(notificationNumber, "Coffee", "Coffee cup added", globalRecords_GO.GetComponent<Records>().GetNotificationSetManager().GetComponent<NotificationSetManager>().GetNotificationBillboard(), new Vector3(0, 0.1f, 0), Quaternion.identity);
                         break;
                 }
             }

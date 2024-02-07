@@ -96,8 +96,21 @@ public class NotificationSetManager : MonoBehaviour
         notificationDock.GetComponent<NotificationDockManager>().RemoveNotification(cutletGO);
     }
 
-    public void AddNotificationOnViewport(string stationTxt, string notificationTxt, int objectId)
+    public GameObject AddNotificationOnViewport(string stationTxt, string notificationTxt, int objectId, int notifiNum)
     {
+        if (tempNotification != null)
+        {
+            StartCoroutine(CreateNotification(0.5f));
+            Destroy(tempNotification);
+            StartCoroutine(CreateNotification(0.5f));
+        }
+        gameObjectId.Add(objectId);
+        // return Instantiate(notificationPrefabs[notificationType]);
+        tempNotification = Instantiate(notificationPrefabs[notificationType]);
+        // tempNotification.GetComponent<NotificationManager>().SetNotificationProperties(notifiNum, "Customer", "New Customer", notificationBillboard, new Vector3(0, 0.1f, 0), Quaternion.identity);
+        return tempNotification;
+        
+        /*
         if (gameObjectId.Contains(objectId))
         {
             int tempIndex = gameObjectId.IndexOf(objectId);
@@ -108,6 +121,7 @@ public class NotificationSetManager : MonoBehaviour
         gameObjectId.Add(objectId);
         notifications.Add(notificationTxt);
         stations.Add(stationTxt);
+        */
     }
 
     public int GetNumber()
@@ -151,6 +165,8 @@ public class NotificationSetManager : MonoBehaviour
     IEnumerator CreateNotification(float duration)
     {
         yield return new WaitForSeconds(duration);
+
+        /*
         tempNotification = Instantiate(notificationPrefabs[notificationType]);
         tempNotification.transform.parent = notificationBillboard.transform;
         tempNotification.transform.localPosition = new Vector3(0, 0.1f, 0);
@@ -160,5 +176,11 @@ public class NotificationSetManager : MonoBehaviour
         notifications.RemoveAt(0);
         stations.RemoveAt(0);
         waitTimeStarted = false;
+        */
+    }
+
+    public GameObject GetNotificationBillboard()
+    {
+        return notificationBillboard;
     }
 }

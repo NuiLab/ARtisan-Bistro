@@ -36,5 +36,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Control_WOS Scene.unity
     guid: 02df772330437054e9374ca9e1d93d15
   m_configObjects:
+    com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 251cdd0e62177534f8f81847c44e6770, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: eb2f83d806c558546af7ded5ab69ef72, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: e665940620a013b4ab8997f461bf4d77, type: 2}

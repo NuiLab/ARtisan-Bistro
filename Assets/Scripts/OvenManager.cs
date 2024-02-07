@@ -81,7 +81,8 @@ public class OvenManager : MonoBehaviour
                             globalRecords_GO.GetComponent<Records>().AddNotificationOnDock(notificationNumber, "Pizza", progressText_GO.GetComponent<TextMesh>().text, transform.GetInstanceID());
                             break;
                         case 2:
-                            globalRecords_GO.GetComponent<Records>().AddNotificationOnViewport(notificationNumber, "Pizza", progressText_GO.GetComponent<TextMesh>().text, transform.GetInstanceID());
+                            notification_GO = globalRecords_GO.GetComponent<Records>().AddNotificationOnViewport(notificationNumber, "Pizza", progressText_GO.GetComponent<TextMesh>().text, transform.GetInstanceID());
+                            notification_GO.GetComponent<NotificationManager>().SetNotificationProperties(notificationNumber, "Pizza", progressText_GO.GetComponent<TextMesh>().text, globalRecords_GO.GetComponent<Records>().GetNotificationSetManager().GetComponent<NotificationSetManager>().GetNotificationBillboard(), new Vector3(0, 0.1f, 0), Quaternion.identity);
                             break;
                     }
                 }
